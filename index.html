@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ricardo Costa | Design is still about decisions</title>
+  <meta name="description" content="17 years designing systems. Senior Product Designer sharing honest AI + design insights through YouTube, newsletter, and education. No hype.">
+  <meta name="author" content="Ricardo Costa">
+  <link rel="canonical" href="https://ricardocosta.eu">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ricardo Costa | Design is still about decisions">
+  <meta property="og:description" content="17 years designing systems. Senior Product Designer sharing honest AI + design insights. No hype.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ricardocosta.eu">
+  <meta property="og:image" content="https://ricardocosta.eu/images/og-image.jpg">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ricardo Costa | Design is still about decisions">
+  <meta name="twitter:description" content="17 years designing systems. Honest AI + design insights. No hype.">
+  <meta name="twitter:image" content="https://ricardocosta.eu/images/og-image.jpg">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Ricardo Costa",
+    "url": "https://ricardocosta.eu",
+    "description": "Senior Product Designer with 17 years of experience sharing honest insights about AI tools, Figma workflows, and design career strategy.",
+    "author": {
+      "@type": "Person",
+      "name": "Ricardo Costa",
+      "url": "https://ricardocosta.eu",
+      "jobTitle": "Senior Product Designer",
+      "knowsAbout": [
+        "Product Design",
+        "UX Design",
+        "AI Tools for Designers",
+        "Figma",
+        "Design Systems",
+        "AI Integration"
+      ],
+      "sameAs": [
+        "https://youtube.com/@ricardocostaeuu",
+        "https://linkedin.com/in/ricardocostaeu",
+        "https://instagram.com/ricardocostaeu",
+        "https://ricardocostaeu.substack.com"
+      ]
+    }
+  }
+  </script>
+
+  <!-- Preload critical fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Outfit:wght@300;400;500;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>R</text></svg>">
+</head>
+<body>
+
+  <!-- Skip Navigation — WCAG 2.4.1 -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Scroll Progress Bar -->
+  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Page scroll progress"></div>
+
+  <!-- Navigation -->
+  <header class="nav" role="banner">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo" aria-label="Ricardo Costa, Back to top">
+        <span class="nav__logo-first">Ricardo</span>
+        <span class="nav__logo-last">costa</span>
+      </a>
+
+      <nav class="nav__links" role="navigation" aria-label="Main navigation">
+        <a href="about.html" class="nav__link">About</a>
+        <a href="#latest" class="nav__link nav__link--dropdown" data-section="latest">Content <span class="nav__dropdown-arrow">&#9662;</span></a>
+        <a href="https://ricardocostaeu.substack.com" class="nav__link" target="_blank" rel="noopener noreferrer">Newsletter <span class="nav__external">&#8599;</span></a>
+        <a href="#contact" class="nav__link" data-section="contact">Work with me</a>
+      </nav>
+
+      <!-- Hamburger — Mobile -->
+      <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="nav__hamburger-bar"></span>
+        <span class="nav__hamburger-bar"></span>
+        <span class="nav__hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
+    <div class="mobile-menu__overlay" aria-label="Close menu"></div>
+    <div class="mobile-menu__panel">
+      <div class="mobile-menu__header">
+        <a href="#hero" class="nav__logo" aria-label="Ricardo Costa">
+          <span class="nav__logo-first">Ricardo</span>
+          <span class="nav__logo-last">costa</span>
+        </a>
+        <button class="mobile-menu__close" aria-label="Close menu">
+          <span class="mobile-menu__close-icon">&times;</span>
+        </button>
+      </div>
+      <div class="mobile-menu__divider"></div>
+      <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+        <span class="mobile-menu__label">Jump to section</span>
+        <a href="about.html" class="mobile-menu__link">About</a>
+        <a href="#latest" class="mobile-menu__link" data-section="latest">Latest</a>
+        <a href="#contact" class="mobile-menu__link" data-section="contact">Work with me</a>
+        <span class="mobile-menu__label">External</span>
+        <a href="https://youtube.com/@ricardocostaeuu" class="mobile-menu__link mobile-menu__link--external" target="_blank" rel="noopener noreferrer">YouTube <span>&#8599;</span></a>
+        <a href="https://ricardocostaeu.substack.com" class="mobile-menu__link mobile-menu__link--external" target="_blank" rel="noopener noreferrer">Newsletter <span>&#8599;</span></a>
+      </nav>
+      <div class="mobile-menu__footer">
+        <span>Press ESC or tap outside to close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator Dots — Mobile -->
+  <div class="scroll-dots" aria-label="Page sections" role="tablist">
+    <button class="scroll-dot active" role="tab" aria-label="Hero section" aria-selected="true" data-target="hero"></button>
+    <button class="scroll-dot" role="tab" aria-label="About section" data-target="about"></button>
+    <button class="scroll-dot" role="tab" aria-label="Latest section" data-target="latest"></button>
+    <button class="scroll-dot" role="tab" aria-label="Newsletter section" data-target="newsletter"></button>
+    <button class="scroll-dot" role="tab" aria-label="Contact section" data-target="contact"></button>
+    <button class="scroll-dot" role="tab" aria-label="Footer" data-target="footer-section"></button>
+  </div>
+
+  <!-- Sticky Section Label — Mobile (M5) -->
+  <div class="sticky-label" aria-hidden="true">
+    <span class="sticky-label__text"></span>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ========== HERO — FIX 16 ========== -->
+    <section class="hero" id="hero" aria-labelledby="hero-heading">
+      <!-- Glow lives on hero level so it bleeds across photo/content boundary -->
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__photo-col">
+        <img src="images/ricardo-hero.webp" alt="Ricardo Costa, Senior Product Designer" class="hero__photo" width="648" height="900" loading="eager">
+      </div>
+      <div class="hero__content">
+        <h1 id="hero-heading" class="hero__heading">
+          <span class="hero__heading-context">Most teams use AI to go faster.</span>
+          <span class="hero__heading-context">I help them go in the</span>
+          <span class="hero__heading-punch">Right direction.</span>
+        </h1>
+        <p class="hero__body">Everyone's using AI. Almost nobody is thinking before they prompt.</p>
+        <p class="hero__body">I help design teams and companies structure how they think about AI. Before they touch the tools.</p>
+        <a href="#about" class="btn btn--primary hero__cta" aria-label="Explore the page">
+          <span>Explore</span>
+          <span class="btn__arrow" aria-hidden="true">&#8595;</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Alternative hero copy (swap text above to revert):
+         hero__heading-context: "Design is still about"
+         hero__heading-punch: "Decisions."
+         hero__heading-context (line 3): "Everything else is changing."
+         hero__body: "17 years designing systems. The last 7 building AI tools for thousands of industrial users at scale. I share what works — and what doesn't."
+    -->
+
+    <!-- ========== BORDER ========== -->
+    <div class="section-border" aria-hidden="true"></div>
+
+    <!-- ========== ABOUT ========== -->
+    <section class="about" id="about" aria-labelledby="about-heading">
+      <h2 class="section-label" id="about-heading">About</h2>
+      <div class="about__content">
+        <div class="about__quote-col">
+          <span class="about__deco-quote" aria-hidden="true">&ldquo;</span>
+          <!-- FIX 2 — Ricardo's own voice, no fake attribution -->
+          <blockquote class="about__quote">
+            <p>&ldquo;I got tired of tutorials that only show perfect demos.&rdquo;</p>
+          </blockquote>
+        </div>
+        <div class="about__body-col">
+          <p>I design AI systems for thousands of users at one of Europe's largest automotive manufacturers. 17 years across graphic design, digital, and product/UX.</p>
+          <p>Outside of that, I share what I am learning. Honestly. When something works, I explain why. When it breaks, and it breaks often, I show the cleanup cost, the time lost, and what I would do differently.</p>
+          <p class="about__signature">Sponsored or not. Same standard.</p>
+        </div>
+      </div>
+
+      <!-- FIX 3 — "What I solve" subsection -->
+      <div class="about__divider" aria-hidden="true"></div>
+      <div class="about__solve">
+        <h2 class="section-label">What I solve</h2>
+        <div class="about__solve-body">
+          <p>Your team adopted AI tools but nobody knows how to use them with purpose.</p>
+          <p>You need design leadership but can't justify a full-time hire.</p>
+          <p>Your designers are generating screens faster but making the same mistakes, just quicker.</p>
+          <p>You're about to invest in AI and need someone who's done it at scale to tell you what actually works.</p>
+        </div>
+      </div>
+
+      <!-- FIX 4 — "More about me" link -->
+      <a href="about.html" class="about__more-link">More about me <span aria-hidden="true">&rarr;</span></a>
+    </section>
+
+    <!-- ========== BORDER ========== -->
+    <div class="section-border" aria-hidden="true"></div>
+
+    <!-- ========== LATEST ========== -->
+    <section class="latest" id="latest" aria-labelledby="latest-heading">
+      <h2 class="section-label" id="latest-heading">Latest</h2>
+
+      <!-- Desktop: grid / Mobile: carousel -->
+      <div class="latest__cards" role="region" aria-roledescription="carousel" aria-label="Latest content">
+        <!-- FIX 13 — External link indicators added to card tags -->
+        <article class="card" role="group" aria-roledescription="slide" aria-label="Slide 1 of 3">
+          <a href="https://youtube.com/@ricardocostaeuu" class="card__link" target="_blank" rel="noopener noreferrer" aria-label="I Tested Figma Make for 3 Weeks at Work. Honest Results. Opens in YouTube">
+            <div class="card__thumbnail card__thumbnail--youtube" aria-hidden="true"></div>
+            <span class="card__tag card__tag--youtube">YouTube <span class="card__external" aria-hidden="true">&#8599;</span></span>
+            <div class="card__spacer-sm"></div>
+            <h3 class="card__title">I Tested Figma Make for 3 Weeks at Work. Honest Results.</h3>
+            <p class="card__desc">A real-world test of AI-generated design across 12 screens, measured against my manual workflow.</p>
+            <div class="card__spacer"></div>
+            <time class="card__date" datetime="2026-03-28">Mar 28, 2026</time>
+          </a>
+        </article>
+
+        <article class="card" role="group" aria-roledescription="slide" aria-label="Slide 2 of 3">
+          <a href="https://ricardocostaeu.substack.com" class="card__link" target="_blank" rel="noopener noreferrer" aria-label="The question isn't whether your credits are enough. Opens in Newsletter">
+            <div class="card__thumbnail card__thumbnail--newsletter" aria-hidden="true"></div>
+            <span class="card__tag card__tag--newsletter">Newsletter <span class="card__external" aria-hidden="true">&#8599;</span></span>
+            <div class="card__spacer-sm"></div>
+            <h3 class="card__title">The question isn&rsquo;t whether your credits are enough.</h3>
+            <p class="card__desc">On the hidden cost of AI credits, the cleanup tax, and what actually matters.</p>
+            <div class="card__spacer"></div>
+            <time class="card__date" datetime="2026-03-24">Mar 24, 2026</time>
+          </a>
+        </article>
+
+        <article class="card" role="group" aria-roledescription="slide" aria-label="Slide 3 of 3">
+          <a href="https://linkedin.com/in/ricardocostaeu" class="card__link" target="_blank" rel="noopener noreferrer" aria-label="45 minutes cleaning up what AI generated in 15 seconds. Opens in LinkedIn">
+            <div class="card__thumbnail card__thumbnail--linkedin" aria-hidden="true"></div>
+            <span class="card__tag card__tag--linkedin">LinkedIn <span class="card__external" aria-hidden="true">&#8599;</span></span>
+            <div class="card__spacer-sm"></div>
+            <h3 class="card__title">45 minutes cleaning up what AI generated in 15 seconds.</h3>
+            <p class="card__desc">The contrast ratio was 2.4:1. WCAG needs 4.5:1. The tool didn't fail. My expectations did.</p>
+            <div class="card__spacer"></div>
+            <time class="card__date" datetime="2026-03-21">Mar 21, 2026</time>
+          </a>
+        </article>
+      </div>
+
+      <!-- Carousel dots — mobile only -->
+      <div class="latest__dots" role="tablist" aria-label="Carousel navigation">
+        <button class="latest__dot active" role="tab" aria-label="Card 1" aria-selected="true"></button>
+        <button class="latest__dot" role="tab" aria-label="Card 2"></button>
+        <button class="latest__dot" role="tab" aria-label="Card 3"></button>
+      </div>
+
+      <!-- FIX 5 — Multi-platform links instead of YouTube-only -->
+      <div class="latest__platform-links">
+        <a href="https://youtube.com/@ricardocostaeuu" class="latest__platform-link" target="_blank" rel="noopener noreferrer">More on YouTube <span aria-hidden="true">&rarr;</span></a>
+        <span class="latest__platform-sep" aria-hidden="true">&middot;</span>
+        <a href="https://ricardocostaeu.substack.com" class="latest__platform-link" target="_blank" rel="noopener noreferrer">Newsletter <span aria-hidden="true">&rarr;</span></a>
+        <span class="latest__platform-sep" aria-hidden="true">&middot;</span>
+        <a href="https://linkedin.com/in/ricardocostaeu" class="latest__platform-link" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+
+    <!-- ========== BORDER ========== -->
+    <div class="section-border" aria-hidden="true"></div>
+
+    <!-- ========== NEWSLETTER ========== -->
+    <section class="newsletter" id="newsletter" aria-labelledby="newsletter-heading">
+      <!-- FIX 6 — Orb glow only, photo removed -->
+      <div class="newsletter__glow" aria-hidden="true"></div>
+      <div class="newsletter__content">
+        <span class="newsletter__eyebrow" id="newsletter-heading">The Desk of a</span>
+        <span class="newsletter__brand">Dreamineer</span>
+        <p class="newsletter__desc">Weekly newsletter. Honest analysis of AI tools, design workflows, and career strategy. No hype.</p>
+
+        <!-- FIX 7 — Substack redirect form -->
+        <form class="newsletter__form" id="newsletter-form" aria-label="Newsletter signup" novalidate>
+          <label for="email-input" class="newsletter__label">Email</label>
+          <div class="newsletter__form-row">
+            <div class="newsletter__input-wrapper">
+              <input type="email" id="email-input" name="email" class="newsletter__input" placeholder="your@email.com" required autocomplete="email" aria-describedby="email-status">
+              <span class="newsletter__check" aria-hidden="true">&#10003;</span>
+            </div>
+            <button type="submit" class="btn btn--primary newsletter__submit">
+              <span class="newsletter__submit-text">Subscribe</span>
+            </button>
+          </div>
+          <div id="email-status" class="newsletter__status" role="alert" aria-live="assertive"></div>
+        </form>
+
+        <!-- FIX 8 — Identity phrase instead of number -->
+        <p class="newsletter__social-proof">Join designers who think before they prompt</p>
+      </div>
+    </section>
+
+    <!-- ========== BORDER ========== -->
+    <div class="section-border" aria-hidden="true"></div>
+
+    <!-- ========== WORK WITH ME ========== -->
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
+      <div class="contact__accent" aria-hidden="true"></div>
+      <h2 class="section-label" id="contact-heading">Work with me</h2>
+      <p class="contact__body">Occasionally, I help teams think through AI integration and product design decisions.</p>
+      <p class="contact__body contact__body--secondary">If you are a founder or team lead navigating this, let's talk.</p>
+
+      <!-- FIX 11 — Compact problem statements -->
+      <div class="contact__problems">
+        <p class="contact__problems-label">Common situations I help with:</p>
+        <p class="contact__problem">AI tools adopted but no one knows how to use them with purpose.</p>
+        <p class="contact__problem">Design leadership needed but no budget for full-time.</p>
+        <p class="contact__problem">Designers generating faster but making the same mistakes.</p>
+        <p class="contact__problem">About to invest in AI and need someone who's done it at scale.</p>
+      </div>
+
+      <!-- FIX 9 — Primary CTA → Calendly, secondary → email -->
+      <a href="https://calendly.com/ricardocostaeu" class="contact__cta" target="_blank" rel="noopener noreferrer">Start a conversation <span aria-hidden="true">&rarr;</span></a>
+      <p class="contact__response">I typically reply within 48 hours.</p>
+      <!-- FIX 10 — Plain email with JS obfuscation for spam protection -->
+      <p class="contact__email-line">Or email me at <a href="#" class="js-email contact__email">info [at] ricardocosta.eu</a></p>
+    </section>
+
+    <!-- ========== BORDER ========== -->
+    <div class="section-border" aria-hidden="true"></div>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" id="footer-section" role="contentinfo">
+    <div class="footer__top">
+      <div class="footer__wordmark">
+        <span class="nav__logo-first">Ricardo</span>
+        <span class="nav__logo-last">costa</span>
+      </div>
+      <nav class="footer__links" aria-label="Footer navigation">
+        <a href="https://youtube.com/@ricardocostaeuu" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://linkedin.com/in/ricardocostaeu" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://instagram.com/ricardocostaeu" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://ricardocostaeu.substack.com" target="_blank" rel="noopener noreferrer">Newsletter</a>
+      </nav>
+      <!-- FIX 10 — JS-obfuscated email -->
+      <a href="#" class="js-email footer__email">info [at] ricardocosta.eu</a>
+    </div>
+    <div class="footer__end">
+      <span class="footer__end-text">You've reached the end.</span>
+      <a href="#hero" class="footer__back-top">&uarr; Back to top</a>
+    </div>
+    <p class="footer__copyright">&copy; 2026 Ricardo Costa</p>
+  </footer>
+
+  <!-- Back to Top — Floating -->
+  <button class="back-to-top" aria-label="Back to top" hidden>
+    <span aria-hidden="true">&uarr;</span>
+  </button>
+
+  <!-- Grain overlay — CSS only -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

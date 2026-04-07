@@ -1,0 +1,7 @@
+<svg width="648" height="900" viewBox="0 0 648 900" xmlns="http://www.w3.org/2000/svg">
+  <rect width="648" height="900" fill="#221E19"/>
+  <circle cx="324" cy="350" r="200" fill="none" stroke="#FF6B2B" stroke-width="2" opacity="0.3"/>
+  <circle cx="324" cy="350" r="120" fill="#2A2520"/>
+  <text x="324" y="360" text-anchor="middle" fill="#948779" font-family="sans-serif" font-size="14">Photo placeholder</text>
+  <text x="324" y="380" text-anchor="middle" fill="#948779" font-family="sans-serif" font-size="11">Replace with real photo</text>
+</svg>
