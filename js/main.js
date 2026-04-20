@@ -99,12 +99,13 @@
       stickyLabel.classList.toggle('is-visible', !isHero);
       if (stickyLabelText) {
         const labelMap = {
-          'hero': 'Hero',
-          'about': 'About',
-          'latest': 'Latest',
+          'hero': 'Início',
+          'about': 'Sobre',
+          'beliefs': 'No que acredito',
+          'find-me': 'Onde me encontras',
           'newsletter': 'Newsletter',
-          'contact': 'Work with me',
-          'footer-section': 'Footer'
+          'contact': 'Trabalhar comigo',
+          'footer-section': 'Rodapé'
         };
         stickyLabelText.textContent = labelMap[active] || '';
       }
@@ -247,11 +248,11 @@
     } else if (state === 'error-format') {
       emailInput.classList.add('is-error');
       statusEl.classList.add('is-error');
-      statusEl.textContent = "That doesn't look like an email address";
+      statusEl.textContent = "Isso não parece um endereço de email";
     } else if (state === 'success') {
       emailInput.classList.add('is-valid');
       statusEl.classList.add('is-success');
-      statusEl.textContent = 'Check your inbox to confirm your subscription';
+      statusEl.textContent = 'Verifica a tua caixa para confirmar a subscrição';
       emailInput.disabled = true;
       submitBtn.disabled = true;
     } else if (state === 'idle') {

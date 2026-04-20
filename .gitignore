@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Local tooling / AI assistants
+.claude/
+
+# Internal strategy / briefings — not for public repo
+BRIEFING-site-PT.md
