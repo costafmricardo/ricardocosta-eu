@@ -90,7 +90,11 @@
     scrollDots.forEach(dot => {
       const isActive = dot.dataset.target === active;
       dot.classList.toggle('active', isActive);
-      dot.setAttribute('aria-selected', isActive);
+      if (isActive) {
+        dot.setAttribute('aria-current', 'true');
+      } else {
+        dot.removeAttribute('aria-current');
+      }
     });
 
     // Sticky label
@@ -169,6 +173,7 @@
     void mobileMenu.offsetWidth;
     mobileMenu.classList.add('is-open');
     hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'Fechar menu');
     document.body.style.overflow = 'hidden';
 
     // Focus trap
@@ -183,6 +188,7 @@
   function closeMenu() {
     mobileMenu.classList.remove('is-open');
     hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Abrir menu');
     document.body.style.overflow = '';
 
     // Wait for animation
@@ -326,14 +332,6 @@
     if (saved && emailInput) emailInput.value = saved;
   } catch (_) {}
 
-  // ---------- FIX 10 — Email obfuscation ----------
-  const emailParts = ['info', 'ricardocosta.eu'];
-  const emailAddr = emailParts.join('@');
-  $$('.js-email').forEach(el => {
-    el.href = 'mailto:' + emailAddr;
-    el.textContent = emailAddr;
-  });
-
   // ---------- CAROUSEL — Mobile, M9 ----------
   let carouselObserver = null;
 
@@ -349,8 +347,13 @@
         if (entry.isIntersecting) {
           const idx = cards.indexOf(entry.target);
           carouselDots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === idx);
-            dot.setAttribute('aria-selected', i === idx);
+            const isActive = i === idx;
+            dot.classList.toggle('active', isActive);
+            if (isActive) {
+              dot.setAttribute('aria-current', 'true');
+            } else {
+              dot.removeAttribute('aria-current');
+            }
           });
         }
       });
@@ -361,11 +364,27 @@
 
     cards.forEach(card => carouselObserver.observe(card));
 
+    function goToCard(i) {
+      if (cards[i]) {
+        cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      }
+    }
+
     // Dot click → scroll to card
     carouselDots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        if (cards[i]) {
-          cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      dot.addEventListener('click', () => goToCard(i));
+      // Keyboard: ArrowLeft/ArrowRight to move between cards
+      dot.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          const next = Math.min(i + 1, carouselDots.length - 1);
+          carouselDots[next].focus();
+          goToCard(next);
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          const prev = Math.max(i - 1, 0);
+          carouselDots[prev].focus();
+          goToCard(prev);
         }
       });
     });

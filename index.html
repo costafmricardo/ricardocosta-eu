@@ -74,8 +74,8 @@
   <!-- Skip Navigation — WCAG 2.4.1 -->
   <a href="#main-content" class="skip-link">Saltar para o conteúdo principal</a>
 
-  <!-- Scroll Progress Bar -->
-  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso de leitura da página"></div>
+  <!-- Scroll Progress Bar (decorative) -->
+  <div class="progress-bar" aria-hidden="true"></div>
 
   <!-- Navigation -->
   <header class="nav" role="banner">
@@ -88,7 +88,7 @@
       <nav class="nav__links" role="navigation" aria-label="Navegação principal">
         <a href="about.html" class="nav__link">Sobre</a>
         <a href="#find-me" class="nav__link" data-section="latest">Conteúdo</a>
-        <a href="https://ricardocostaeu.substack.com" class="nav__link" target="_blank" rel="noopener noreferrer">Newsletter <span class="nav__external">&#8599;</span></a>
+        <a href="https://ricardocostaeu.substack.com" class="nav__link" target="_blank" rel="noopener noreferrer">Newsletter <span class="nav__external" aria-hidden="true">&#8599;</span></a>
         <a href="#contact" class="nav__link" data-section="contact">Contacto</a>
       </nav>
 
@@ -131,14 +131,14 @@
   </div>
 
   <!-- Scroll Indicator Dots — Mobile -->
-  <div class="scroll-dots" aria-label="Secções da página" role="tablist">
-    <button class="scroll-dot active" role="tab" aria-label="Início" aria-selected="true" data-target="hero"></button>
-    <button class="scroll-dot" role="tab" aria-label="Sobre" data-target="about"></button>
-    <button class="scroll-dot" role="tab" aria-label="No que acredito" data-target="beliefs"></button>
-    <button class="scroll-dot" role="tab" aria-label="Onde me encontras" data-target="find-me"></button>
-    <button class="scroll-dot" role="tab" aria-label="Newsletter" data-target="newsletter"></button>
-    <button class="scroll-dot" role="tab" aria-label="Contacto" data-target="contact"></button>
-  </div>
+  <nav class="scroll-dots" aria-label="Secções da página">
+    <button class="scroll-dot active" aria-label="Ir para Início" aria-current="true" data-target="hero"></button>
+    <button class="scroll-dot" aria-label="Ir para Sobre" data-target="about"></button>
+    <button class="scroll-dot" aria-label="Ir para No que acredito" data-target="beliefs"></button>
+    <button class="scroll-dot" aria-label="Ir para Onde me encontras" data-target="find-me"></button>
+    <button class="scroll-dot" aria-label="Ir para Newsletter" data-target="newsletter"></button>
+    <button class="scroll-dot" aria-label="Ir para Contacto" data-target="contact"></button>
+  </nav>
 
   <!-- Sticky Section Label — Mobile -->
   <div class="sticky-label" aria-hidden="true">
@@ -151,7 +151,7 @@
     <section class="hero" id="hero" aria-labelledby="hero-heading">
       <div class="hero__glow" aria-hidden="true"></div>
       <div class="hero__photo-col">
-        <img src="images/ricardo-hero.webp" alt="Ricardo Costa" class="hero__photo" width="648" height="900" loading="eager">
+        <img src="images/ricardo-hero.webp" alt="" class="hero__photo" width="648" height="900" loading="eager">
       </div>
       <div class="hero__content">
         <h1 id="hero-heading" class="hero__heading">
@@ -224,22 +224,22 @@
       <div class="beliefs__list">
 
         <article class="beliefs__item">
-          <p class="beliefs__statement">O ecrã era sempre o recibo.</p>
+          <h3 class="beliefs__statement">O ecrã era sempre o recibo.</h3>
           <p class="beliefs__explanation">O trabalho real acontecia antes do ficheiro abrir. Na pergunta que fizeste, na restrição que identificaste, na direcção que escolheste não seguir.</p>
         </article>
 
         <article class="beliefs__item">
-          <p class="beliefs__statement">A IA não mudou o que fazemos. Revelou o que sempre foi verdade.</p>
+          <h3 class="beliefs__statement">A IA não mudou o que fazemos. Revelou o que sempre foi verdade.</h3>
           <p class="beliefs__explanation">Se qualquer um pode gerar um ecrã em 30 segundos, o que é que faz alguém que sabe qual ecrã gerar, porquê, e o que fazer quando está errado?</p>
         </article>
 
         <article class="beliefs__item">
-          <p class="beliefs__statement">Ferramentas sem frameworks são desperdício disfarçado de produtividade.</p>
+          <h3 class="beliefs__statement">Ferramentas sem frameworks são desperdício disfarçado de produtividade.</h3>
           <p class="beliefs__explanation">Quando algo parte — e parte muitas vezes — mostro o custo de limpar, o tempo perdido, e o que faria diferente.</p>
         </article>
 
         <article class="beliefs__item">
-          <p class="beliefs__statement">Patrocinado ou não. Mesmo critério.</p>
+          <h3 class="beliefs__statement">Patrocinado ou não. Mesmo critério.</h3>
           <p class="beliefs__explanation">Se reviso uma ferramenta, uso-a em projectos reais primeiro. Se um patrocinador me pede para saltar esse passo, salto o patrocinador.</p>
         </article>
 
@@ -270,7 +270,7 @@
             <div class="card__thumbnail card__thumbnail--newsletter" aria-hidden="true"></div>
             <span class="card__tag card__tag--newsletter">Newsletter <span class="card__external" aria-hidden="true">&#8599;</span></span>
             <div class="card__spacer-sm"></div>
-            <h3 class="card__title">The Desk of a Dreamineer</h3>
+            <h3 class="card__title" lang="en">The Desk of a Dreamineer</h3>
             <p class="card__desc">Semanal. Análise mais profunda, reflexões pessoais, e o que não cabe num vídeo.</p>
           </a>
         </article>
@@ -287,10 +287,10 @@
       </div>
 
       <!-- Carousel dots — mobile only -->
-      <div class="latest__dots" role="tablist" aria-label="Navegação do carrossel">
-        <button class="latest__dot active" role="tab" aria-label="Cartão 1" aria-selected="true"></button>
-        <button class="latest__dot" role="tab" aria-label="Cartão 2"></button>
-        <button class="latest__dot" role="tab" aria-label="Cartão 3"></button>
+      <div class="latest__dots" role="group" aria-label="Navegação do carrossel">
+        <button class="latest__dot active" aria-label="Ir para YouTube" aria-current="true" data-card="0"></button>
+        <button class="latest__dot" aria-label="Ir para Newsletter" data-card="1"></button>
+        <button class="latest__dot" aria-label="Ir para LinkedIn" data-card="2"></button>
       </div>
 
       <div class="latest__platform-links">
@@ -309,11 +309,11 @@
     <section class="newsletter" id="newsletter" aria-labelledby="newsletter-heading">
       <div class="newsletter__glow" aria-hidden="true"></div>
       <div class="newsletter__content">
-        <span class="newsletter__eyebrow" id="newsletter-heading">The Desk of a</span>
-        <span class="newsletter__brand">Dreamineer</span>
+        <span class="newsletter__eyebrow" id="newsletter-heading" lang="en">The Desk of a</span>
+        <span class="newsletter__brand" lang="en">Dreamineer</span>
         <p class="newsletter__desc">Newsletter semanal. Análise mais profunda, reflexões pessoais, e o que não cabe num vídeo.</p>
 
-        <form class="newsletter__form" id="newsletter-form" aria-label="Subscrição de newsletter" novalidate>
+        <form class="newsletter__form" id="newsletter-form" aria-label="Subscrição de newsletter" action="https://ricardocostaeu.substack.com/api/v1/free" method="POST" novalidate>
           <label for="email-input" class="newsletter__label">Email</label>
           <div class="newsletter__form-row">
             <div class="newsletter__input-wrapper">

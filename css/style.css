@@ -186,9 +186,9 @@ img { display: block; max-width: 100%; height: auto; }
   font-size: 11px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--stone);
+  color: var(--chalk-dim);
   text-decoration: none;
-  padding-bottom: 4px;
+  padding: 8px 0 6px;
   border-bottom: 2px solid transparent;
   transition: color var(--duration-md) var(--ease-out),
               border-color var(--duration-md) var(--ease-out);
@@ -203,12 +203,8 @@ img { display: block; max-width: 100%; height: auto; }
 
 .nav__external {
   font-size: 10px;
-  opacity: 0.6;
-}
-.nav__dropdown-arrow {
-  font-size: 8px;
+  color: var(--chalk-dim);
   margin-left: 2px;
-  opacity: 0.5;
 }
 
 .nav__hamburger {
@@ -380,21 +376,35 @@ img { display: block; max-width: 100%; height: auto; }
   opacity: 1;
 }
 .scroll-dot {
+  /* Visual size 6px, hit area 24px via padding (WCAG 2.5.8) */
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  transition: transform var(--duration-md) var(--ease-out);
+}
+.scroll-dot::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: var(--chalk-30);
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: transform var(--duration-md) var(--ease-out),
-              background var(--duration-md) var(--ease-out);
+  transform: translate(-50%, -50%);
+  transition: background var(--duration-md) var(--ease-out),
+              transform var(--duration-md) var(--ease-out);
 }
-.scroll-dot.active {
+.scroll-dot.active::before {
   background: var(--forge);
-  transform: scale(1.4);
+  transform: translate(-50%, -50%) scale(1.4);
 }
-.scroll-dot:hover {
+.scroll-dot:hover::before {
   background: var(--chalk);
 }
 
@@ -793,16 +803,30 @@ img { display: block; max-width: 100%; height: auto; }
   margin-top: 16px;
 }
 .latest__dot {
+  /* Visual size 6px, hit area 24px (WCAG 2.5.8) */
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+}
+.latest__dot::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: var(--chalk-30);
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: all var(--duration-md) var(--ease-out);
+  transform: translate(-50%, -50%);
+  transition: width var(--duration-md) var(--ease-out),
+              background var(--duration-md) var(--ease-out),
+              border-radius var(--duration-md) var(--ease-out);
 }
-.latest__dot.active {
+.latest__dot.active::before {
   background: var(--forge);
   width: 16px;
   border-radius: 3px;
@@ -811,7 +835,7 @@ img { display: block; max-width: 100%; height: auto; }
 /* FIX 13 — Card external link indicator */
 .card__external {
   font-size: 9px;
-  opacity: 0.6;
+  color: var(--chalk-dim);
   margin-left: 2px;
 }
 
@@ -932,13 +956,13 @@ img { display: block; max-width: 100%; height: auto; }
               box-shadow var(--duration-md) var(--ease-out);
 }
 .newsletter__input::placeholder {
-  color: var(--stone);
-  opacity: 0.5;
+  color: var(--chalk-dim);
 }
 .newsletter__input:focus {
-  outline: none;
-  border-color: rgba(255, 107, 43, 0.6);
-  box-shadow: 0 0 0 3px rgba(255, 107, 43, 0.1);
+  outline: 2px solid var(--forge);
+  outline-offset: 2px;
+  border-color: var(--forge);
+  box-shadow: 0 0 0 3px rgba(255, 107, 43, 0.25);
 }
 
 /* Validation check */
@@ -990,19 +1014,24 @@ img { display: block; max-width: 100%; height: auto; }
 .newsletter__status.is-error {
   color: var(--forge);
 }
+.newsletter__status.is-error::before {
+  content: "✗ ";
+}
 .newsletter__status.is-success {
-  color: var(--forge);
+  color: #66CC66;
+}
+.newsletter__status.is-success::before {
+  content: "✓ ";
 }
 .newsletter__status.is-info {
-  color: var(--stone);
+  color: var(--chalk-dim);
 }
 
 /* Privacy note */
 .newsletter__privacy {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--stone);
-  opacity: 0.55;
+  color: var(--chalk-dim);
   margin-top: 10px;
   text-align: center;
 }
@@ -1011,8 +1040,7 @@ img { display: block; max-width: 100%; height: auto; }
 .newsletter__social-proof {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--stone);
-  opacity: 0.6;
+  color: var(--chalk-dim);
   margin-top: 12px;
   text-align: center;
 }
