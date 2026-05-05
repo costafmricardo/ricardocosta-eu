@@ -104,7 +104,7 @@
           'beliefs': 'No que acredito',
           'find-me': 'Onde me encontras',
           'newsletter': 'Newsletter',
-          'contact': 'Trabalhar comigo',
+          'contact': 'Contacto',
           'footer-section': 'Rodapé'
         };
         stickyLabelText.textContent = labelMap[active] || '';
