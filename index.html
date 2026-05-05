@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ricardo Costa — IA aplicada a negócios, frameworks honestos</title>
+  <title>Ricardo Costa — IA aplicada a negócios | Frameworks honestos</title>
   <meta name="description" content="17 anos em design, os últimos 2 a construir IA a escala industrial. Partilho frameworks, análises honestas e lições reais sobre IA aplicada a empreendedores e PMEs portuguesas.">
   <meta name="author" content="Ricardo Costa">
   <link rel="canonical" href="https://ricardocosta.eu">
@@ -87,7 +87,7 @@
 
       <nav class="nav__links" role="navigation" aria-label="Navegação principal">
         <a href="about.html" class="nav__link">Sobre</a>
-        <a href="#find-me" class="nav__link nav__link--dropdown" data-section="latest">Conteúdo <span class="nav__dropdown-arrow">&#9662;</span></a>
+        <a href="#find-me" class="nav__link" data-section="latest">Conteúdo</a>
         <a href="https://ricardocostaeu.substack.com" class="nav__link" target="_blank" rel="noopener noreferrer">Newsletter <span class="nav__external">&#8599;</span></a>
         <a href="#contact" class="nav__link" data-section="contact">Contacto</a>
       </nav>
@@ -118,7 +118,7 @@
       <nav class="mobile-menu__nav" aria-label="Navegação mobile">
         <span class="mobile-menu__label">Saltar para secção</span>
         <a href="about.html" class="mobile-menu__link">Sobre</a>
-        <a href="#find-me" class="mobile-menu__link" data-section="latest">Onde me encontras</a>
+        <a href="#find-me" class="mobile-menu__link" data-section="latest">Conteúdo</a>
         <a href="#contact" class="mobile-menu__link" data-section="contact">Contacto</a>
         <span class="mobile-menu__label">Externo</span>
         <a href="https://youtube.com/@ricardocostaeuu" class="mobile-menu__link mobile-menu__link--external" target="_blank" rel="noopener noreferrer">YouTube <span>&#8599;</span></a>
@@ -138,7 +138,6 @@
     <button class="scroll-dot" role="tab" aria-label="Onde me encontras" data-target="find-me"></button>
     <button class="scroll-dot" role="tab" aria-label="Newsletter" data-target="newsletter"></button>
     <button class="scroll-dot" role="tab" aria-label="Contacto" data-target="contact"></button>
-    <button class="scroll-dot" role="tab" aria-label="Rodapé" data-target="footer-section"></button>
   </div>
 
   <!-- Sticky Section Label — Mobile -->
@@ -162,8 +161,8 @@
         </h1>
         <p class="hero__body">17 anos em design. Os últimos 2 a construir ferramentas de IA para milhares de utilizadores industriais.</p>
         <p class="hero__body">Partilho o que funciona — e o que não funciona.</p>
-        <a href="#about" class="btn btn--primary hero__cta" aria-label="Explorar a página">
-          <span>Explorar</span>
+        <a href="#about" class="btn btn--primary hero__cta" aria-label="Ver como penso">
+          <span>Ver como penso</span>
           <span class="btn__arrow" aria-hidden="true">&#8595;</span>
         </a>
       </div>
@@ -205,11 +204,11 @@
       <!-- Para quem é isto (3 blocos) -->
       <div class="about__divider" aria-hidden="true"></div>
       <div class="about__solve">
-        <h2 class="section-label">Para quem é isto</h2>
+        <h2 class="section-label">Para quem escrevo</h2>
         <div class="about__solve-body">
-          <p>A tua equipa adoptou IA mas ninguém sabe como usar com propósito. Dou-vos um framework para estruturar o pensamento antes do prompt.</p>
-          <p>Precisas de liderança em design mas não justifica full-time. Entro como diagnóstico externo, não como contratação permanente.</p>
-          <p>Estás a investir em IA e precisas de alguém que tenha feito isto a escala industrial para te dizer o que realmente funciona.</p>
+          <p>Para quem adoptou IA mas ainda não percebeu como usar com propósito — partilho frameworks para estruturar o pensamento antes do prompt.</p>
+          <p>Para quem está a tomar decisões sobre IA num negócio e quer perspectivas honestas, não receitas vendidas como certezas.</p>
+          <p>Para quem quer saber o que realmente funciona a escala — partilho o que aprendi a construir para milhares de utilizadores industriais.</p>
         </div>
       </div>
 
@@ -236,7 +235,7 @@
 
         <article class="beliefs__item">
           <p class="beliefs__statement">Ferramentas sem frameworks são desperdício disfarçado de produtividade.</p>
-          <p class="beliefs__explanation">Cansei-me de tutoriais que só mostram demos perfeitas. Quando algo parte — e parte muitas vezes — mostro o custo de limpar, o tempo perdido, e o que faria diferente.</p>
+          <p class="beliefs__explanation">Quando algo parte — e parte muitas vezes — mostro o custo de limpar, o tempo perdido, e o que faria diferente.</p>
         </article>
 
         <article class="beliefs__item">
@@ -318,14 +317,15 @@
           <label for="email-input" class="newsletter__label">Email</label>
           <div class="newsletter__form-row">
             <div class="newsletter__input-wrapper">
-              <input type="email" id="email-input" name="email" class="newsletter__input" placeholder="o-teu@email.com" required autocomplete="email" aria-describedby="email-status">
+              <input type="email" id="email-input" name="email" class="newsletter__input" placeholder="o-teu@email.com" required autocomplete="email" aria-describedby="email-status email-privacy">
               <span class="newsletter__check" aria-hidden="true">&#10003;</span>
             </div>
             <button type="submit" class="btn btn--primary newsletter__submit">
               <span class="newsletter__submit-text">Subscrever</span>
             </button>
           </div>
-          <div id="email-status" class="newsletter__status" role="alert" aria-live="assertive"></div>
+          <div id="email-status" class="newsletter__status" role="status" aria-live="polite"></div>
+          <p id="email-privacy" class="newsletter__privacy">Sem spam. Cancelas quando quiseres.</p>
         </form>
 
         <p class="newsletter__social-proof">Junta-te a quem pensa antes de fazer o prompt</p>
@@ -341,7 +341,7 @@
       <h2 class="section-label" id="contact-heading">Contacto</h2>
       <p class="contact__body">Parcerias, ideias, ou só uma conversa sobre IA — estou disponível.</p>
 
-      <p class="contact__email-line"><a href="#" class="js-email contact__email">info [at] ricardocosta.eu</a></p>
+      <p class="contact__email-line"><a href="mailto:info@ricardocosta.eu" class="contact__email">info@ricardocosta.eu</a></p>
     </section>
 
     <!-- ========== BORDER ========== -->
@@ -362,7 +362,7 @@
         <a href="https://instagram.com/ricardocostaeu" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="https://ricardocostaeu.substack.com" target="_blank" rel="noopener noreferrer">Newsletter</a>
       </nav>
-      <a href="#" class="js-email footer__email">info [at] ricardocosta.eu</a>
+      <a href="mailto:info@ricardocosta.eu" class="footer__email">info@ricardocosta.eu</a>
     </div>
     <div class="footer__end">
       <span class="footer__end-text">Chegaste ao fim.</span>

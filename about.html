@@ -88,7 +88,7 @@
 
       <nav class="nav__links" role="navigation" aria-label="Navegação principal">
         <a href="about.html" class="nav__link active" aria-current="page">Sobre</a>
-        <a href="index.html#find-me" class="nav__link nav__link--dropdown">Conteúdo <span class="nav__dropdown-arrow">&#9662;</span></a>
+        <a href="index.html#find-me" class="nav__link">Conteúdo</a>
         <a href="https://ricardocostaeu.substack.com" class="nav__link" target="_blank" rel="noopener noreferrer">Newsletter <span class="nav__external">&#8599;</span></a>
         <a href="index.html#contact" class="nav__link">Contacto</a>
       </nav>
@@ -119,7 +119,7 @@
       <nav class="mobile-menu__nav" aria-label="Navegação mobile">
         <span class="mobile-menu__label">Páginas</span>
         <a href="about.html" class="mobile-menu__link active" aria-current="page">Sobre</a>
-        <a href="index.html#find-me" class="mobile-menu__link">Onde me encontras</a>
+        <a href="index.html#find-me" class="mobile-menu__link">Conteúdo</a>
         <a href="index.html#contact" class="mobile-menu__link">Contacto</a>
         <span class="mobile-menu__label">Externo</span>
         <a href="https://youtube.com/@ricardocostaeuu" class="mobile-menu__link mobile-menu__link--external" target="_blank" rel="noopener noreferrer">YouTube <span>&#8599;</span></a>
@@ -137,7 +137,7 @@
     <section class="about-hero" id="about-hero" aria-labelledby="about-hero-heading">
       <div class="about-hero__glow" aria-hidden="true"></div>
       <div class="about-hero__content">
-        <h2 class="section-label section-label--forge">Sobre</h2>
+        <p class="section-label section-label--forge" aria-hidden="true">Sobre</p>
         <h1 id="about-hero-heading" class="about-hero__heading">
           <span class="hero__heading-context">17 anos em design.</span>
           <span class="hero__heading-punch">Dois anos de IA.</span>
@@ -173,83 +173,13 @@
     <!-- ========== BORDER ========== -->
     <div class="section-border" aria-hidden="true"></div>
 
-    <!-- ========== NO QUE ACREDITO ========== -->
-    <section class="beliefs" id="beliefs" aria-label="No que acredito" aria-labelledby="beliefs-heading">
-      <h2 class="section-label section-label--forge" id="beliefs-heading">No que acredito</h2>
-      <div class="beliefs__list">
-
-        <article class="beliefs__item">
-          <p class="beliefs__statement">O ecrã era sempre o recibo.</p>
-          <p class="beliefs__explanation">O trabalho real acontecia antes do ficheiro abrir. Na pergunta que fizeste, na restrição que identificaste, na direcção que escolheste não seguir.</p>
-        </article>
-
-        <article class="beliefs__item">
-          <p class="beliefs__statement">A IA não mudou o que fazemos. Revelou o que sempre foi verdade.</p>
-          <p class="beliefs__explanation">Se qualquer um pode gerar um ecrã em 30 segundos, o que é que faz alguém que sabe qual ecrã gerar, porquê, e o que fazer quando está errado?</p>
-        </article>
-
-        <article class="beliefs__item">
-          <p class="beliefs__statement">Ferramentas sem frameworks são desperdício disfarçado de produtividade.</p>
-          <p class="beliefs__explanation">Cansei-me de tutoriais que só mostram demos perfeitas. Quando algo parte — e parte muitas vezes — mostro o custo de limpar, o tempo perdido, e o que faria diferente.</p>
-        </article>
-
-        <article class="beliefs__item">
-          <p class="beliefs__statement">Patrocinado ou não. Mesmo critério.</p>
-          <p class="beliefs__explanation">Se reviso uma ferramenta, uso-a em projectos reais primeiro. Se um patrocinador me pede para saltar esse passo, salto o patrocinador.</p>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ========== BORDER ========== -->
-    <div class="section-border" aria-hidden="true"></div>
-
-    <!-- ========== ONDE ME ENCONTRAS ========== -->
-    <section class="find-me" id="find-me" aria-label="Onde me encontras" aria-labelledby="find-me-heading">
-      <h2 class="section-label section-label--forge" id="find-me-heading">Onde me encontras</h2>
-      <div class="latest__cards">
-        <article class="card">
-          <a href="https://youtube.com/@ricardocostaeuu" class="card__link" target="_blank" rel="noopener noreferrer" aria-label="YouTube. O canal principal. Abre em nova janela">
-            <div class="card__thumbnail card__thumbnail--youtube" aria-hidden="true"></div>
-            <span class="card__tag card__tag--youtube">YouTube <span class="card__external" aria-hidden="true">&#8599;</span></span>
-            <div class="card__spacer-sm"></div>
-            <h3 class="card__title">O canal principal</h3>
-            <p class="card__desc">Reviews honestas de ferramentas de IA, frameworks aplicados a negócios reais. Sem hype.</p>
-          </a>
-        </article>
-
-        <article class="card">
-          <a href="https://ricardocostaeu.substack.com" class="card__link" target="_blank" rel="noopener noreferrer" aria-label="Newsletter. The Desk of a Dreamineer. Abre em nova janela">
-            <div class="card__thumbnail card__thumbnail--newsletter" aria-hidden="true"></div>
-            <span class="card__tag card__tag--newsletter">Newsletter <span class="card__external" aria-hidden="true">&#8599;</span></span>
-            <div class="card__spacer-sm"></div>
-            <h3 class="card__title">The Desk of a Dreamineer</h3>
-            <p class="card__desc">Semanal. Análise mais profunda, reflexões pessoais, e o que não cabe num vídeo.</p>
-          </a>
-        </article>
-
-        <article class="card">
-          <a href="https://linkedin.com/in/ricardocostaeu" class="card__link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn. Takes rápidos. Abre em nova janela">
-            <div class="card__thumbnail card__thumbnail--linkedin" aria-hidden="true"></div>
-            <span class="card__tag card__tag--linkedin">LinkedIn <span class="card__external" aria-hidden="true">&#8599;</span></span>
-            <div class="card__spacer-sm"></div>
-            <h3 class="card__title">Takes rápidos</h3>
-            <p class="card__desc">Observações de trabalho real. Mais curto, mais afiado, para abrir conversa.</p>
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <!-- ========== BORDER ========== -->
-    <div class="section-border" aria-hidden="true"></div>
-
     <!-- ========== TRABALHAR COMIGO ========== -->
     <section class="contact" id="contact" aria-labelledby="contact-heading">
       <div class="contact__accent" aria-hidden="true"></div>
       <h2 class="section-label" id="contact-heading">Contacto</h2>
       <p class="contact__body">Parcerias, ideias, ou só uma conversa sobre IA — estou disponível.</p>
 
-      <p class="contact__email-line"><a href="#" class="js-email contact__email">info [at] ricardocosta.eu</a></p>
+      <p class="contact__email-line"><a href="mailto:info@ricardocosta.eu" class="contact__email">info@ricardocosta.eu</a></p>
     </section>
 
     <!-- ========== BORDER ========== -->
@@ -270,7 +200,7 @@
         <a href="https://instagram.com/ricardocostaeu" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="https://ricardocostaeu.substack.com" target="_blank" rel="noopener noreferrer">Newsletter</a>
       </nav>
-      <a href="#" class="js-email footer__email">info [at] ricardocosta.eu</a>
+      <a href="mailto:info@ricardocosta.eu" class="footer__email">info@ricardocosta.eu</a>
     </div>
     <div class="footer__end">
       <span class="footer__end-text">Chegaste ao fim.</span>

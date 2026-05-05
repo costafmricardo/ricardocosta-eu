@@ -997,6 +997,16 @@ img { display: block; max-width: 100%; height: auto; }
   color: var(--stone);
 }
 
+/* Privacy note */
+.newsletter__privacy {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--stone);
+  opacity: 0.55;
+  margin-top: 10px;
+  text-align: center;
+}
+
 /* Social proof */
 .newsletter__social-proof {
   font-family: var(--font-mono);
