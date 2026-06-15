@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ============ SEO ============ -->
+  <title>IA prática para PMEs portuguesas — automatiza, responde mais rápido, vende mais</title>
+  <meta name="description" content="Consultoria de IA aplicada para PMEs em Portugal. Diagnóstico gratuito, implementação prática e formação da equipa. Sem jargão, focado em resultados.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_PT">
+  <meta property="og:title" content="IA prática para PMEs portuguesas — automatiza, responde mais rápido, vende mais">
+  <meta property="og:description" content="Diagnóstico gratuito, implementação prática e formação da equipa. IA aplicada ao teu negócio, sem complicações.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <style>
+    /* ============================================================
+       FONTS (Google Fonts)
+       ============================================================ */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&family=Syne+Mono&display=swap');
+
+    /* ============================================================
+       DESIGN TOKENS
+       ============================================================ */
+    :root {
+      --bg-main:      #F7F8FC; /* branco frio */
+      --bg-alt:       #EEF2FA; /* azul muito claro, secções alternadas */
+      --text-primary: #0F1928; /* azul-quase-preto */
+      --text-secondary:#4A5568; /* cinzento azulado */
+      --accent:       #1A56DB; /* azul elétrico */
+      --accent-hover: #1341B0; /* hover */
+      --highlight:    #EBF2FF; /* badges/tags */
+      --border:       #D1DCF0; /* separadores */
+      --white:        #FFFFFF;
+
+      --shadow-card:  0 2px 16px rgba(26,86,219,0.07);
+      --shadow-hover: 0 8px 32px rgba(26,86,219,0.14);
+
+      --radius-card:  12px;
+      --radius-btn:   8px;
+
+      --maxw: 1140px;
+      --font-serif: "Playfair Display", Georgia, serif;
+      --font-sans:  "DM Sans", system-ui, -apple-system, sans-serif;
+      --font-mono:  "Syne Mono", "Courier New", monospace;
+    }
+
+    /* ============================================================
+       RESET / BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      color: var(--text-primary);
+      background: var(--bg-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; max-width: 100%; }
+    ul { list-style: none; }
+
+    /* Layout helpers */
+    .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+    section { padding: 64px 0; }           /* mobile-first */
+    .section-alt { background: var(--bg-alt); }
+
+    /* Typography */
+    h1, h2, h3 { font-family: var(--font-serif); font-weight: 700; line-height: 1.15; color: var(--text-primary); letter-spacing: -0.01em; }
+    h1 { font-size: clamp(2.1rem, 6vw, 3.4rem); }
+    h2 { font-size: clamp(1.7rem, 4.5vw, 2.5rem); }
+    h3 { font-size: 1.25rem; font-weight: 600; }
+
+    .eyebrow {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--highlight);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    .lead { color: var(--text-secondary); font-size: 1.1rem; max-width: 620px; }
+
+    .section-head { max-width: 680px; margin: 0 auto 48px; text-align: center; }
+    .section-head .lead { margin: 16px auto 0; }
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: var(--font-sans); font-weight: 700; font-size: 1rem;
+      padding: 14px 26px; border-radius: var(--radius-btn);
+      cursor: pointer; border: none;
+      transition: background .2s ease, transform .2s ease, box-shadow .2s ease, border-color .2s ease, color .2s ease;
+    }
+    .btn-primary { background: var(--accent); color: var(--white); }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+    .btn-ghost {
+      background: transparent; color: var(--accent);
+      border: 1.5px solid var(--accent);
+    }
+    .btn-ghost:hover { background: var(--highlight); transform: translateY(-1px); }
+    .btn-lg { padding: 16px 32px; font-size: 1.05rem; }
+
+    /* ============================================================
+       HEADER / NAV
+       ============================================================ */
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(247,248,252,0.85);
+      backdrop-filter: saturate(160%) blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-serif); font-weight: 700; font-size: 1.2rem; }
+    .brand-mark {
+      width: 30px; height: 30px; border-radius: 8px;
+      background: var(--accent); color: var(--white);
+      display: grid; place-items: center;
+      font-family: var(--font-mono); font-size: 0.95rem;
+    }
+    .nav-links { display: none; gap: 30px; align-items: center; }
+    .nav-links a { font-weight: 500; color: var(--text-secondary); transition: color .2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav .btn { padding: 10px 18px; font-size: 0.92rem; }
+
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero { position: relative; overflow: hidden; padding: 72px 0 80px; }
+    /* Geometric mesh de fundo */
+    .hero-mesh {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      z-index: 0; pointer-events: none;
+    }
+    .hero .container { position: relative; z-index: 1; }
+
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
+
+    .hero-text h1 { margin-bottom: 20px; }
+    .hero-text .lead { margin-bottom: 32px; font-size: 1.18rem; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .hero-cta .link-arrow {
+      font-weight: 700; color: var(--accent); display: inline-flex; align-items: center; gap: 6px;
+      padding: 12px 4px;
+    }
+    .hero-cta .link-arrow svg { transition: transform .2s; }
+    .hero-cta .link-arrow:hover svg { transform: translateX(4px); }
+
+    .hero-trust { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 28px; color: var(--text-secondary); font-size: 0.92rem; }
+    .hero-trust span { display: inline-flex; align-items: center; gap: 8px; }
+    .hero-trust span::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+
+    /* Visual decorativo: diagrama de nós */
+    .hero-visual {
+      position: relative;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow-card);
+      padding: 28px;
+    }
+    .hero-visual .visual-label {
+      font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.05em;
+      color: var(--text-secondary); text-transform: uppercase; margin-bottom: 12px;
+      display: flex; justify-content: space-between;
+    }
+    .hero-visual svg { width: 100%; height: auto; }
+
+    @media (min-width: 1000px) {
+      .hero-grid { grid-template-columns: 1.05fr 0.95fr; gap: 56px; }
+    }
+
+    /* ============================================================
+       GRID UTILITIES + CARDS
+       ============================================================ */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      padding: 30px;
+      transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+    }
+    .card:hover { border-color: var(--accent); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+
+    /* Problema */
+    .grid-3 { display: grid; grid-template-columns: 1fr; gap: 22px; }
+    .problem-card .pc-icon {
+      width: 44px; height: 44px; border-radius: 10px; background: var(--highlight);
+      display: grid; place-items: center; margin-bottom: 18px; color: var(--accent);
+    }
+    .problem-card p { color: var(--text-secondary); font-size: 1.02rem; }
+
+    /* Serviços (2x2) */
+    .grid-services { display: grid; grid-template-columns: 1fr; gap: 22px; }
+    .service-card .sc-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      background: var(--accent); color: var(--white);
+      display: grid; place-items: center; margin-bottom: 20px;
+    }
+    .service-card h3 { margin-bottom: 10px; }
+    .service-card p { color: var(--text-secondary); }
+
+    @media (min-width: 768px) {
+      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+      .grid-services { grid-template-columns: repeat(2, 1fr); gap: 26px; }
+    }
+
+    /* ============================================================
+       PROCESSO
+       ============================================================ */
+    .process-wrap { position: relative; }
+    .steps { display: grid; grid-template-columns: 1fr; gap: 28px; position: relative; }
+
+    .step { position: relative; text-align: left; }
+    .step-num {
+      position: relative; font-family: var(--font-mono);
+      font-size: 4rem; line-height: 1; color: var(--highlight);
+      margin-bottom: 8px; display: inline-block;
+    }
+    /* número real por cima — efeito de layering */
+    .step-num::after {
+      content: attr(data-num);
+      position: absolute; left: 3px; top: 3px;
+      color: var(--accent); font-size: 1.5rem;
+    }
+    .step h3 { margin-bottom: 6px; font-size: 1.12rem; }
+    .step p { color: var(--text-secondary); font-size: 0.98rem; }
+
+    @media (min-width: 768px) {
+      .steps { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+      /* connector horizontal */
+      .steps::before {
+        content: ""; position: absolute; top: 28px; left: 12%; right: 12%;
+        height: 2px; background: var(--border); z-index: 0;
+      }
+      .step { z-index: 1; }
+    }
+
+    /* ============================================================
+       PROVA / CREDIBILIDADE
+       ============================================================ */
+    .proof-grid { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: stretch; }
+    .stat-card { text-align: left; }
+    .stat-num {
+      font-family: var(--font-mono); font-size: 2.6rem; line-height: 1;
+      color: var(--accent); margin-bottom: 10px;
+    }
+    .stat-card p { color: var(--text-secondary); }
+
+    .testimonial { display: flex; flex-direction: column; justify-content: center; }
+    .testimonial .quote-mark { font-family: var(--font-serif); font-size: 3rem; line-height: 0.6; color: var(--accent); margin-bottom: 14px; }
+    .testimonial blockquote { font-family: var(--font-serif); font-size: 1.2rem; font-style: italic; color: var(--text-primary); margin-bottom: 20px; }
+    .testimonial .author { display: flex; align-items: center; gap: 12px; }
+    .testimonial .avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--highlight); color: var(--accent); display: grid; place-items: center; font-family: var(--font-mono); font-weight: 700; }
+    .testimonial .author cite { font-style: normal; }
+    .testimonial .author .name { font-weight: 700; display: block; }
+    .testimonial .author .role { color: var(--text-secondary); font-size: 0.9rem; }
+
+    @media (min-width: 768px) {
+      .proof-grid { grid-template-columns: 1fr 1fr 1.4fr; }
+    }
+
+    /* ============================================================
+       FAQ (accordion)
+       ============================================================ */
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-card); margin-bottom: 14px;
+      overflow: hidden; transition: border-color .2s, box-shadow .2s;
+    }
+    .faq-item.open { border-color: var(--accent); box-shadow: var(--shadow-card); }
+    .faq-q {
+      width: 100%; text-align: left; background: none; border: none; cursor: pointer;
+      font-family: var(--font-sans); font-weight: 700; font-size: 1.05rem; color: var(--text-primary);
+      padding: 20px 22px; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    }
+    .faq-q .chev { flex: none; width: 22px; height: 22px; color: var(--accent); transition: transform .25s ease; }
+    .faq-item.open .faq-q .chev { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .faq-a p { padding: 0 22px 20px; color: var(--text-secondary); }
+
+    /* ============================================================
+       CTA FINAL (formulário)
+       ============================================================ */
+    .cta-final .container { max-width: 760px; }
+    .cta-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 16px; box-shadow: var(--shadow-card);
+      padding: 40px;
+    }
+    .cta-head { text-align: center; margin-bottom: 30px; }
+    .cta-head .lead { margin: 14px auto 0; }
+
+    form .field { margin-bottom: 18px; }
+    form .row2 { display: grid; grid-template-columns: 1fr; gap: 18px; }
+    @media (min-width: 600px) { form .row2 { grid-template-columns: 1fr 1fr; } }
+
+    label { display: block; font-weight: 500; font-size: 0.92rem; margin-bottom: 7px; color: var(--text-primary); }
+    label .opt { color: var(--text-secondary); font-weight: 400; }
+
+    input, select, textarea {
+      width: 100%; font-family: var(--font-sans); font-size: 1rem; color: var(--text-primary);
+      background: var(--bg-main); border: 1px solid var(--border); border-radius: var(--radius-btn);
+      padding: 12px 14px; transition: border-color .2s, box-shadow .2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(26,86,219,0.12);
+    }
+    textarea { resize: vertical; min-height: 110px; }
+    select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234A5568' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; }
+
+    .field.error input, .field.error select, .field.error textarea { border-color: #DC2626; }
+    .err-msg { display: none; color: #DC2626; font-size: 0.84rem; margin-top: 6px; }
+    .field.error .err-msg { display: block; }
+
+    form button[type="submit"] { width: 100%; margin-top: 6px; }
+    .form-note { text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: 16px; }
+
+    .form-success {
+      display: none; text-align: center; padding: 30px 20px;
+    }
+    .form-success.show { display: block; }
+    .form-success .check { width: 60px; height: 60px; margin: 0 auto 18px; border-radius: 50%; background: var(--highlight); color: var(--accent); display: grid; place-items: center; }
+    .form-success h3 { font-size: 1.4rem; margin-bottom: 10px; }
+    .form-success p { color: var(--text-secondary); }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .site-footer { background: var(--bg-alt); border-top: 1px solid var(--border); padding: 48px 0; }
+    .footer-grid { display: flex; flex-direction: column; gap: 24px; justify-content: space-between; align-items: flex-start; }
+    .footer-brand { font-family: var(--font-serif); font-weight: 700; font-size: 1.15rem; margin-bottom: 8px; }
+    .footer-contact a { color: var(--text-secondary); display: inline-flex; align-items: center; gap: 8px; }
+    .footer-contact a:hover { color: var(--accent); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    .footer-legal { color: var(--text-secondary); font-size: 0.88rem; }
+    .footer-legal a:hover { color: var(--accent); }
+
+    @media (min-width: 768px) {
+      .footer-grid { flex-direction: row; align-items: center; }
+    }
+
+    /* ============================================================
+       ANIMAÇÕES DE ENTRADA (Intersection Observer)
+       ============================================================ */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      * { animation: none !important; }
+    }
+
+    /* ============================================================
+       DESKTOP SPACING
+       ============================================================ */
+    @media (min-width: 768px) {
+      section { padding: 96px 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Navegação principal">
+        <a class="brand" href="#top">
+          <span class="brand-mark">IA</span>
+          <span>Consultoria&nbsp;IA</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#processo">Como funciona</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a class="btn btn-primary" href="#contacto">Diagnóstico gratuito</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ 1. HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <!-- Geometric mesh subtil (linhas finas, opacidade 0.06) -->
+      <svg class="hero-mesh" aria-hidden="true" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 700">
+        <defs>
+          <pattern id="mesh" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M60 0 L0 0 0 60" fill="none" stroke="#1A56DB" stroke-width="1" opacity="0.06"/>
+          </pattern>
+          <pattern id="meshDiag" width="120" height="120" patternUnits="userSpaceOnUse">
+            <path d="M0 120 L120 0" fill="none" stroke="#1A56DB" stroke-width="1" opacity="0.05"/>
+            <path d="M0 0 L120 120" fill="none" stroke="#1A56DB" stroke-width="1" opacity="0.05"/>
+          </pattern>
+        </defs>
+        <rect width="1200" height="700" fill="url(#mesh)"/>
+        <rect width="1200" height="700" fill="url(#meshDiag)"/>
+      </svg>
+
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Coluna texto -->
+          <div class="hero-text reveal">
+            <span class="eyebrow">IA aplicada a PMEs portuguesas</span>
+            <h1 id="hero-title">A tua empresa poupa horas e vende mais — com IA aplicada ao teu negócio.</h1>
+            <p class="lead">Diagnóstico, implementação prática e formação. Sem complicações.</p>
+            <div class="hero-cta">
+              <a class="btn btn-primary btn-lg" href="#contacto">Pedir diagnóstico gratuito</a>
+              <a class="link-arrow" href="#processo">
+                Ver como funciona
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+            <div class="hero-trust">
+              <span>Sem jargão técnico</span>
+              <span>Resultados em &lt; 30 dias</span>
+              <span>RGPD &amp; dados seguros</span>
+            </div>
+          </div>
+
+          <!-- Coluna visual: diagrama abstrato de nós conectados -->
+          <div class="hero-visual reveal">
+            <div class="visual-label">
+              <span>fluxo_de_trabalho</span>
+              <span>ia · automação</span>
+            </div>
+            <svg viewBox="0 0 420 320" role="img" aria-label="Diagrama abstrato de nós conectados representando automação com IA">
+              <!-- ligações -->
+              <g stroke="#1A56DB" stroke-width="1.5" fill="none" opacity="0.45">
+                <path d="M70 80 C140 80, 160 160, 230 160"/>
+                <path d="M70 160 L230 160"/>
+                <path d="M70 240 C140 240, 160 160, 230 160"/>
+                <path d="M230 160 C300 160, 320 90, 360 90"/>
+                <path d="M230 160 C300 160, 320 230, 360 230"/>
+              </g>
+              <!-- nós de entrada -->
+              <g fill="#EBF2FF" stroke="#1A56DB" stroke-width="1.5">
+                <circle cx="70" cy="80" r="16"/>
+                <circle cx="70" cy="160" r="16"/>
+                <circle cx="70" cy="240" r="16"/>
+              </g>
+              <!-- nó central (IA) -->
+              <circle cx="230" cy="160" r="30" fill="#1A56DB"/>
+              <text x="230" y="166" text-anchor="middle" fill="#FFFFFF" font-family="Syne Mono, monospace" font-size="16">IA</text>
+              <!-- nós de saída -->
+              <g fill="#FFFFFF" stroke="#1A56DB" stroke-width="1.5">
+                <circle cx="360" cy="90" r="16"/>
+                <circle cx="360" cy="230" r="16"/>
+              </g>
+              <!-- ícones simples nos nós -->
+              <g stroke="#1A56DB" stroke-width="1.6" fill="none" stroke-linecap="round">
+                <path d="M64 80 h12 M70 74 v12"/>
+                <path d="M64 160 h12 M70 154 v12"/>
+                <path d="M64 240 h12 M70 234 v12"/>
+              </g>
+              <g stroke="#1A56DB" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M354 90 l4 4 8 -8"/>
+                <path d="M354 230 l4 4 8 -8"/>
+              </g>
+            </svg>
+            <div class="visual-label" style="margin-top:14px;margin-bottom:0;">
+              <span>entradas → decisão → ação</span>
+              <span>24/7</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2. PROBLEMA ============ -->
+    <section class="section-alt" aria-labelledby="problema-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">O que te está a travar</span>
+          <h2 id="problema-title">Reconheces algum destes problemas?</h2>
+        </div>
+        <div class="grid-3">
+          <article class="card problem-card reveal">
+            <div class="pc-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </div>
+            <p>A tua equipa perde tempo com tarefas repetitivas que podiam ser automáticas.</p>
+          </article>
+          <article class="card problem-card reveal">
+            <div class="pc-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 20l1.1-4.1A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/></svg>
+            </div>
+            <p>Respondes tarde a clientes e perdes negócio para quem responde mais rápido.</p>
+          </article>
+          <article class="card problem-card reveal">
+            <div class="pc-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2.5-3 2.5"/><path d="M12 17h.01"/></svg>
+            </div>
+            <p>Já ouviste falar de IA mas não sabes por onde começar sem arriscar dinheiro.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. SERVIÇOS ============ -->
+    <section id="servicos" aria-labelledby="servicos-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">O que fazemos</span>
+          <h2 id="servicos-title">IA prática, aplicada onde dá retorno</h2>
+          <p class="lead">Não vendemos tecnologia. Resolvemos problemas concretos do teu dia-a-dia.</p>
+        </div>
+        <div class="grid-services">
+          <article class="card service-card reveal">
+            <div class="sc-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/><circle cx="12" cy="12" r="4"/></svg>
+            </div>
+            <h3>Automação de processos internos</h3>
+            <p>Elimina tarefas manuais: propostas, follow-ups, relatórios.</p>
+          </article>
+          <article class="card service-card reveal">
+            <div class="sc-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-7-7 18-2.5-7L3 11z"/></svg>
+            </div>
+            <h3>IA para marketing e vendas</h3>
+            <p>Conteúdo, campanhas e qualificação de leads com IA.</p>
+          </article>
+          <article class="card service-card reveal">
+            <div class="sc-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg>
+            </div>
+            <h3>Chatbots e atendimento automático</h3>
+            <p>Responde a clientes 24h via website, WhatsApp ou email.</p>
+          </article>
+          <article class="card service-card reveal">
+            <div class="sc-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg>
+            </div>
+            <h3>Formação e adoção da equipa</h3>
+            <p>A tua equipa aprende a usar IA no dia-a-dia sem depender de ti.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. PROCESSO ============ -->
+    <section id="processo" class="section-alt" aria-labelledby="processo-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Como funciona</span>
+          <h2 id="processo-title">Do diagnóstico ao resultado, em 4 passos</h2>
+        </div>
+        <div class="process-wrap">
+          <div class="steps">
+            <div class="step reveal">
+              <span class="step-num" data-num="01" aria-hidden="true">01</span>
+              <h3>Diagnóstico gratuito</h3>
+              <p>30 minutos para perceber o teu negócio e onde perdes tempo.</p>
+            </div>
+            <div class="step reveal">
+              <span class="step-num" data-num="02" aria-hidden="true">02</span>
+              <h3>Onde a IA dá retorno</h3>
+              <p>Identificamos os processos onde a IA traz retorno real.</p>
+            </div>
+            <div class="step reveal">
+              <span class="step-num" data-num="03" aria-hidden="true">03</span>
+              <h3>Implementação em piloto</h3>
+              <p>Colocamos a solução a funcionar em 2 a 4 semanas.</p>
+            </div>
+            <div class="step reveal">
+              <span class="step-num" data-num="04" aria-hidden="true">04</span>
+              <h3>Formação e acompanhamento</h3>
+              <p>A equipa aprende a usar e nós acompanhamos os resultados.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. PROVA / CREDIBILIDADE ============ -->
+    <section aria-labelledby="prova-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Resultados reais</span>
+          <h2 id="prova-title">Números que fazem diferença no fim do mês</h2>
+        </div>
+        <div class="proof-grid">
+          <article class="card stat-card reveal">
+            <div class="stat-num">+40h</div>
+            <p>Mais de 40 horas poupadas por mês em média, por equipa.</p>
+          </article>
+          <article class="card stat-card reveal">
+            <div class="stat-num">&lt;30</div>
+            <p>Implementação de um primeiro piloto em menos de 30 dias.</p>
+          </article>
+          <article class="card testimonial reveal">
+            <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+            <blockquote>Automatizámos os follow-ups e o atendimento. Hoje respondemos em minutos e a equipa ficou livre para o que importa.</blockquote>
+            <div class="author">
+              <span class="avatar" aria-hidden="true">NC</span>
+              <cite>
+                <span class="name">[Nome do Cliente]</span>
+                <span class="role">[Cargo], [Empresa]</span>
+              </cite>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. FAQ ============ -->
+    <section id="faq" class="section-alt" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Perguntas frequentes</span>
+          <h2 id="faq-title">Tudo o que precisas de saber antes de começar</h2>
+        </div>
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Preciso de ter conhecimentos técnicos?
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-a"><p>Não. Tratamos de tudo — da configuração à manutenção. Tu focas-te no negócio.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Quanto tempo demora a implementação?
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-a"><p>Entre 2 e 4 semanas para um primeiro piloto a funcionar no teu negócio.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              É caro?
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-a"><p>Começamos com um diagnóstico gratuito. Depois, definimos um plano ao teu orçamento.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Os meus dados ficam seguros?
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-a"><p>Sim. Trabalhamos com fornecedores certificados e em total conformidade com o RGPD.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Funciona para a minha área de negócio?
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-a"><p>Já trabalhámos com serviços, comércio, saúde e imobiliário. A IA adapta-se ao teu contexto.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. CTA FINAL ============ -->
+    <section id="contacto" class="cta-final" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-card reveal">
+          <div class="cta-head">
+            <span class="eyebrow">Diagnóstico gratuito</span>
+            <h2 id="cta-title">Começa com um diagnóstico gratuito de 30 minutos.</h2>
+            <p class="lead">Conta-nos onde perdes tempo. Mostramos-te onde a IA pode ajudar.</p>
+          </div>
+
+          <form id="diag-form" novalidate>
+            <div class="row2">
+              <div class="field">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" autocomplete="name" required>
+                <span class="err-msg">Indica o teu nome.</span>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+                <span class="err-msg">Indica um email válido.</span>
+              </div>
+            </div>
+            <div class="row2">
+              <div class="field">
+                <label for="telefone">Telefone <span class="opt">(opcional)</span></label>
+                <input type="tel" id="telefone" name="telefone" autocomplete="tel">
+                <span class="err-msg">Número inválido.</span>
+              </div>
+              <div class="field">
+                <label for="area">Área de negócio</label>
+                <select id="area" name="area" required>
+                  <option value="" disabled selected>Seleciona…</option>
+                  <option>Serviços</option>
+                  <option>Imobiliário</option>
+                  <option>Clínicas / Saúde</option>
+                  <option>Contabilidade</option>
+                  <option>Comércio / Retalho</option>
+                  <option>Outra</option>
+                </select>
+                <span class="err-msg">Seleciona a tua área.</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" placeholder="Conta-nos o que gostarias de automatizar ou melhorar."></textarea>
+              <span class="err-msg">Escreve uma breve mensagem.</span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">Quero o meu diagnóstico</button>
+            <p class="form-note">Sem compromisso. Respondemos em menos de 24h.</p>
+          </form>
+
+          <!-- Mensagem de sucesso (após submissão válida) -->
+          <div class="form-success" id="form-success" role="status" aria-live="polite">
+            <div class="check" aria-hidden="true">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <h3>Pedido recebido!</h3>
+            <p>Obrigado. Entramos em contacto em menos de 24 horas para agendar o teu diagnóstico.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ 8. FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Consultoria IA</div>
+          <div class="footer-contact">
+            <a href="mailto:ola@consultoria-ia.pt">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              ola@consultoria-ia.pt
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+            <span style="display:inline-flex;align-items:center;gap:8px;color:var(--text-secondary);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21H9z"/></svg>
+              LinkedIn
+            </span>
+          </a>
+        </div>
+        <div class="footer-legal">
+          © 2025 · <a href="#">Política de Privacidade</a> · <a href="#">RGPD</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ============================================================
+       1. INTERSECTION OBSERVER — animações de entrada com stagger
+       ============================================================ */
+    (function () {
+      var reveals = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        reveals.forEach(function (el) { el.classList.add('visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries, obs) {
+        // Agrupa entradas visíveis para aplicar stagger de 80ms
+        var batch = entries.filter(function (e) { return e.isIntersecting; });
+        batch.forEach(function (entry, i) {
+          var el = entry.target;
+          setTimeout(function () { el.classList.add('visible'); }, i * 80);
+          obs.unobserve(el);
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      reveals.forEach(function (el) { observer.observe(el); });
+    })();
+
+    /* ============================================================
+       2. FAQ ACCORDION
+       ============================================================ */
+    (function () {
+      var items = document.querySelectorAll('.faq-item');
+      items.forEach(function (item) {
+        var btn = item.querySelector('.faq-q');
+        var ans = item.querySelector('.faq-a');
+        btn.addEventListener('click', function () {
+          var isOpen = item.classList.contains('open');
+          // Fecha todos (comportamento de accordion único)
+          items.forEach(function (other) {
+            other.classList.remove('open');
+            other.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+            other.querySelector('.faq-a').style.maxHeight = null;
+          });
+          if (!isOpen) {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+            ans.style.maxHeight = ans.scrollHeight + 'px';
+          }
+        });
+      });
+    })();
+
+    /* ============================================================
+       3. VALIDAÇÃO DO FORMULÁRIO (client-side)
+       ============================================================ */
+    (function () {
+      var form = document.getElementById('diag-form');
+      var success = document.getElementById('form-success');
+      if (!form) return;
+
+      var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      function setError(field, hasError) {
+        field.classList.toggle('error', hasError);
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var valid = true;
+
+        // Campos obrigatórios
+        var nome = document.getElementById('nome');
+        var email = document.getElementById('email');
+        var area = document.getElementById('area');
+
+        var nomeOk = nome.value.trim() !== '';
+        setError(nome.closest('.field'), !nomeOk);
+        if (!nomeOk) valid = false;
+
+        var emailOk = emailRe.test(email.value.trim());
+        setError(email.closest('.field'), !emailOk);
+        if (!emailOk) valid = false;
+
+        var areaOk = area.value !== '';
+        setError(area.closest('.field'), !areaOk);
+        if (!areaOk) valid = false;
+
+        if (!valid) {
+          var firstErr = form.querySelector('.field.error input, .field.error select');
+          if (firstErr) firstErr.focus();
+          return;
+        }
+
+        // Submissão válida — feedback (sem backend, demonstração)
+        form.style.display = 'none';
+        success.classList.add('show');
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+
+      // Limpa o erro ao corrigir
+      form.querySelectorAll('input, select, textarea').forEach(function (el) {
+        el.addEventListener('input', function () { setError(el.closest('.field'), false); });
+        el.addEventListener('change', function () { setError(el.closest('.field'), false); });
+      });
+    })();
+  </script>
+</body>
+</html>
