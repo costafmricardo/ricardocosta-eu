@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pensar antes de comprar IA — Guia gratuito | Ricardo Costa</title>
-  <meta name="description" content="A alavanca não é a ferramenta. É o pensar antes dela. Três perguntas, o primeiro passo (hoje, zero euros) e os dois erros a evitar antes de comprar IA.">
+  <meta name="description" content="A alavanca não é a ferramenta. É o pensar antes dela. Um teste de decisão em duas perguntas, quatro modos, o primeiro passo (hoje, zero euros) e as bandeiras vermelhas antes de comprar IA.">
   <meta name="author" content="Ricardo Costa">
   <link rel="canonical" href="https://ricardocosta.eu/guia">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Pensar antes de comprar IA — Guia gratuito">
-  <meta property="og:description" content="A alavanca não é a ferramenta. É o pensar antes dela. Três perguntas e o primeiro passo, hoje, zero euros.">
+  <meta property="og:description" content="A alavanca não é a ferramenta. É o pensar antes dela. Um teste de decisão em duas perguntas para saber o que automatizar — e o que não.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://ricardocosta.eu/guia">
   <meta property="og:locale" content="pt_PT">
@@ -29,7 +29,7 @@
   <!-- Fonts — same stack as the site -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Outfit:wght@300;400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Outfit:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>R</text></svg>">
@@ -38,17 +38,17 @@
     /* ==========================================================================
        PENSAR ANTES DE COMPRAR IA — one-pager standalone
        Design System: Forge (Dark) — self-contained, não herda o chrome do site
+       Paleta: Ash · Chalk · Forge · #999 (metadata). Sem cores/fontes novas.
        ========================================================================== */
 
     :root {
       --forge:        #FF6B2B;
       --forge-bright: #FF8C42;
       --ash:          #171411;
-      --ash-mid:      #221E19;
-      --ember:        #2A2520;
-      --stone:        #948779;
-      --chalk:        #EDE6DD;
-      --chalk-dim:    #BDB3A6;
+      --ash-mid:      #221E19;   /* elevação de superfície (não é cor nova) */
+      --ember:        #2A2520;   /* elevação de superfície */
+      --chalk:        #EDE6DD;   /* texto primário */
+      --meta:         #999999;   /* metadata secundária — só labels/handle/url */
       --chalk-10:     rgba(237, 230, 221, 0.1);
       --chalk-06:     rgba(237, 230, 221, 0.06);
 
@@ -56,8 +56,9 @@
       --font-body:    'Outfit', 'Helvetica Neue', sans-serif;
       --font-mono:    'Space Mono', 'Courier New', monospace;
 
-      --max-w: 720px;
-      --radius: 10px;
+      --max-w:   720px;
+      --measure: 64ch;   /* largura de medida ~60–75 caracteres */
+      --radius:  10px;
 
       /* Grain — SVG filter, CSS only (mesmo do site) */
       --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
@@ -71,9 +72,9 @@
       font-family: var(--font-body);
       background: var(--ash);
       color: var(--chalk);
-      font-size: 17px;
-      font-weight: 300;
-      line-height: 1.65;
+      font-size: 18px;          /* mínimo de corpo: 18px (1.125rem) */
+      font-weight: 400;         /* desvio aprovado ao 300 do sistema, p/ legibilidade em ecrã */
+      line-height: 1.6;
       min-height: 100vh;
       overflow-x: hidden;
     }
@@ -82,7 +83,7 @@
 
     a { color: var(--forge); text-underline-offset: 3px; }
     a:focus-visible,
-    button:focus-visible { outline: 2px solid var(--forge); outline-offset: 3px; border-radius: 4px; }
+    button:focus-visible { outline: 3px solid var(--forge); outline-offset: 3px; border-radius: 4px; }
 
     /* ---------- GRAIN (em todas as superfícies) ---------- */
     .grain-overlay {
@@ -97,7 +98,7 @@
       top: -20%; left: 50%;
       transform: translateX(-50%);
       width: 680px; height: 680px;
-      max-width: 120vw;
+      max-width: 100vw;
       background: radial-gradient(circle, rgba(255, 107, 43, 0.10) 0%, transparent 65%);
       pointer-events: none; z-index: 0;
     }
@@ -110,10 +111,13 @@
       padding: 56px 24px 72px;
     }
 
+    /* measure — parágrafos não correm a largura toda */
+    .lede, .q__text, .steps li, .errors li, .flags li, .mode__ex, .mode__note { max-width: var(--measure); }
+
     /* ---------- HEADER ---------- */
     .eyebrow {
       font-family: var(--font-mono);
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -132,16 +136,17 @@
       color: var(--chalk);
     }
 
+    /* tese — momento editorial (Instrument Serif itálico), texto primário */
     .thesis {
       font-family: var(--font-display);
       font-style: italic;
-      font-size: clamp(1.3rem, 4.5vw, 1.65rem);
-      line-height: 1.35;
-      color: var(--chalk-dim);
+      font-weight: 400;
+      font-size: clamp(1.5rem, 5vw, 1.85rem);
+      line-height: 1.3;
+      color: var(--chalk);
       margin-top: 22px;
-      max-width: 34ch;
+      max-width: 30ch;
     }
-    .thesis strong { color: var(--chalk); font-style: italic; font-weight: 400; }
 
     .rule {
       height: 1px;
@@ -151,30 +156,33 @@
     }
 
     /* ---------- SECTION ---------- */
-    .section { margin-top: 44px; }
+    .section { margin-top: 48px; }
 
     .section__label {
       font-family: var(--font-body);
       font-weight: 800;
-      font-size: clamp(1.35rem, 5vw, 1.7rem);
-      letter-spacing: -0.01em;
+      font-size: clamp(1.3rem, 4.6vw, 1.6rem);
+      letter-spacing: 0.005em;
+      text-transform: uppercase;     /* Outfit 800 uppercase = estrutura */
       color: var(--chalk);
-      margin-bottom: 22px;
+      margin-bottom: 10px;
       line-height: 1.15;
     }
 
-    /* ---------- QUESTIONS (numbered) ---------- */
+    .lede { color: var(--chalk); margin-bottom: 22px; }
+
+    /* ---------- QUESTIONS / TESTE (numbered) ---------- */
     .questions { list-style: none; }
-    .q { display: flex; gap: 16px; margin-bottom: 22px; }
+    .q { display: flex; gap: 16px; margin-bottom: 24px; }
     .q:last-child { margin-bottom: 0; }
     .q__num {
       flex: 0 0 auto;
       font-family: var(--font-mono);
       font-weight: 700;
-      font-size: 14px;
+      font-size: 15px;
       color: var(--forge);
-      width: 30px; height: 30px;
-      border: 1px solid rgba(255, 107, 43, 0.4);
+      width: 34px; height: 34px;
+      border: 1px solid rgba(255, 107, 43, 0.45);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       margin-top: 2px;
@@ -182,12 +190,66 @@
     .q__body { flex: 1 1 auto; }
     .q__head {
       font-weight: 700;
-      font-size: 1.08rem;
+      font-size: 1.18rem;
       color: var(--chalk);
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
+      line-height: 1.25;
     }
-    .q__text { color: var(--chalk-dim); }
+    .q__text { color: var(--chalk); }
+    .q__text b { font-weight: 700; }
+
+    /* ---------- OS QUATRO MODOS ---------- */
+    .modes { list-style: none; display: grid; gap: 14px; }
+    .mode {
+      background: var(--ash-mid);
+      border: 1px solid var(--chalk-06);
+      border-left: 3px solid var(--chalk-10);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+    }
+    .mode--key { border-left-color: var(--forge); background: var(--ember); }
+    .mode__quad {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--meta);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .mode__tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ash);
+      background: var(--forge);
+      padding: 3px 9px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .mode__verdict {
+      font-family: var(--font-body);
+      font-weight: 800;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      color: var(--chalk);
+      margin-bottom: 6px;
+    }
+    .mode--key .mode__verdict { color: var(--forge); }
+    .mode__ex { color: var(--chalk); }
+    .mode__note {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.18rem;
+      line-height: 1.35;
+      color: var(--chalk);
+      margin-top: 10px;
+    }
 
     /* ---------- CALLOUT (primeiro passo) ---------- */
     .callout {
@@ -201,9 +263,9 @@
     .steps { list-style: none; }
     .steps li {
       position: relative;
-      padding-left: 26px;
-      margin-bottom: 12px;
-      color: var(--chalk-dim);
+      padding-left: 28px;
+      margin-bottom: 14px;
+      color: var(--chalk);
     }
     .steps li:last-child { margin-bottom: 0; }
     .steps li::before {
@@ -212,15 +274,15 @@
       color: var(--forge);
       font-weight: 700;
     }
-    .steps strong { color: var(--chalk); font-weight: 500; }
+    .steps strong { font-weight: 600; }
 
-    /* ---------- ERROS ---------- */
+    /* ---------- OS DOIS ERROS ---------- */
     .errors { list-style: none; }
     .errors li {
       position: relative;
-      padding-left: 28px;
-      margin-bottom: 14px;
-      color: var(--chalk-dim);
+      padding-left: 30px;
+      margin-bottom: 16px;
+      color: var(--chalk);
     }
     .errors li:last-child { margin-bottom: 0; }
     .errors li::before {
@@ -231,10 +293,37 @@
       font-family: var(--font-mono);
     }
 
+    /* ---------- BANDEIRAS VERMELHAS ---------- */
+    .flags { list-style: none; }
+    .flags li {
+      border-left: 2px solid var(--forge);
+      padding-left: 16px;
+      margin-bottom: 18px;
+      color: var(--chalk);
+    }
+    .flags li:last-child { margin-bottom: 0; }
+    .flags strong { font-weight: 700; }
+
+    /* ---------- TAKEAWAY (a frase que levam para casa) ---------- */
+    .takeaway {
+      margin-top: 56px;
+      text-align: center;
+    }
+    .takeaway__mark { width: 48px; height: 2px; background: var(--forge); margin: 0 auto 26px; }
+    .takeaway__line {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.6rem, 6vw, 2.1rem);
+      line-height: 1.25;
+      color: var(--chalk);
+      max-width: 22ch;
+      margin: 0 auto;
+    }
+
     /* ---------- CTA / FECHO ---------- */
     .cta {
       margin-top: 52px;
-      padding: 32px 28px;
+      padding: 34px 28px;
       background: var(--ember);
       border: 1px solid var(--chalk-06);
       border-radius: var(--radius);
@@ -243,23 +332,25 @@
     .cta__lead {
       font-family: var(--font-display);
       font-style: italic;
-      font-size: clamp(1.25rem, 4.5vw, 1.55rem);
+      font-size: clamp(1.35rem, 5vw, 1.65rem);
       color: var(--chalk);
-      line-height: 1.35;
+      line-height: 1.3;
       max-width: 30ch;
-      margin: 0 auto 22px;
+      margin: 0 auto 24px;
     }
     .cta__btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
+      min-height: 48px;
       background: var(--forge);
-      color: var(--ash);
+      color: var(--ash);            /* texto escuro sobre Forge — AA ✓ */
       font-family: var(--font-body);
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 1.05rem;
       text-decoration: none;
-      padding: 14px 26px;
+      padding: 14px 28px;
       border-radius: var(--radius);
       transition: background 200ms cubic-bezier(0.4,0,0.2,1), transform 200ms cubic-bezier(0.4,0,0.2,1);
     }
@@ -268,9 +359,9 @@
     .cta__url {
       display: block;
       font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--stone);
-      margin-top: 14px;
+      font-size: 13px;
+      color: var(--meta);
+      margin-top: 16px;
       word-break: break-word;
     }
 
@@ -284,29 +375,30 @@
       border-top: 1px solid var(--chalk-06);
       display: flex;
       flex-wrap: wrap;
-      gap: 14px 20px;
+      gap: 16px 20px;
       align-items: center;
       justify-content: space-between;
     }
     .foot__handle {
       font-family: var(--font-mono);
-      font-size: 12px;
+      font-size: 13px;
       letter-spacing: 0.04em;
-      color: var(--stone);
+      color: var(--meta);
     }
-    .foot__handle a { color: var(--chalk-dim); text-decoration: none; }
-    .foot__handle a:hover { color: var(--forge); }
+    .foot__handle a { color: var(--chalk); text-decoration: none; }
+    .foot__handle a:hover { color: var(--forge); text-decoration: underline; }
     .print-btn {
       font-family: var(--font-mono);
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--chalk-dim);
+      color: var(--chalk);
       background: transparent;
       border: 1px solid var(--chalk-10);
       border-radius: 6px;
-      padding: 13px 18px;
+      min-height: 44px;
+      padding: 12px 18px;
       cursor: pointer;
       transition: border-color 200ms, color 200ms;
     }
@@ -314,17 +406,21 @@
 
     @media (max-width: 480px) {
       .wrap { padding: 40px 20px 56px; }
-      body { font-size: 16px; font-weight: 400; }
       .glow { max-width: 100vw; }
       .foot { padding-left: 20px; padding-right: 20px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      * { transition: none !important; }
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
     }
 
     /* ==========================================================================
-       PRINT — A4 limpa, uma página, fundo branco (o "papel" prometido em palco)
+       PRINT — A4 legível, fundo branco, quebras limpas (o "papel" prometido)
        ========================================================================== */
     @media print {
       @page { size: A4; margin: 14mm; }
@@ -338,52 +434,59 @@
       .grain-overlay, .glow, .print-btn { display: none !important; }
 
       .wrap { max-width: 100%; padding: 0; }
+      .section { margin-top: 16px; }
+      .mode, .callout, .cta, .q, .flags li, .takeaway { page-break-inside: avoid; }
 
       .eyebrow { color: #C2541F; margin-bottom: 8px; font-size: 9pt; }
-      .title { font-size: 30pt; color: #111; }
-      .thesis { font-size: 13pt; color: #444; margin-top: 10px; }
-      .rule { margin: 16px 0; background: #C2541F; }
+      .title { font-size: 28pt; color: #111; }
+      .thesis { font-size: 13pt; color: #222; margin-top: 10px; }
+      .rule { margin: 14px 0; background: #C2541F; }
 
-      .section { margin-top: 18px; }
-      .section__label { font-size: 13pt; color: #111; margin-bottom: 10px; }
+      .section__label { font-size: 13pt; color: #111; margin-bottom: 8px; }
+      .lede { color: #222; margin-bottom: 12px; }
 
       .q { margin-bottom: 10px; gap: 10px; }
       .q__num { color: #C2541F; border-color: #C2541F; width: 22px; height: 22px; font-size: 10pt; }
-      .q__head { color: #111; font-size: 11pt; }
-      .q__text, .steps li, .errors li, .thesis { color: #333; }
+      .q__head, .mode__verdict { color: #111; font-size: 11pt; }
+      .q__text, .steps li, .errors li, .flags li, .mode__ex, .mode__note { color: #222; }
+
+      .modes { gap: 8px; }
+      .mode {
+        background: #faf7f3 !important; border: 1px solid #ddd; border-left: 3px solid #C2541F;
+        padding: 10px 12px; -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+      .mode--key { background: #fdf1e9 !important; }
+      .mode--key .mode__verdict { color: #C2541F; }
+      .mode__quad { color: #555; }
+      .mode__tag {
+        color: #fff; background: #C2541F; -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+      .flags li { border-left-color: #C2541F; }
 
       .callout {
-        background: #faf7f3 !important;
-        border: 1px solid #ddd;
-        border-left: 3px solid #C2541F;
-        padding: 14px 16px;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        background: #faf7f3 !important; border: 1px solid #ddd; border-left: 3px solid #C2541F;
+        padding: 12px 14px; -webkit-print-color-adjust: exact; print-color-adjust: exact;
       }
-      .steps strong, .errors strong { color: #111; }
       .steps li::before, .errors li::before { color: #C2541F; }
 
-      .cta {
-        margin-top: 22px;
-        background: #faf7f3 !important;
-        border: 1px solid #ddd;
-        padding: 16px;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-      .cta__lead { font-size: 13pt; color: #111; margin-bottom: 10px; }
-      .cta__btn {
-        background: transparent !important;
-        color: #C2541F !important;
-        border: 1px solid #C2541F;
-        padding: 6px 14px;
-        font-size: 10.5pt;
-      }
-      .cta__url { color: #666; margin-top: 8px; }
+      .takeaway { margin-top: 18px; }
+      .takeaway__mark { background: #C2541F; margin-bottom: 10px; }
+      .takeaway__line { font-size: 15pt; color: #111; }
 
-      .foot { max-width: 100%; margin: 18px 0 0; padding: 12px 0 0; border-top: 1px solid #ddd; }
-      .foot__handle { color: #666; }
-      .foot__handle a { color: #444; }
+      .cta {
+        margin-top: 18px; background: #faf7f3 !important; border: 1px solid #ddd;
+        padding: 14px; -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+      .cta__lead { font-size: 12pt; color: #111; margin-bottom: 8px; }
+      .cta__btn {
+        background: transparent !important; color: #C2541F !important; border: 1px solid #C2541F;
+        padding: 6px 14px; font-size: 10.5pt; min-height: 0;
+      }
+      .cta__url { color: #555; margin-top: 8px; }
+
+      .foot { max-width: 100%; margin: 16px 0 0; padding: 10px 0 0; border-top: 1px solid #ddd; }
+      .foot__handle { color: #555; }
+      .foot__handle a { color: #222; }
       a { color: #C2541F; }
     }
   </style>
@@ -397,40 +500,67 @@
     <header>
       <span class="eyebrow">Guia gratuito</span>
       <h1 class="title">Pensar antes de comprar IA</h1>
-      <p class="thesis">A alavanca não é a ferramenta. <strong>É o pensar antes dela.</strong></p>
+      <p class="thesis">A alavanca não é a ferramenta. É o pensar antes dela.</p>
     </header>
 
     <hr class="rule">
 
-    <!-- AS TRÊS PERGUNTAS -->
-    <section class="section" aria-labelledby="perguntas-h">
-      <h2 class="section__label" id="perguntas-h">As três perguntas</h2>
+    <!-- O TESTE — DUAS PERGUNTAS -->
+    <section class="section" aria-labelledby="teste-h">
+      <h2 class="section__label" id="teste-h">O teste: duas perguntas</h2>
+      <p class="lede">Antes de automatizar qualquer tarefa, responde a duas:</p>
 
       <ol class="questions">
         <li class="q">
           <span class="q__num" aria-hidden="true">1</span>
           <div class="q__body">
-            <h3 class="q__head">O que vale a pena automatizar?</h3>
-            <p class="q__text">O que se repete e te rouba tempo há mais de um ano. Não o difícil — o chato.</p>
+            <h3 class="q__head">A tarefa é definida ou de julgamento?</h3>
+            <p class="q__text"><b>Definida</b> = consigo escrever os passos. <b>Julgamento</b> = depende do contexto, do cliente, da pessoa.</p>
           </div>
         </li>
 
         <li class="q">
           <span class="q__num" aria-hidden="true">2</span>
           <div class="q__body">
-            <h3 class="q__head">O que NÃO deves automatizar?</h3>
-            <p class="q__text">O que exige julgamento, confiança ou relação. O cliente de há 20 anos, o telefonema difícil. É a razão de o negócio existir.</p>
-          </div>
-        </li>
-
-        <li class="q">
-          <span class="q__num" aria-hidden="true">3</span>
-          <div class="q__body">
-            <h3 class="q__head">Estás pronto?</h3>
-            <p class="q__text">Duas coisas antes de qualquer ferramenta: a informação junta num sítio só (nem que seja um Excel) e o processo claro. Se não o explicas a um estagiário, não o explicas a uma IA.</p>
+            <h3 class="q__head">Se correr mal, o erro é barato ou caro?</h3>
+            <p class="q__text">Barato e reversível, ou caro e difícil de desfazer? Cliente perdido, confiança, dinheiro, lei.</p>
           </div>
         </li>
       </ol>
+    </section>
+
+    <!-- OS QUATRO MODOS -->
+    <section class="section" aria-labelledby="modos-h">
+      <h2 class="section__label" id="modos-h">Os quatro modos</h2>
+      <p class="lede">Cruza as duas respostas. Quatro situações, quatro decisões:</p>
+
+      <ul class="modes">
+        <li class="mode">
+          <span class="mode__quad">Definida · erro barato</span>
+          <p class="mode__verdict">Deixa correr.</p>
+          <p class="mode__ex">Classificar pedidos, primeiro rascunho de descrições, resumir conversas.</p>
+        </li>
+
+        <li class="mode mode--key">
+          <span class="mode__tag">O meio-termo</span>
+          <span class="mode__quad">Definida · erro caro</span>
+          <p class="mode__verdict">A máquina faz, tu carimbas antes de sair.</p>
+          <p class="mode__ex">Orçamentos, emails a clientes, tudo o que um cliente ou regulador vê.</p>
+          <p class="mode__note">É aqui que vive a maior parte do uso real numa PME — o meio-termo que as listas de duas colunas ignoram.</p>
+        </li>
+
+        <li class="mode">
+          <span class="mode__quad">Julgamento · erro barato</span>
+          <p class="mode__verdict">Parceiro de rascunho.</p>
+          <p class="mode__ex">Brainstorm, explorar ângulos. Tu ao volante.</p>
+        </li>
+
+        <li class="mode">
+          <span class="mode__quad">Julgamento · erro caro</span>
+          <p class="mode__verdict">Não delegues.</p>
+          <p class="mode__ex">Preço, contratações, a promessa da marca, o cliente difícil. A IA informa; não decide.</p>
+        </li>
+      </ul>
     </section>
 
     <!-- O PRIMEIRO PASSO -->
@@ -452,6 +582,23 @@
         <li>Comprar antes de perceber o problema.</li>
         <li>Esperar que a IA faça tudo sozinha. Quem manda continua deste lado.</li>
       </ul>
+    </section>
+
+    <!-- BANDEIRAS VERMELHAS -->
+    <section class="section" aria-labelledby="flags-h">
+      <h2 class="section__label" id="flags-h">Três bandeiras vermelhas</h2>
+      <p class="lede">Três sinais de que estás a automatizar a coisa errada:</p>
+      <ul class="flags">
+        <li>Não consigo descrever o processo a um estagiário. <strong>Se não o explicas a um estagiário, não o explicas a uma IA.</strong></li>
+        <li>A tarefa <strong>é</strong> a relação — automatizá-la é automatizar a razão de o cliente ficar.</li>
+        <li>Ficava envergonhado se o cliente soubesse que foi a máquina, sem ninguém rever. Então precisa de carimbo humano.</li>
+      </ul>
+    </section>
+
+    <!-- TAKEAWAY -->
+    <section class="takeaway" aria-label="A frase que levas para casa">
+      <div class="takeaway__mark" aria-hidden="true"></div>
+      <p class="takeaway__line">Antes de automatizar, pergunta: se isto correr mal, quem se magoa e quanto custa desfazer?</p>
     </section>
 
     <!-- FECHO / CTA -->
