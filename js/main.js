@@ -240,93 +240,11 @@
     }
   });
 
-  // ---------- NEWSLETTER FORM — Substack hidden iframe subscribe ----------
-  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const SUBSTACK_URL = 'https://ricardocostaeu.substack.com';
+  // ---------- NEWSLETTER ----------
+  // A subscrição passou a um botão que abre o Beehiiv (antesdoprompt.beehiiv.com).
+  // O formulário inline e o submit via Substack foram removidos.
 
-  function setFormState(state) {
-    emailInput.classList.remove('is-error', 'is-valid');
-    statusEl.classList.remove('is-error', 'is-success');
-    statusEl.textContent = '';
-
-    if (state === 'valid') {
-      emailInput.classList.add('is-valid');
-    } else if (state === 'error-format') {
-      emailInput.classList.add('is-error');
-      statusEl.classList.add('is-error');
-      statusEl.textContent = "Isso não parece um endereço de email";
-    } else if (state === 'success') {
-      emailInput.classList.add('is-valid');
-      statusEl.classList.add('is-success');
-      statusEl.textContent = 'Verifica a tua caixa para confirmar a subscrição';
-      emailInput.disabled = true;
-      submitBtn.disabled = true;
-    } else if (state === 'idle') {
-      // reset
-    }
-  }
-
-  // Inline validation onBlur
-  emailInput.addEventListener('blur', () => {
-    const val = emailInput.value.trim();
-    if (val === '') { setFormState('idle'); return; }
-    setFormState(EMAIL_REGEX.test(val) ? 'valid' : 'error-format');
-  });
-
-  emailInput.addEventListener('input', () => {
-    if (emailInput.classList.contains('is-error')) setFormState('idle');
-  });
-
-  // Form submit — subscribe via hidden iframe
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const val = emailInput.value.trim();
-
-    if (!EMAIL_REGEX.test(val)) {
-      setFormState('error-format');
-      emailInput.focus();
-      return;
-    }
-
-    // Save for returning visitors
-    try { localStorage.setItem('rc_email', val); } catch (_) {}
-
-    // Create hidden iframe and form to submit to Substack
-    const iframe = document.createElement('iframe');
-    iframe.name = 'substack-frame';
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
-
-    const hiddenForm = document.createElement('form');
-    hiddenForm.method = 'POST';
-    hiddenForm.action = SUBSTACK_URL + '/api/v1/free';
-    hiddenForm.target = 'substack-frame';
-
-    const field = document.createElement('input');
-    field.type = 'hidden';
-    field.name = 'email';
-    field.value = val;
-    hiddenForm.appendChild(field);
-
-    const srcField = document.createElement('input');
-    srcField.type = 'hidden';
-    srcField.name = 'first_url';
-    srcField.value = window.location.href;
-    hiddenForm.appendChild(srcField);
-
-    document.body.appendChild(hiddenForm);
-    hiddenForm.submit();
-
-    setFormState('success');
-
-    // Clean up after a few seconds
-    setTimeout(() => {
-      hiddenForm.remove();
-      iframe.remove();
-    }, 5000);
-  });
-
-  // Returning visitor — pre-fill
+  // Returning visitor — pre-fill (mantido por segurança; sem efeito sem o campo)
   try {
     const saved = localStorage.getItem('rc_email');
     if (saved && emailInput) emailInput.value = saved;
