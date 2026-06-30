@@ -1,624 +1,911 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pensar antes de comprar IA — Guia gratuito | Ricardo Costa</title>
-  <meta name="description" content="A alavanca não é a ferramenta. É o pensar antes dela. Um teste de decisão em duas perguntas, quatro modos, o primeiro passo (hoje, zero euros) e as bandeiras vermelhas antes de comprar IA.">
-  <meta name="author" content="Ricardo Costa">
-  <link rel="canonical" href="https://ricardocosta.eu/guia">
-  <meta name="robots" content="index, follow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pensar antes de comprar IA · Guia · Ricardo Costa</title>
+<meta name="description" content="As três perguntas a fazer antes de comprares qualquer ferramenta de IA. O método, o primeiro passo e as ferramentas, por esta ordem.">
+<link rel="canonical" href="https://ricardocosta.eu/guia">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Pensar antes de comprar IA — Guia gratuito">
-  <meta property="og:description" content="A alavanca não é a ferramenta. É o pensar antes dela. Um teste de decisão em duas perguntas para saber o que automatizar — e o que não.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://ricardocosta.eu/guia">
-  <meta property="og:locale" content="pt_PT">
-  <meta property="og:image" content="https://ricardocosta.eu/images/og-guia.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Pensar antes de comprar IA — guia gratuito de Ricardo Costa">
+<!-- Tema do browser (mobile on-brand) -->
+<meta name="theme-color" content="#171411">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Pensar antes de comprar IA — Guia gratuito">
-  <meta name="twitter:description" content="A alavanca não é a ferramenta. É o pensar antes dela.">
-  <meta name="twitter:image" content="https://ricardocosta.eu/images/og-guia.png">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pensar antes de comprar IA · Guia · Ricardo Costa">
+<meta property="og:description" content="As três perguntas a fazer antes de comprares qualquer ferramenta de IA. O método, o primeiro passo e as ferramentas, por esta ordem.">
+<meta property="og:image" content="https://ricardocosta.eu/images/og-guia.png">
+<meta property="og:url" content="https://ricardocosta.eu/guia/">
+<meta property="og:locale" content="pt_PT">
+<meta property="og:site_name" content="Ricardo Costa">
 
-  <!-- Fonts — same stack as the site -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Outfit:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pensar antes de comprar IA · Guia · Ricardo Costa">
+<meta name="twitter:description" content="As três perguntas a fazer antes de comprares qualquer ferramenta de IA. O método, o primeiro passo e as ferramentas, por esta ordem.">
+<meta name="twitter:image" content="https://ricardocosta.eu/images/og-guia.png">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>R</text></svg>">
+<!-- Favicon (consistente com o site) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>R</text></svg>">
 
-  <style>
-    /* ==========================================================================
-       PENSAR ANTES DE COMPRAR IA — one-pager standalone
-       Design System: Forge (Dark) — self-contained, não herda o chrome do site
-       Paleta: Ash · Chalk · Forge · #999 (metadata). Sem cores/fontes novas.
-       ========================================================================== */
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Outfit:wght@300;400;800&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forge: #FF6B2B;
+    --ash: #171411;
+    --chalk: #EDE6DD;
+    --muted: #999999;
+    --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
 
-    :root {
-      --forge:        #FF6B2B;
-      --forge-bright: #FF8C42;
-      --ash:          #171411;
-      --ash-mid:      #221E19;   /* elevação de superfície (não é cor nova) */
-      --ember:        #2A2520;   /* elevação de superfície */
-      --chalk:        #EDE6DD;   /* texto primário */
-      --meta:         #999999;   /* metadata secundária — só labels/handle/url */
-      --chalk-10:     rgba(237, 230, 221, 0.1);
-      --chalk-06:     rgba(237, 230, 221, 0.06);
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-      --font-display: 'Instrument Serif', Georgia, serif;
-      --font-body:    'Outfit', 'Helvetica Neue', sans-serif;
-      --font-mono:    'Space Mono', 'Courier New', monospace;
+  html { scroll-behavior: smooth; }
 
-      --max-w:   720px;
-      --measure: 64ch;   /* largura de medida ~60–75 caracteres */
-      --radius:  10px;
+  /* Peso de corpo 400 (desvio aprovado p/ legibilidade em ecrã; brief Fase 1) */
+  body {
+    background: var(--ash);
+    color: var(--chalk);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
 
-      /* Grain — SVG filter, CSS only (mesmo do site) */
-      --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  /* Grain (brand grammar) */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Measure controlada: ~62ch máx, não correr a largura toda */
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section { padding: 100px 0; }
+
+  .label {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    color: var(--forge);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  h2 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: clamp(28px, 5vw, 42px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+  }
+
+  p { margin-bottom: 20px; max-width: 62ch; }
+  p:last-child { margin-bottom: 0; }
+
+  .serif {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .forge { color: var(--forge); }
+  .muted { color: var(--muted); }
+  strong { font-weight: 800; color: var(--chalk); }
+
+  .mono {
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+
+  a.inline {
+    color: var(--forge);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,107,43,0.4);
+    transition: border-color 0.2s var(--ease);
+  }
+  a.inline:hover { border-color: var(--forge); }
+
+  /* Botões */
+  .cta {
+    display: inline-block;
+    background: var(--forge);
+    color: var(--ash);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 19px;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    padding: 20px 40px;
+    border-radius: 4px;
+    min-height: 44px;
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    will-change: transform;
+  }
+  .cta:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 36px rgba(255, 107, 43, 0.4);
+  }
+
+  .ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--chalk);
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    padding: 13px 22px;
+    min-height: 44px;
+    border: 1px solid rgba(237,230,221,0.22);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.3s var(--ease), color 0.3s var(--ease);
+  }
+  .ghost:hover { border-color: var(--forge); color: var(--forge); }
+  .ghost svg { display: block; }
+
+  .divider {
+    width: 56px;
+    height: 3px;
+    background: var(--forge);
+    border: none;
+    margin: 0 0 32px 0;
+  }
+
+  /* Acessibilidade: foco visível em todos os interactivos */
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--forge);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  /* ---------- SCROLL REVEAL ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+    transition-delay: var(--d, 0ms);
+  }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .cta, .q-block, .mode, .flag, .tool { transition: none !important; }
+    .cta:hover { transform: none; }
+    .orb { animation: none; opacity: 0.25; }
+    .sticky-cta { transition: none; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 0 80px;
+  }
+  .hero .wrap { position: relative; z-index: 1; }
+
+  .hero h1 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: clamp(38px, 7vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .hero h1 em { font-style: normal; color: var(--forge); }
+
+  .hero .promessa {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(24px, 4.4vw, 38px);
+    line-height: 1.3;
+    color: var(--chalk);
+    margin-bottom: 36px;
+    max-width: 18ch;
+  }
+
+  .hero .sub {
+    max-width: 56ch;
+    font-size: 19px;
+    margin-bottom: 36px;
+  }
+
+  .hero .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .orb {
+    position: absolute;
+    top: 50%;
+    right: -120px;
+    width: 480px;
+    height: 480px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, var(--forge) 0%, rgba(255,107,43,0.35) 45%, rgba(255,107,43,0) 70%);
+    filter: blur(100px);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+    animation: orb-in 1.6s var(--ease) 0.2s forwards;
+  }
+  .orb.float { animation: orb-in 1.6s var(--ease) 0.2s forwards, orb-float 20s ease-in-out 1.8s infinite; }
+  @keyframes orb-in { to { opacity: 0.3; } }
+  @keyframes orb-float {
+    0%, 100% { transform: translateY(-50%) translate(0, 0); }
+    50%      { transform: translateY(-50%) translate(-32px, 24px); }
+  }
+
+  /* ---------- CALLOUT DE CONTINUIDADE ---------- */
+  .continuidade { padding: 0; }
+  .continuidade .wrap { padding-top: 0; }
+  .continuidade .box {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    border: 1px solid rgba(255,107,43,0.28);
+    border-left: 3px solid var(--forge);
+    border-radius: 6px;
+    background: rgba(255,107,43,0.04);
+    padding: 22px 26px;
+  }
+  .continuidade .box .qr {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--forge);
+  }
+  .continuidade .box p {
+    margin: 0;
+    font-size: 17px;
+    max-width: none;
+    color: var(--chalk);
+  }
+
+  /* ---------- AS TRÊS PERGUNTAS ---------- */
+  .perguntas .intro { font-size: 19px; margin-bottom: 48px; }
+
+  .q-block {
+    border-top: 1px solid rgba(237,230,221,0.12);
+    padding: 32px 0;
+  }
+  .q-block:last-of-type { border-bottom: 1px solid rgba(237,230,221,0.12); }
+
+  .q-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+  .q-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 26px;
+    line-height: 1;
+    color: var(--forge);
+    flex-shrink: 0;
+  }
+  .q-block h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: clamp(20px, 3.4vw, 26px);
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+  .q-block p { font-size: 18px; }
+
+  .q-needs {
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+  }
+  .q-needs li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 14px;
+    font-size: 18px;
+    max-width: 60ch;
+  }
+  .q-needs li:last-child { margin-bottom: 0; }
+  .q-needs li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 8px;
+    height: 8px;
+    background: var(--forge);
+    border-radius: 50%;
+  }
+  .q-block .closer {
+    margin-top: 24px;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--chalk);
+  }
+
+  /* ---------- EXEMPLO ---------- */
+  .exemplo { background: #1d1915; }
+  .exemplo .setup { font-size: 19px; margin-bottom: 32px; }
+
+  .ex-list { list-style: none; margin: 0 0 32px; padding: 0; }
+  .ex-list li {
+    border-left: 3px solid var(--forge);
+    padding: 6px 0 6px 24px;
+    margin-bottom: 24px;
+    max-width: 60ch;
+  }
+  .ex-list li:last-child { margin-bottom: 0; }
+  .ex-list .q {
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    color: var(--forge);
+    margin-bottom: 6px;
+  }
+  .exemplo .punch {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(22px, 3.4vw, 28px);
+    line-height: 1.4;
+    color: var(--chalk);
+    border-left: 3px solid var(--forge);
+    padding-left: 26px;
+    margin-bottom: 28px;
+  }
+  .exemplo .bridge { color: var(--chalk); }
+
+  /* ---------- PRIMEIRO PASSO ---------- */
+  .passo .zero {
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    color: var(--forge);
+    text-transform: uppercase;
+  }
+  .passo .big {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(22px, 3.4vw, 30px);
+    line-height: 1.4;
+    color: var(--chalk);
+    margin: 28px 0 0;
+    border-left: 3px solid var(--forge);
+    padding-left: 26px;
+  }
+
+  /* ---------- QUATRO MODOS ---------- */
+  .modos { background: #1d1915; }
+  .modos .bridge { font-size: 19px; margin-bottom: 20px; }
+  .modos .axes {
+    list-style: none;
+    margin: 0 0 44px;
+    padding: 0;
+  }
+  .modos .axes li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 12px;
+    max-width: 60ch;
+  }
+  .modos .axes li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 8px;
+    height: 8px;
+    border: 2px solid var(--forge);
+    border-radius: 50%;
+  }
+
+  .modes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .mode {
+    background: rgba(23, 20, 17, 0.6);
+    border: 1px solid rgba(237, 230, 221, 0.12);
+    border-radius: 6px;
+    padding: 26px 24px;
+    transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+  }
+  .mode:hover { transform: translateY(-4px); border-color: rgba(255, 107, 43, 0.5); }
+  .mode .axis {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .mode h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 19px;
+    letter-spacing: 0.01em;
+    color: var(--forge);
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .mode p { font-size: 16px; margin: 0; max-width: none; color: var(--chalk); }
+
+  /* ---------- FERRAMENTAS ---------- */
+  .ferramentas .intro { font-size: 19px; margin-bottom: 36px; }
+  .tools { list-style: none; margin: 0; padding: 0; }
+  .tool {
+    border-top: 1px solid rgba(237,230,221,0.12);
+    padding: 22px 0;
+  }
+  .tool:last-child { border-bottom: 1px solid rgba(237,230,221,0.12); }
+  .tool .task {
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    color: var(--chalk);
+    margin-bottom: 6px;
+  }
+  .tool .names { font-size: 17px; color: var(--muted); margin: 0; max-width: none; }
+  .tool .names b { color: var(--forge); font-weight: 400; }
+
+  /* ---------- BANDEIRAS VERMELHAS ---------- */
+  .bandeiras { background: #1d1915; }
+  .flags { list-style: none; margin: 0 0 40px; padding: 0; }
+  .flag {
+    border-left: 3px solid var(--forge);
+    padding: 4px 0 4px 24px;
+    margin-bottom: 28px;
+    max-width: 62ch;
+  }
+  .flag:last-child { margin-bottom: 0; }
+  .flag p { margin: 0; font-size: 18px; }
+  .takeaway {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(22px, 3.6vw, 30px);
+    line-height: 1.4;
+    color: var(--chalk);
+    padding-top: 36px;
+    border-top: 1px solid rgba(237,230,221,0.12);
+  }
+  .takeaway .forge { font-style: italic; }
+
+  /* ---------- CTA FINAL ---------- */
+  .final { text-align: center; padding: 130px 0; }
+  .final h2 { font-size: clamp(30px, 5.5vw, 48px); }
+  .final p { max-width: 48ch; margin-left: auto; margin-right: auto; }
+  .final .cta { margin: 12px 0 28px; }
+  .final .talk { color: var(--muted); font-size: 17px; max-width: 50ch; }
+  .final .socials {
+    margin-top: 18px;
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    line-height: 2;
+  }
+  .final .socials a {
+    color: var(--chalk);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(237,230,221,0.25);
+  }
+  .final .socials a:hover { color: var(--forge); border-color: var(--forge); }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 1px solid rgba(237, 230, 221, 0.1);
+    padding: 32px 0;
+    text-align: center;
+  }
+  footer .legal-link {
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(153,153,153,0.3);
+  }
+  footer .legal-link:hover { color: var(--chalk); }
+
+  /* ---------- STICKY CTA (newsletter) ---------- */
+  .sticky-cta {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 900;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 24px;
+    background: rgba(23,20,17,0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(237,230,221,0.1);
+    transform: translateY(-100%);
+    transition: transform 0.3s var(--ease);
+  }
+  .sticky-cta.show { transform: translateY(0); }
+  .sticky-cta .sc-name {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--chalk);
+  }
+  .sticky-cta .sc-cta {
+    display: inline-block;
+    background: var(--forge);
+    color: var(--ash);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    padding: 11px 20px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 640px) {
+    section { padding: 72px 0; }
+    .hero { min-height: auto; padding: 96px 0 64px; }
+    .modes-grid { grid-template-columns: 1fr; }
+    .final { padding: 88px 0; }
+    .cta { display: block; text-align: center; }
+    .hero .hero-actions { width: 100%; }
+    .hero .hero-actions .cta { width: 100%; }
+    .orb { width: 260px; height: 260px; right: -80px; filter: blur(70px); }
+    @keyframes orb-in { to { opacity: 0.22; } }
+    .sticky-cta { padding: 10px 14px; }
+    .sticky-cta .sc-name { display: none; }
+    .sticky-cta .sc-cta {
+      width: 100%; text-align: center;
+      font-size: 12px; letter-spacing: 0.01em; padding: 11px 14px;
     }
+  }
 
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden; }
-
+  /* ====================================================== */
+  /* PRINT — o "papel" da palestra: guia de uma página      */
+  /* Tema claro p/ legibilidade e tinta; só o núcleo do     */
+  /* método. Sem callout de continuidade, sem orb, sem CTA. */
+  /* ====================================================== */
+  @media print {
+    @page { margin: 16mm; }
+    html { scroll-behavior: auto; }
     body {
-      font-family: var(--font-body);
-      background: var(--ash);
-      color: var(--chalk);
-      font-size: 18px;          /* mínimo de corpo: 18px (1.125rem) */
-      font-weight: 400;         /* desvio aprovado ao 300 do sistema, p/ legibilidade em ecrã */
-      line-height: 1.6;
-      min-height: 100vh;
-      overflow-x: hidden;
+      background: #fff;
+      color: #171411;
+      font-size: 11pt;
+      line-height: 1.45;
     }
+    body::before { display: none; }            /* grão */
+    .orb, .sticky-cta, .continuidade,
+    .hero-actions, .cta, .modos, .final .socials { display: none !important; }
 
-    ::selection { background: rgba(255, 107, 43, 0.3); color: var(--chalk); }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    section { padding: 14pt 0 !important; break-inside: avoid; }
+    .wrap { max-width: 100%; padding: 0; }
 
-    a { color: var(--forge); text-underline-offset: 3px; }
-    a:focus-visible,
-    button:focus-visible { outline: 3px solid var(--forge); outline-offset: 3px; border-radius: 4px; }
+    h1, h2, h3 { color: #171411; }
+    p, li, .q-block p, .mode p { color: #171411; }
+    strong { color: #171411 !important; }
+    .muted, .mono { color: #5a5249; }
 
-    /* ---------- GRAIN (em todas as superfícies) ---------- */
-    .grain-overlay {
-      position: fixed; inset: 0;
-      background-image: var(--grain);
-      pointer-events: none; z-index: 9999; opacity: 0.4;
-    }
+    /* Forge legível sobre branco: escurecido p/ contraste */
+    .label, .forge, .q-num, .ex-list .q,
+    .tool .names b, .mode h3 { color: #B5400F !important; }
+    .divider, .q-needs li::before { background: #B5400F; }
+    .q-block, .ex-list li, .flag, .modos .axes li::before { border-color: #B5400F; }
 
-    /* ---------- AMBIENT GLOW ---------- */
-    .glow {
-      position: fixed;
-      top: -20%; left: 50%;
-      transform: translateX(-50%);
-      width: 680px; height: 680px;
-      max-width: 100vw;
-      background: radial-gradient(circle, rgba(255, 107, 43, 0.10) 0%, transparent 65%);
-      pointer-events: none; z-index: 0;
-    }
+    .serif, .promessa, .closer, .big, .punch,
+    .takeaway, .q-block .closer { color: #171411 !important; }
 
-    /* ---------- LAYOUT ---------- */
-    .wrap {
-      position: relative; z-index: 1;
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 56px 24px 72px;
-    }
+    .hero { min-height: 0; padding: 0 0 12pt !important; }
+    .hero h1 { font-size: 26pt; margin-bottom: 8pt; }
+    .hero .promessa { font-size: 16pt; margin-bottom: 12pt; }
+    .hero .sub { font-size: 11pt; margin-bottom: 0; }
 
-    /* measure — parágrafos não correm a largura toda */
-    .lede, .q__text, .steps li, .errors li, .flags li, .mode__ex, .mode__note { max-width: var(--measure); }
-
-    /* ---------- HEADER ---------- */
-    .eyebrow {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--forge);
-      display: block;
-      margin-bottom: 18px;
-    }
-
-    .title {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(2.6rem, 9vw, 4rem);
-      line-height: 1.02;
-      letter-spacing: -0.01em;
-      color: var(--chalk);
-    }
-
-    /* tese — momento editorial (Instrument Serif itálico), texto primário */
-    .thesis {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(1.5rem, 5vw, 1.85rem);
-      line-height: 1.3;
-      color: var(--chalk);
-      margin-top: 22px;
-      max-width: 30ch;
-    }
-
-    .rule {
-      height: 1px;
-      background: linear-gradient(90deg, var(--forge) 0%, var(--chalk-10) 60%, transparent 100%);
-      border: 0;
-      margin: 44px 0;
-    }
-
-    /* ---------- SECTION ---------- */
-    .section { margin-top: 48px; }
-
-    .section__label {
-      font-family: var(--font-body);
-      font-weight: 800;
-      font-size: clamp(1.3rem, 4.6vw, 1.6rem);
-      letter-spacing: 0.005em;
-      text-transform: uppercase;     /* Outfit 800 uppercase = estrutura */
-      color: var(--chalk);
-      margin-bottom: 10px;
-      line-height: 1.15;
-    }
-
-    .lede { color: var(--chalk); margin-bottom: 22px; }
-
-    /* ---------- QUESTIONS / TESTE (numbered) ---------- */
-    .questions { list-style: none; }
-    .q { display: flex; gap: 16px; margin-bottom: 24px; }
-    .q:last-child { margin-bottom: 0; }
-    .q__num {
-      flex: 0 0 auto;
-      font-family: var(--font-mono);
-      font-weight: 700;
-      font-size: 15px;
-      color: var(--forge);
-      width: 34px; height: 34px;
-      border: 1px solid rgba(255, 107, 43, 0.45);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin-top: 2px;
-    }
-    .q__body { flex: 1 1 auto; }
-    .q__head {
-      font-weight: 700;
-      font-size: 1.18rem;
-      color: var(--chalk);
-      display: block;
-      margin-bottom: 5px;
-      line-height: 1.25;
-    }
-    .q__text { color: var(--chalk); }
-    .q__text b { font-weight: 700; }
-
-    /* ---------- OS QUATRO MODOS ---------- */
-    .modes { list-style: none; display: grid; gap: 14px; }
-    .mode {
-      background: var(--ash-mid);
-      border: 1px solid var(--chalk-06);
-      border-left: 3px solid var(--chalk-10);
-      border-radius: var(--radius);
-      padding: 20px 22px;
-    }
-    .mode--key { border-left-color: var(--forge); background: var(--ember); }
-    .mode__quad {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--meta);
-      display: block;
-      margin-bottom: 10px;
-    }
-    .mode__tag {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ash);
-      background: var(--forge);
-      padding: 3px 9px;
-      border-radius: 4px;
-      margin-bottom: 12px;
-    }
-    .mode__verdict {
-      font-family: var(--font-body);
-      font-weight: 800;
-      font-size: 1.2rem;
-      line-height: 1.2;
-      color: var(--chalk);
-      margin-bottom: 6px;
-    }
-    .mode--key .mode__verdict { color: var(--forge); }
-    .mode__ex { color: var(--chalk); }
-    .mode__note {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 1.18rem;
-      line-height: 1.35;
-      color: var(--chalk);
-      margin-top: 10px;
-    }
-
-    /* ---------- CALLOUT (primeiro passo) ---------- */
-    .callout {
-      background: var(--ash-mid);
-      border: 1px solid var(--chalk-06);
-      border-left: 3px solid var(--forge);
-      border-radius: var(--radius);
-      padding: 26px 26px 22px;
-    }
-    .callout .section__label { margin-bottom: 16px; }
-    .steps { list-style: none; }
-    .steps li {
-      position: relative;
-      padding-left: 28px;
-      margin-bottom: 14px;
-      color: var(--chalk);
-    }
-    .steps li:last-child { margin-bottom: 0; }
-    .steps li::before {
-      content: "→";
-      position: absolute; left: 0;
-      color: var(--forge);
-      font-weight: 700;
-    }
-    .steps strong { font-weight: 600; }
-
-    /* ---------- OS DOIS ERROS ---------- */
-    .errors { list-style: none; }
-    .errors li {
-      position: relative;
-      padding-left: 30px;
-      margin-bottom: 16px;
-      color: var(--chalk);
-    }
-    .errors li:last-child { margin-bottom: 0; }
-    .errors li::before {
-      content: "✕";
-      position: absolute; left: 0; top: 0;
-      color: var(--forge);
-      font-weight: 700;
-      font-family: var(--font-mono);
-    }
-
-    /* ---------- BANDEIRAS VERMELHAS ---------- */
-    .flags { list-style: none; }
-    .flags li {
-      border-left: 2px solid var(--forge);
-      padding-left: 16px;
-      margin-bottom: 18px;
-      color: var(--chalk);
-    }
-    .flags li:last-child { margin-bottom: 0; }
-    .flags strong { font-weight: 700; }
-
-    /* ---------- TAKEAWAY (a frase que levam para casa) ---------- */
-    .takeaway {
-      margin-top: 56px;
-      text-align: center;
-    }
-    .takeaway__mark { width: 48px; height: 2px; background: var(--forge); margin: 0 auto 26px; }
-    .takeaway__line {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: clamp(1.6rem, 6vw, 2.1rem);
-      line-height: 1.25;
-      color: var(--chalk);
-      max-width: 22ch;
-      margin: 0 auto;
-    }
-
-    /* ---------- CTA / FECHO ---------- */
-    .cta {
-      margin-top: 52px;
-      padding: 34px 28px;
-      background: var(--ember);
-      border: 1px solid var(--chalk-06);
-      border-radius: var(--radius);
-      text-align: center;
-    }
-    .cta__lead {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: clamp(1.35rem, 5vw, 1.65rem);
-      color: var(--chalk);
-      line-height: 1.3;
-      max-width: 30ch;
-      margin: 0 auto 24px;
-    }
-    .cta__btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 48px;
-      background: var(--forge);
-      color: var(--ash);            /* texto escuro sobre Forge — AA ✓ */
-      font-family: var(--font-body);
-      font-weight: 700;
-      font-size: 1.05rem;
-      text-decoration: none;
-      padding: 14px 28px;
-      border-radius: var(--radius);
-      transition: background 200ms cubic-bezier(0.4,0,0.2,1), transform 200ms cubic-bezier(0.4,0,0.2,1);
-    }
-    .cta__btn:hover { background: var(--forge-bright); transform: translateY(-2px); }
-    .cta__btn .name { font-style: normal; }
-    .cta__url {
-      display: block;
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: var(--meta);
-      margin-top: 16px;
-      word-break: break-word;
-    }
-
-    /* ---------- FOOTER / PRINT HELP ---------- */
-    .foot {
-      position: relative;
-      z-index: 1;
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 24px 24px 56px;
-      border-top: 1px solid var(--chalk-06);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px 20px;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .foot__handle {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      letter-spacing: 0.04em;
-      color: var(--meta);
-    }
-    .foot__handle a { color: var(--chalk); text-decoration: none; }
-    .foot__handle a:hover { color: var(--forge); text-decoration: underline; }
-    .print-btn {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--chalk);
-      background: transparent;
-      border: 1px solid var(--chalk-10);
-      border-radius: 6px;
-      min-height: 44px;
-      padding: 12px 18px;
-      cursor: pointer;
-      transition: border-color 200ms, color 200ms;
-    }
-    .print-btn:hover { border-color: var(--forge); color: var(--forge); }
-
-    @media (max-width: 480px) {
-      .wrap { padding: 40px 20px 56px; }
-      .glow { max-width: 100vw; }
-      .foot { padding-left: 20px; padding-right: 20px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-
-    /* ==========================================================================
-       PRINT — A4 legível, fundo branco, quebras limpas (o "papel" prometido)
-       ========================================================================== */
-    @media print {
-      @page { size: A4; margin: 14mm; }
-
-      html, body {
-        background: #fff !important;
-        color: #1a1a1a !important;
-        font-size: 10.5pt;
-        line-height: 1.4;
-      }
-      .grain-overlay, .glow, .print-btn { display: none !important; }
-
-      .wrap { max-width: 100%; padding: 0; }
-      .section { margin-top: 16px; }
-      .mode, .callout, .cta, .q, .flags li, .takeaway { page-break-inside: avoid; }
-
-      .eyebrow { color: #C2541F; margin-bottom: 8px; font-size: 9pt; }
-      .title { font-size: 28pt; color: #111; }
-      .thesis { font-size: 13pt; color: #222; margin-top: 10px; }
-      .rule { margin: 14px 0; background: #C2541F; }
-
-      .section__label { font-size: 13pt; color: #111; margin-bottom: 8px; }
-      .lede { color: #222; margin-bottom: 12px; }
-
-      .q { margin-bottom: 10px; gap: 10px; }
-      .q__num { color: #C2541F; border-color: #C2541F; width: 22px; height: 22px; font-size: 10pt; }
-      .q__head, .mode__verdict { color: #111; font-size: 11pt; }
-      .q__text, .steps li, .errors li, .flags li, .mode__ex, .mode__note { color: #222; }
-
-      .modes { gap: 8px; }
-      .mode {
-        background: #faf7f3 !important; border: 1px solid #ddd; border-left: 3px solid #C2541F;
-        padding: 10px 12px; -webkit-print-color-adjust: exact; print-color-adjust: exact;
-      }
-      .mode--key { background: #fdf1e9 !important; }
-      .mode--key .mode__verdict { color: #C2541F; }
-      .mode__quad { color: #555; }
-      .mode__tag {
-        color: #fff; background: #C2541F; -webkit-print-color-adjust: exact; print-color-adjust: exact;
-      }
-      .flags li { border-left-color: #C2541F; }
-
-      .callout {
-        background: #faf7f3 !important; border: 1px solid #ddd; border-left: 3px solid #C2541F;
-        padding: 12px 14px; -webkit-print-color-adjust: exact; print-color-adjust: exact;
-      }
-      .steps li::before, .errors li::before { color: #C2541F; }
-
-      .takeaway { margin-top: 18px; }
-      .takeaway__mark { background: #C2541F; margin-bottom: 10px; }
-      .takeaway__line { font-size: 15pt; color: #111; }
-
-      .cta {
-        margin-top: 18px; background: #faf7f3 !important; border: 1px solid #ddd;
-        padding: 14px; -webkit-print-color-adjust: exact; print-color-adjust: exact;
-      }
-      .cta__lead { font-size: 12pt; color: #111; margin-bottom: 8px; }
-      .cta__btn {
-        background: transparent !important; color: #C2541F !important; border: 1px solid #C2541F;
-        padding: 6px 14px; font-size: 10.5pt; min-height: 0;
-      }
-      .cta__url { color: #555; margin-top: 8px; }
-
-      .foot { max-width: 100%; margin: 16px 0 0; padding: 10px 0 0; border-top: 1px solid #ddd; }
-      .foot__handle { color: #555; }
-      .foot__handle a { color: #222; }
-      a { color: #C2541F; }
-    }
-  </style>
+    .exemplo, .passo, .bandeiras { background: #fff; }
+    .q-block, .ex-list li, .flag, .tool { break-inside: avoid; }
+    a { color: #171411; text-decoration: none; }
+  }
+</style>
 </head>
 <body>
 
-  <div class="glow" aria-hidden="true"></div>
+<!-- STICKY CTA (newsletter) — entra após passar o hero -->
+<div class="sticky-cta" id="stickyCta" aria-hidden="true">
+  <span class="sc-name">Pensar antes de comprar IA</span>
+  <a class="sc-cta" href="https://antesdoprompt.beehiiv.com" target="_blank" rel="noopener" tabindex="-1">Receber a newsletter</a>
+</div>
 
-  <main class="wrap">
+<!-- 1. HERO -->
+<header class="hero">
+  <div class="orb" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="label reveal">Guia · Pensar antes de comprar IA</span>
+    <h1 class="reveal">Pensar antes de <em>comprar</em> IA</h1>
+    <p class="promessa reveal">A alavanca não é a ferramenta. É o pensar antes dela.</p>
+    <p class="sub reveal">As três perguntas a fazer antes de gastares um euro em qualquer ferramenta de IA. O método primeiro, as ferramentas no fim. Tal como no palco.</p>
+    <div class="hero-actions reveal">
+      <a class="cta" href="https://antesdoprompt.beehiiv.com" target="_blank" rel="noopener">Receber a newsletter</a>
+      <button class="ghost" type="button" onclick="window.print()">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+        Imprimir / Guardar PDF
+      </button>
+    </div>
+  </div>
+</header>
 
-    <header>
-      <span class="eyebrow">Guia gratuito</span>
-      <h1 class="title">Pensar antes de comprar IA</h1>
-      <p class="thesis">A alavanca não é a ferramenta. É o pensar antes dela.</p>
-    </header>
+<!-- 2. CALLOUT DE CONTINUIDADE -->
+<section class="continuidade" aria-label="Para quem veio do evento">
+  <div class="wrap">
+    <div class="box reveal">
+      <span class="qr" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM21 14v7M17 21h4M21 17h0"/></svg>
+      </span>
+      <p>Viste a palestra? Isto é o papel que te prometi: as três perguntas, o primeiro passo e as ferramentas, por esta ordem.</p>
+    </div>
+  </div>
+</section>
 
-    <hr class="rule">
+<!-- 3. AS TRÊS PERGUNTAS -->
+<section class="perguntas">
+  <div class="wrap">
+    <hr class="divider reveal">
+    <h2 class="reveal">As três perguntas</h2>
+    <p class="intro reveal">Antes de comprares qualquer ferramenta de IA, qualquer uma, responde a estas três. São grátis. E poupam-te dinheiro e frustração.</p>
 
-    <!-- O TESTE — DUAS PERGUNTAS -->
-    <section class="section" aria-labelledby="teste-h">
-      <h2 class="section__label" id="teste-h">O teste: duas perguntas</h2>
-      <p class="lede">Antes de automatizar qualquer tarefa, responde a duas:</p>
-
-      <ol class="questions">
-        <li class="q">
-          <span class="q__num" aria-hidden="true">1</span>
-          <div class="q__body">
-            <h3 class="q__head">A tarefa é definida ou de julgamento?</h3>
-            <p class="q__text"><b>Definida</b> = consigo escrever os passos. <b>Julgamento</b> = depende do contexto, do cliente, da pessoa.</p>
-          </div>
-        </li>
-
-        <li class="q">
-          <span class="q__num" aria-hidden="true">2</span>
-          <div class="q__body">
-            <h3 class="q__head">Se correr mal, o erro é barato ou caro?</h3>
-            <p class="q__text">Barato e reversível, ou caro e difícil de desfazer? Cliente perdido, confiança, dinheiro, lei.</p>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <!-- OS QUATRO MODOS -->
-    <section class="section" aria-labelledby="modos-h">
-      <h2 class="section__label" id="modos-h">Os quatro modos</h2>
-      <p class="lede">Cruza as duas respostas. Quatro situações, quatro decisões:</p>
-
-      <ul class="modes">
-        <li class="mode">
-          <span class="mode__quad">Definida · erro barato</span>
-          <p class="mode__verdict">Deixa correr.</p>
-          <p class="mode__ex">Classificar pedidos, primeiro rascunho de descrições, resumir conversas.</p>
-        </li>
-
-        <li class="mode mode--key">
-          <span class="mode__tag">O meio-termo</span>
-          <span class="mode__quad">Definida · erro caro</span>
-          <p class="mode__verdict">A máquina faz, tu carimbas antes de sair.</p>
-          <p class="mode__ex">Orçamentos, emails a clientes, tudo o que um cliente ou regulador vê.</p>
-          <p class="mode__note">É aqui que vive a maior parte do uso real numa PME — o meio-termo que as listas de duas colunas ignoram.</p>
-        </li>
-
-        <li class="mode">
-          <span class="mode__quad">Julgamento · erro barato</span>
-          <p class="mode__verdict">Parceiro de rascunho.</p>
-          <p class="mode__ex">Brainstorm, explorar ângulos. Tu ao volante.</p>
-        </li>
-
-        <li class="mode">
-          <span class="mode__quad">Julgamento · erro caro</span>
-          <p class="mode__verdict">Não delegues.</p>
-          <p class="mode__ex">Preço, contratações, a promessa da marca, o cliente difícil. A IA informa; não decide.</p>
-        </li>
-      </ul>
-    </section>
-
-    <!-- O PRIMEIRO PASSO -->
-    <section class="section" aria-labelledby="passo-h">
-      <div class="callout">
-        <h2 class="section__label" id="passo-h">O primeiro passo (hoje, zero euros)</h2>
-        <ul class="steps">
-          <li>Escolhe a tarefa que te chateia há mais de um ano. <strong>Escreve-a numa frase.</strong></li>
-          <li>Abre o ChatGPT gratuito e pede-lhe que te faça <strong>perguntas, não respostas</strong>.</li>
-          <li>Dez minutos. Zero euros. Se um dia pagares 20€/mês, que seja porque já sabes para quê.</li>
-        </ul>
+    <div class="q-block reveal">
+      <div class="q-head">
+        <span class="q-num">1</span>
+        <h3>O que automatizar?</h3>
       </div>
-    </section>
+      <p>O que se repete e te rouba tempo. Não o que é difícil. O que é chato. A tarefa que te chateia há mais de um ano e em que pensas "tem de existir uma maneira melhor".</p>
+    </div>
 
-    <!-- OS DOIS ERROS -->
-    <section class="section" aria-labelledby="erros-h">
-      <h2 class="section__label" id="erros-h">Os dois erros</h2>
-      <ul class="errors">
-        <li>Comprar antes de perceber o problema.</li>
-        <li>Esperar que a IA faça tudo sozinha. Quem manda continua deste lado.</li>
+    <div class="q-block reveal">
+      <div class="q-head">
+        <span class="q-num">2</span>
+        <h3>O que não automatizar?</h3>
+      </div>
+      <p>O que exige julgamento, confiança, relação. A conversa com o cliente de vinte anos, a decisão de dar ou não desconto, o telefonema difícil. É provavelmente a razão de o teu negócio existir. A IA prepara; nunca decide.</p>
+    </div>
+
+    <div class="q-block reveal">
+      <div class="q-head">
+        <span class="q-num">3</span>
+        <h3>O que precisas antes?</h3>
+      </div>
+      <p>Duas coisas têm de existir antes da ferramenta:</p>
+      <ul class="q-needs">
+        <li><strong>A informação num sítio só.</strong> Se os clientes estão no caderno, no WhatsApp e na cabeça de três pessoas, não há nada para a IA organizar. Junta tudo, nem que seja num Excel.</li>
+        <li><strong>O processo claro.</strong> Se não o explicas a um estagiário, não o explicas a uma IA.</li>
       </ul>
-    </section>
+      <p class="closer">Não é glamoroso. É o degrau que ninguém quer subir e todos precisam.</p>
+    </div>
+  </div>
+</section>
 
-    <!-- BANDEIRAS VERMELHAS -->
-    <section class="section" aria-labelledby="flags-h">
-      <h2 class="section__label" id="flags-h">Três bandeiras vermelhas</h2>
-      <p class="lede">Três sinais de que estás a automatizar a coisa errada:</p>
-      <ul class="flags">
-        <li>Não consigo descrever o processo a um estagiário. <strong>Se não o explicas a um estagiário, não o explicas a uma IA.</strong></li>
-        <li>A tarefa <strong>é</strong> a relação — automatizá-la é automatizar a razão de o cliente ficar.</li>
-        <li>Ficava envergonhado se o cliente soubesse que foi a máquina, sem ninguém rever. Então precisa de carimbo humano.</li>
-      </ul>
-    </section>
+<!-- 4. EXEMPLO: CONSULTOR IMOBILIÁRIO -->
+<section class="exemplo">
+  <div class="wrap">
+    <hr class="divider reveal">
+    <h2 class="reveal">Um exemplo: o consultor imobiliário</h2>
+    <p class="setup reveal">Os contactos chegam de todo o lado: portais, WhatsApp, telefone, redes. Dezenas por mês. Mas nem todo o contacto é cliente. Há quem comente "que casa linda" e nunca compre, há quem esteja só a ver o mercado, e há quem queira mesmo comprar. Distinguir os três é o trabalho.</p>
+    <ul class="ex-list reveal">
+      <li><span class="q">O que automatizar?</span>A triagem que se repete: as mesmas perguntas de qualificação, vez após vez.</li>
+      <li><span class="q">O que não automatizar?</span>A visita, a negociação, a conversa quando algo corre mal. Isso é o consultor. Sempre.</li>
+      <li><span class="q">O que precisas antes?</span>Os leads sérios numa lista só. Hoje estão espalhados pelo telemóvel, pelo email e pelos portais.</li>
+    </ul>
+    <p class="punch reveal">A IA não filtrou os leads. O consultor filtrou. A IA só acelerou o que ele já tinha decidido.</p>
+    <p class="bridge reveal">E isto serve para qualquer negócio onde os contactos chegam de todo o lado: uma oficina, uma clínica, um restaurante.</p>
+  </div>
+</section>
 
-    <!-- TAKEAWAY -->
-    <section class="takeaway" aria-label="A frase que levas para casa">
-      <div class="takeaway__mark" aria-hidden="true"></div>
-      <p class="takeaway__line">Antes de automatizar, pergunta: se isto correr mal, quem se magoa e quanto custa desfazer?</p>
-    </section>
+<!-- 5. PRIMEIRO PASSO -->
+<section class="passo">
+  <div class="wrap">
+    <hr class="divider reveal">
+    <h2 class="reveal">O primeiro passo <span class="serif" style="text-transform:none;color:var(--muted);font-size:0.6em;">(hoje, zero euros)</span></h2>
+    <p class="reveal">Não precisas de comprar nada para começar. Escolhe uma tarefa: a que te chateia há mais de um ano, aquela em que pensas "tem de existir uma maneira melhor". Passa-lhe as três perguntas.</p>
+    <p class="reveal">Se passar, escreve o processo num papel, como o explicarias a um estagiário. Junta a informação que ele precisaria, num sítio só. Acabaste de fazer o trabalho que a maioria salta, e que nenhuma ferramenta faz por ti.</p>
+    <p class="big reveal">Custou zero euros. E é o degrau que decide se a ferramenta vai valer alguma coisa.</p>
+  </div>
+</section>
 
-    <!-- FECHO / CTA -->
-    <section class="cta" aria-labelledby="cta-h">
-      <p class="cta__lead" id="cta-h">Se isto fez sentido, é disto que escrevo todas as semanas.</p>
-      <a class="cta__btn" href="https://antesdoprompt.beehiiv.com" target="_blank" rel="noopener noreferrer" aria-label="Subscrever a newsletter Antes do Prompt (abre em nova janela)">
-        Newsletter <span class="name">&ldquo;Antes do Prompt&rdquo;</span>
-        <span aria-hidden="true">&rarr;</span>
-      </a>
-      <span class="cta__url">antesdoprompt.beehiiv.com</span>
-    </section>
+<!-- 6. VAI MAIS FUNDO: OS QUATRO MODOS -->
+<section class="modos">
+  <div class="wrap">
+    <hr class="divider reveal">
+    <h2 class="reveal">Vai mais fundo: os quatro modos</h2>
+    <p class="bridge reveal">As duas primeiras perguntas, o que automatizar e o que não, têm um meio-termo que as listas de duas colunas ignoram. Cruza duas respostas e tens quatro situações, quatro decisões.</p>
+    <ul class="axes reveal">
+      <li><strong>A tarefa é definida ou de julgamento?</strong> Definida = consigo escrever os passos. Julgamento = depende do contexto, do cliente, da pessoa.</li>
+      <li><strong>Se correr mal, o erro é barato e reversível, ou caro e difícil de desfazer?</strong> (cliente perdido, confiança, dinheiro, lei)</li>
+    </ul>
+    <div class="modes-grid">
+      <div class="mode reveal">
+        <span class="axis">Definida · Erro barato</span>
+        <h3>Deixa correr</h3>
+        <p>Classificar pedidos, primeiro rascunho de descrições, resumir conversas.</p>
+      </div>
+      <div class="mode reveal">
+        <span class="axis">Definida · Erro caro</span>
+        <h3>A máquina faz, tu carimbas antes de sair</h3>
+        <p>Orçamentos, emails a clientes, tudo o que um cliente ou regulador vê. É aqui que vive a maior parte do uso real numa PME: o meio-termo que as listas de duas colunas ignoram.</p>
+      </div>
+      <div class="mode reveal">
+        <span class="axis">Julgamento · Erro barato</span>
+        <h3>Parceiro de rascunho</h3>
+        <p>Brainstorm, explorar ângulos. Tu ao volante.</p>
+      </div>
+      <div class="mode reveal">
+        <span class="axis">Julgamento · Erro caro</span>
+        <h3>Não delegues</h3>
+        <p>Preço, contratações, a promessa da marca, o cliente difícil. A IA informa; não decide.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  </main>
+<!-- 7. AS FERRAMENTAS -->
+<section class="ferramentas">
+  <div class="wrap">
+    <hr class="divider reveal">
+    <h2 class="reveal">As ferramentas <span class="serif" style="text-transform:none;color:var(--muted);font-size:0.55em;">(a última peça)</span></h2>
+    <p class="intro reveal">Chegam no fim de propósito. A ferramenta é a última peça, não a primeira.</p>
+    <ul class="tools">
+      <li class="tool reveal">
+        <span class="task">Escrever e responder com o teu tom</span>
+        <p class="names">Um email, uma mensagem, um post: <b>ChatGPT</b>, <b>Claude</b> ou <b>Gemini</b>.</p>
+      </li>
+      <li class="tool reveal">
+        <span class="task">Pesquisar com fontes verificadas</span>
+        <p class="names"><b>Perplexity</b>.</p>
+      </li>
+      <li class="tool reveal">
+        <span class="task">Resumir documentos ou reuniões</span>
+        <p class="names"><b>NotebookLM</b>.</p>
+      </li>
+      <li class="tool reveal">
+        <span class="task">Já vives no Microsoft (Word, Excel, Outlook)?</span>
+        <p class="names">O <b>Copilot</b> já lá está. Costuma ser o primeiro passo mais natural.</p>
+      </li>
+    </ul>
+  </div>
+</section>
 
-  <footer class="foot">
-    <span class="foot__handle">@ricardocostaeu · <a href="https://ricardocosta.eu">ricardocosta.eu</a></span>
-    <button class="print-btn" type="button" onclick="window.print()">Imprimir / Guardar PDF</button>
-  </footer>
+<!-- 8. BANDEIRAS VERMELHAS + TAKEAWAY -->
+<section class="bandeiras">
+  <div class="wrap">
+    <hr class="divider reveal">
+    <h2 class="reveal">Três bandeiras vermelhas</h2>
+    <p class="reveal" style="margin-bottom:36px;">Três sinais de que estás a automatizar a coisa errada.</p>
+    <ul class="flags">
+      <li class="flag reveal"><p>Não consigo descrever o processo a um estagiário → também não o consigo dar a uma IA.</p></li>
+      <li class="flag reveal"><p>A tarefa <strong>é</strong> a relação → automatizá-la é automatizar a razão de o cliente ficar.</p></li>
+      <li class="flag reveal"><p>Ficava envergonhado se o cliente soubesse que foi a máquina, sem ninguém rever → então precisa de carimbo humano.</p></li>
+    </ul>
+    <p class="takeaway reveal">Antes de automatizar, pergunta: se isto correr mal, <span class="forge">quem se magoa e quanto custa desfazer?</span></p>
+  </div>
+</section>
 
-  <div class="grain-overlay" aria-hidden="true"></div>
+<!-- 9. CTA FINAL -->
+<section class="final">
+  <div class="wrap">
+    <hr class="divider reveal" style="margin-left:auto;margin-right:auto;">
+    <h2 class="reveal">Se isto fez sentido</h2>
+    <p class="reveal">É disto que escrevo todas as semanas.</p>
+    <a class="cta reveal" href="https://antesdoprompt.beehiiv.com" target="_blank" rel="noopener">Newsletter "Antes do Prompt"</a>
+    <p class="talk reveal">Tens uma pergunta sobre o teu caso concreto? Escreve-me, ou segue o trabalho por aqui.</p>
+    <p class="socials reveal">
+      <a href="https://linkedin.com/in/ricardocostaeu" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://instagram.com/ricardocostaeu" target="_blank" rel="noopener">Instagram</a> ·
+      <a href="https://youtube.com/@ricardocostaeuu" target="_blank" rel="noopener">YouTube</a> ·
+      <a href="mailto:info@ricardocosta.eu">info@ricardocosta.eu</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="mono">Ricardo Costa · ricardocosta.eu · @ricardocostaeu</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.reveal');
+
+  if (reduced || !('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    // Stagger: delay incremental por secção (~100ms entre elementos)
+    var sections = document.querySelectorAll('section, header.hero');
+    sections.forEach(function (sec) {
+      var els = sec.querySelectorAll('.reveal');
+      els.forEach(function (el, i) {
+        el.style.setProperty('--d', Math.min(i * 100, 600) + 'ms');
+      });
+    });
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    items.forEach(function (el) { observer.observe(el); });
+
+    // Orb: float contínuo após o fade-in inicial
+    var orb = document.querySelector('.orb');
+    if (orb) orb.classList.add('float');
+  }
+
+  // Sticky CTA (newsletter): aparece quando o hero sai do viewport
+  var hero = document.querySelector('.hero');
+  var sticky = document.getElementById('stickyCta');
+  var stickyLink = sticky ? sticky.querySelector('.sc-cta') : null;
+
+  function setSticky(show) {
+    if (!sticky) return;
+    sticky.classList.toggle('show', show);
+    sticky.setAttribute('aria-hidden', show ? 'false' : 'true');
+    if (stickyLink) stickyLink.setAttribute('tabindex', show ? '0' : '-1');
+  }
+
+  if (hero && sticky && 'IntersectionObserver' in window) {
+    var heroObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) { setSticky(!entry.isIntersecting); });
+    }, { threshold: 0, rootMargin: '0px' });
+    heroObserver.observe(hero);
+  }
+})();
+</script>
 
 </body>
 </html>
