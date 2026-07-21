@@ -584,6 +584,47 @@
     white-space: nowrap;
   }
 
+  /* ---------- CAPTURA NEWSLETTER (embed Beehiiv) ---------- */
+  .capture {
+    text-align: left;
+    border: 1px solid rgba(255,107,43,0.28);
+    border-left: 3px solid var(--forge);
+    background: rgba(255,107,43,0.04);
+    border-radius: 6px;
+    padding: 32px 30px;
+  }
+  .capture .cap-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    color: var(--forge);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 16px;
+  }
+  .capture h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: clamp(22px, 4vw, 30px);
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  .capture p {
+    font-size: 17px;
+    margin-bottom: 20px;
+    /* anula o centrado de .final p quando o bloco vive na CTA final */
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .capture iframe {
+    width: 100%;
+    border: none;
+    display: block;
+  }
+
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 640px) {
     section { padding: 72px 0; }
@@ -619,7 +660,7 @@
     }
     body::before { display: none; }            /* grão */
     .orb, .sticky-cta, .continuidade,
-    .hero-actions, .cta, .modos, .final .socials { display: none !important; }
+    .hero-actions, .cta, .modos, .final .socials, .capture { display: none !important; }
 
     .reveal { opacity: 1 !important; transform: none !important; }
     section { padding: 14pt 0 !important; break-inside: avoid; }
@@ -655,7 +696,7 @@
 <!-- STICKY CTA (newsletter) — entra após passar o hero -->
 <div class="sticky-cta" id="stickyCta" aria-hidden="true">
   <span class="sc-name">Pensar antes de comprar IA</span>
-  <a class="sc-cta" href="https://antesdoprompt.beehiiv.com" target="_blank" rel="noopener" tabindex="-1">Receber a newsletter</a>
+  <a class="sc-cta" href="#newsletter" tabindex="-1">Receber a newsletter</a>
 </div>
 
 <!-- 1. HERO -->
@@ -667,7 +708,7 @@
     <p class="promessa reveal">A alavanca não é a ferramenta. É o pensar antes dela.</p>
     <p class="sub reveal">As três perguntas a fazer antes de gastares um euro em qualquer ferramenta de IA. O método primeiro, as ferramentas no fim. Tal como no palco.</p>
     <div class="hero-actions reveal">
-      <a class="cta" href="https://antesdoprompt.beehiiv.com" target="_blank" rel="noopener">Receber a newsletter</a>
+      <a class="cta" href="#newsletter">Receber a newsletter</a>
       <button class="ghost" type="button" onclick="window.print()">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
         Imprimir / Guardar PDF
@@ -756,6 +797,18 @@
   </div>
 </section>
 
+<!-- 5.1 CAPTURA NEWSLETTER -->
+<section id="newsletter" aria-label="Newsletter">
+  <div class="wrap">
+    <div class="capture reveal">
+      <span class="cap-label">Antes do Prompt · newsletter</span>
+      <h3>Recebe o resto por email</h3>
+      <p>Todas as semanas, uma ideia sobre pensar antes de usar IA no teu negócio.</p>
+      <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="76e895a1-fb05-46df-b6b5-92e0223a9853"></script>
+    </div>
+  </div>
+</section>
+
 <!-- 6. VAI MAIS FUNDO: OS QUATRO MODOS -->
 <section class="modos">
   <div class="wrap">
@@ -839,7 +892,12 @@
     <hr class="divider reveal" style="margin-left:auto;margin-right:auto;">
     <h2 class="reveal">Se isto fez sentido</h2>
     <p class="reveal">É disto que escrevo todas as semanas.</p>
-    <a class="cta reveal" href="https://antesdoprompt.beehiiv.com" target="_blank" rel="noopener">Newsletter "Antes do Prompt"</a>
+    <div class="capture reveal">
+      <span class="cap-label">Antes do Prompt · newsletter</span>
+      <h3>Recebe o resto por email</h3>
+      <p>Todas as semanas, uma ideia sobre pensar antes de usar IA no teu negócio.</p>
+      <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="76e895a1-fb05-46df-b6b5-92e0223a9853"></script>
+    </div>
     <p class="talk reveal">Se isto fez sentido e quiseres falar do teu caso, marca <a class="inline" href="https://cal.eu/ricardocosta/conversa-de-diagnostico" target="_blank" rel="noopener">uma conversa de 20 minutos</a>. Primeiras vagas a partir de 20 de julho.</p>
     <p class="talk reveal">Tens uma pergunta sobre o teu caso concreto? Escreve-me, ou segue o trabalho por aqui.</p>
     <p class="socials reveal">
