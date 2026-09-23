@@ -36,7 +36,7 @@
 }
 
 /* O texto do hero mantém medida de leitura curta dentro dessa coluna. */
-.svc-hero__heading { max-width: 20ch; }
+.svc-hero__heading { max-width: 15ch; }
 .svc-hero__body    { max-width: 62ch; }
 
 /* O heading é longo: sem isto, palavras compridas empurram a largura
@@ -50,10 +50,10 @@
    A tensão vem da frase, não de um eyebrow em caixa alta. */
 .svc-hero__heading {
   font-family: var(--font-body);
-  font-weight: 300;
-  font-size: clamp(1.9rem, 4.4vw, 3.2rem);
-  line-height: 1.18;
-  letter-spacing: -0.022em;
+  font-weight: 400;
+  font-size: var(--fs-hero);
+  line-height: var(--lh-hero);
+  letter-spacing: -0.035em;
   color: var(--chalk);
   text-wrap: balance;
   margin-bottom: 36px;
@@ -118,9 +118,9 @@
 .svc-fit__title-main {
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: clamp(1.5rem, 3vw, 2.1rem);
-  line-height: 1.25;
-  letter-spacing: -0.02em;
+  font-size: var(--fs-display);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   color: var(--chalk);
   text-wrap: balance;
   margin-bottom: 8px;
@@ -218,10 +218,36 @@
 
 /* ========== MÉTODO ========== */
 
+/* Ritmo tonal: secções alternam entre Ash e Ash-mid. As referências fazem o
+   mesmo com dois tons de papel — cria cadência sem mudar de paleta. */
+.svc-method-wrap {
+  background: var(--ash-mid);
+}
+
 .svc-method {
   max-width: var(--max-w);
   margin: 0 auto;
   padding: var(--sec-y) var(--side-pad);
+}
+
+/* Cards do método com superfície e estado, não só texto sobre fundo. */
+.svc-method__step {
+  background: var(--ash);
+  border: 1px solid var(--chalk-10);
+  border-radius: var(--radius-lg);
+  padding: 28px 26px 30px;
+  transition: border-color var(--duration-md) var(--ease-out),
+              transform var(--duration-md) var(--ease-out);
+}
+
+.svc-method__step:hover {
+  border-color: var(--forge-30);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-method__step { transition: border-color var(--duration-md) var(--ease-out); }
+  .svc-method__step:hover { transform: none; }
 }
 
 .svc-method__list {
@@ -234,11 +260,7 @@
   counter-reset: none;
 }
 
-.svc-method__step {
-  position: relative;
-  padding-top: 24px;
-  border-top: 1px solid var(--chalk-10);
-}
+
 
 /* A numeração fica: o método É uma sequência. Mas deixa de ser um badge
    mono em caixa alta e passa a ser o próprio algarismo, grande e quieto. */
@@ -294,17 +316,16 @@
 .svc-offer__card {
   display: flex;
   flex-direction: column;
-  padding-top: 8px;
-  border-top: 2px solid var(--chalk-30);
-  padding-left: 0;
+  padding: 44px 0 0;
+  border-top: 2px solid var(--forge);
 }
 
 /* O trabalho: painel de Chalk sobre Ash, como o sistema já autoriza.
    É o único bloco claro da página e é deliberado. */
 .svc-offer__card--feature {
   background: var(--chalk);
-  border-top: 2px solid var(--forge);
-  padding: 40px 36px 44px;
+  border-radius: var(--radius-lg);
+  padding: 44px 40px 48px;
   color: var(--ash);
 }
 

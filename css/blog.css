@@ -20,9 +20,9 @@
   text-wrap: balance;
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: clamp(2rem, 4.6vw, 3.2rem);
-  line-height: var(--lh-tight);
-  letter-spacing: -0.02em;
+  font-size: var(--fs-hero);
+  line-height: var(--lh-hero);
+  letter-spacing: -0.035em;
   color: var(--chalk);
   max-width: 20ch;
   margin-bottom: 24px;
@@ -47,25 +47,27 @@
   margin: 0;
 }
 
-.blog-post-card {
-  border-top: 1px solid var(--chalk-10);
+.blog-post-card + .blog-post-card {
+  margin-top: 20px;
 }
 
-.blog-post-card:last-child {
-  border-bottom: 1px solid var(--chalk-10);
-}
-
+/* Bloco com superfície e estado real, não uma linha com opacidade. */
 .blog-post-card__link {
   display: block;
-  padding: 40px 0;
+  padding: 36px 34px 38px;
+  background: var(--ash-mid);
+  border: 1px solid var(--chalk-10);
+  border-radius: var(--radius-lg);
   text-decoration: none;
   color: inherit;
-  transition: opacity var(--duration-md) var(--ease-out);
+  transition: border-color var(--duration-md) var(--ease-out),
+              background var(--duration-md) var(--ease-out);
 }
 
 .blog-post-card__link:hover,
 .blog-post-card__link:focus-visible {
-  opacity: 0.78;
+  border-color: var(--forge-30);
+  background: var(--ember);
 }
 
 .blog-post-card__meta {
@@ -80,8 +82,8 @@
 .blog-post-card__title {
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: clamp(1.35rem, 2.6vw, 1.75rem);
-  line-height: var(--lh-tight);
+  font-size: var(--fs-title);
+  line-height: 1.15;
   letter-spacing: -0.015em;
   color: var(--chalk);
   max-width: 26ch;
@@ -182,9 +184,9 @@
   text-wrap: balance;
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: clamp(1.9rem, 4.4vw, 2.9rem);
-  line-height: 1.22;
-  letter-spacing: -0.022em;
+  font-size: var(--fs-display);
+  line-height: 1.08;
+  letter-spacing: -0.032em;
   color: var(--chalk);
   margin-bottom: 24px;
 }
