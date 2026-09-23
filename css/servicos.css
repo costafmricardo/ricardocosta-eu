@@ -24,13 +24,20 @@
   pointer-events: none;
 }
 
+/* O hero alinha pela mesma coluna das secções abaixo (--max-w), não por uma
+   largura própria centrada. Antes começava ~150px mais à direita do que o
+   resto da página, e era isso que dava a sensação de as bordas não baterem. */
 .svc-hero__content {
   position: relative;
-  max-width: 900px;
+  max-width: var(--max-w);
   margin: 0 auto;
   width: 100%;
   min-width: 0;
 }
+
+/* O texto do hero mantém medida de leitura curta dentro dessa coluna. */
+.svc-hero__heading { max-width: 20ch; }
+.svc-hero__body    { max-width: 62ch; }
 
 /* O heading é longo: sem isto, palavras compridas empurram a largura
    e criam scroll horizontal em ecrãs estreitos. */
@@ -41,7 +48,7 @@
 
 .svc-hero__eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: var(--fs-micro);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--forge);
@@ -72,7 +79,7 @@
 
 .svc-hero__body {
   font-size: clamp(1rem, 1.6vw, 1.2rem);
-  line-height: 1.65;
+  line-height: var(--lh-body);
   color: var(--chalk-dim);
   max-width: 62ch;
   margin-bottom: 14px;
@@ -92,7 +99,7 @@
 
 .svc-hero__link-cta {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: var(--fs-small);
   color: var(--chalk-dim);
   text-decoration: none;
   border-bottom: 1px solid var(--chalk-30);
@@ -112,12 +119,12 @@
 .svc-proof {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 100px var(--side-pad);
+  padding: var(--sec-y) var(--side-pad);
 }
 
 .svc-proof__lead {
   font-size: clamp(1.05rem, 2vw, 1.35rem);
-  line-height: 1.6;
+  line-height: var(--lh-body);
   color: var(--chalk);
   max-width: 58ch;
   margin-bottom: 56px;
@@ -151,13 +158,13 @@
 }
 
 .svc-proof__label {
-  font-size: 0.92rem;
-  line-height: 1.5;
+  font-size: var(--fs-small);
+  line-height: var(--lh-body);
   color: var(--chalk-dim);
 }
 
 .svc-proof__note {
-  font-size: 0.98rem;
+  font-size: var(--fs-body);
   line-height: 1.7;
   color: var(--stone);
   max-width: 62ch;
@@ -168,7 +175,7 @@
 .svc-method {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 100px var(--side-pad);
+  padding: var(--sec-y) var(--side-pad);
 }
 
 .svc-method__list {
@@ -190,7 +197,7 @@
 .svc-method__num {
   display: block;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: var(--fs-micro);
   letter-spacing: 0.1em;
   color: var(--forge);
   margin-bottom: 16px;
@@ -205,8 +212,8 @@
 }
 
 .svc-method__body {
-  font-size: 0.98rem;
-  line-height: 1.65;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--chalk-dim);
 }
 
@@ -215,7 +222,7 @@
 .svc-offer {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 100px var(--side-pad);
+  padding: var(--sec-y) var(--side-pad);
 }
 
 .svc-offer__grid {
@@ -240,7 +247,7 @@
 
 .svc-offer__eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-micro);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--forge);
@@ -259,14 +266,14 @@
 
 .svc-offer__lead {
   font-size: 1.05rem;
-  line-height: 1.6;
+  line-height: var(--lh-body);
   color: var(--chalk-dim);
   margin-bottom: 32px;
 }
 
 .svc-offer__section-label {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-micro);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--stone);
@@ -285,8 +292,8 @@
 .svc-offer__list li {
   position: relative;
   padding-left: 20px;
-  font-size: 0.96rem;
-  line-height: 1.6;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--chalk-dim);
 }
 
@@ -311,7 +318,7 @@
 .svc-offer__month {
   display: block;
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: var(--fs-micro);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--forge);
@@ -319,8 +326,8 @@
 }
 
 .svc-offer__body {
-  font-size: 0.96rem;
-  line-height: 1.65;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--chalk-dim);
 }
 
@@ -348,12 +355,12 @@
   gap: 16px;
   padding: 10px 0;
   border-top: 1px solid var(--chalk-10);
-  font-size: 0.9rem;
+  font-size: var(--fs-small);
 }
 
 .svc-offer__meta-key {
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: var(--fs-micro);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--stone);
@@ -370,7 +377,7 @@
 
 .svc-offer__afterword {
   margin-top: 40px;
-  font-size: 0.96rem;
+  font-size: var(--fs-body);
   line-height: 1.7;
   color: var(--stone);
   max-width: 68ch;
@@ -381,7 +388,7 @@
 .svc-fit {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 100px var(--side-pad);
+  padding: var(--sec-y) var(--side-pad);
 }
 
 .svc-fit__grid {
@@ -415,8 +422,8 @@
 .svc-fit__list li {
   position: relative;
   padding-left: 20px;
-  font-size: 0.98rem;
-  line-height: 1.6;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--chalk-dim);
 }
 
@@ -447,7 +454,7 @@
   position: relative;
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 100px var(--side-pad);
+  padding: var(--sec-y) var(--side-pad);
 }
 
 .svc-cta__accent {
@@ -482,7 +489,7 @@
 }
 
 .svc-cta__alt {
-  font-size: 0.94rem;
+  font-size: var(--fs-small);
   color: var(--stone);
 }
 
@@ -513,7 +520,7 @@
   .svc-offer,
   .svc-fit,
   .svc-cta {
-    padding: 72px var(--side-pad);
+    padding: var(--sec-y-sm) var(--side-pad);
   }
 
   .svc-offer__card {

@@ -1,7 +1,7 @@
 /* ==========================================================================
    RICARDO COSTA — ricardocosta.eu
    Design System: Forge (Dark)
-   Fonts: Instrument Serif (display) · Outfit (body) · Space Mono (meta)
+   Fonts: Instrument Serif (display) · Barlow (body) · Space Mono (meta)
    ========================================================================== */
 
 /* ---------- DESIGN TOKENS ---------- */
@@ -26,8 +26,25 @@
 
   /* Typography */
   --font-display: 'Instrument Serif', Georgia, serif;
-  --font-body:    'Outfit', 'Helvetica Neue', sans-serif;
+  --font-body:    'Barlow', 'Helvetica Neue', sans-serif;
   --font-mono:    'Space Mono', 'Courier New', monospace;
+
+  /* Escala tipográfica — alinhada com a base de 16px/1.5 que a NILG usa.
+     A Outfit é geométrica e tem altura-x baixa: ao mesmo tamanho lia pior.
+     A Barlow é humanista, com altura-x maior, e aguenta estes valores. */
+  --fs-micro:  0.8125rem;  /* 13px — nunca abaixo disto */
+  --fs-small:  0.9375rem;  /* 15px */
+  --fs-body:   1rem;       /* 16px — base */
+  --fs-lead:   1.125rem;   /* 18px */
+  --fs-sub:    1.25rem;    /* 20px */
+  --lh-body:   1.6;
+  --lh-tight:  1.35;
+
+  /* Ritmo vertical — uma secção tem sempre o mesmo respiro, em qualquer
+     página. Antes o index usava 80px e a página de serviços 100px, o que
+     dava a sensação de as bordas não baterem certo entre páginas. */
+  --sec-y:     96px;
+  --sec-y-sm:  72px;
 
   /* Layout */
   --max-w:        1320px;
@@ -444,11 +461,14 @@ img { display: block; max-width: 100%; height: auto; }
   padding-bottom: 112px;
 }
 .hero--no-photo .hero__content {
-  max-width: 900px;
+  max-width: var(--max-w);
   margin: 0 auto;
   padding-left: var(--side-pad);
   padding-right: var(--side-pad);
 }
+/* Medida de leitura curta dentro da coluna larga. */
+.hero--no-photo .hero__heading { max-width: 18ch; }
+.hero--no-photo .hero__body    { max-width: 58ch; }
 .hero--no-photo .hero__glow {
   top: -10%;
   left: 50%;
@@ -507,7 +527,7 @@ img { display: block; max-width: 100%; height: auto; }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 80px var(--side-pad);
+  padding: var(--sec-y) var(--side-pad);
   gap: 8px;
   position: relative;
 }
@@ -625,7 +645,7 @@ img { display: block; max-width: 100%; height: auto; }
 .about {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 80px var(--side-pad);
+  padding: var(--sec-y) var(--side-pad);
 }
 .about__content {
   display: flex;
@@ -730,7 +750,7 @@ img { display: block; max-width: 100%; height: auto; }
 .latest {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 80px var(--side-pad);
+  padding: var(--sec-y) var(--side-pad);
 }
 .latest__cards {
   display: grid;
@@ -919,7 +939,7 @@ img { display: block; max-width: 100%; height: auto; }
 .newsletter {
   position: relative;
   overflow: hidden;
-  padding: 100px var(--side-pad);
+  padding: var(--sec-y) var(--side-pad);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -1095,7 +1115,7 @@ img { display: block; max-width: 100%; height: auto; }
 .contact {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 80px var(--side-pad);
+  padding: var(--sec-y) var(--side-pad);
   position: relative;
 }
 .contact__accent {
@@ -1286,7 +1306,7 @@ img { display: block; max-width: 100%; height: auto; }
 .story {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 80px var(--side-pad);
+  padding: var(--sec-y) var(--side-pad);
 }
 .story__body {
   display: flex;
@@ -1325,7 +1345,7 @@ img { display: block; max-width: 100%; height: auto; }
 .beliefs {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 80px var(--side-pad);
+  padding: var(--sec-y) var(--side-pad);
 }
 .beliefs__list {
   display: flex;
@@ -1353,7 +1373,7 @@ img { display: block; max-width: 100%; height: auto; }
 .find-me {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 80px var(--side-pad);
+  padding: var(--sec-y) var(--side-pad);
 }
 .find-me .latest__cards {
   display: grid;
