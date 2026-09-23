@@ -3,6 +3,11 @@
    Main JavaScript — All interactions from Figma specs
    ========================================================================== */
 
+// Respeita quem pediu menos movimento no sistema operativo. Sem isto, o scroll
+// suave por JS ignorava a preferência que o CSS já respeitava.
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const scrollBehavior = () => (prefersReducedMotion.matches ? 'auto' : 'smooth');
+
 (function () {
   'use strict';
 
@@ -124,7 +129,7 @@
   }
 
   backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: scrollBehavior() });
   });
 
   // ---------- SCROLL DOTS — Visibility ----------
@@ -140,7 +145,7 @@
     dot.addEventListener('click', () => {
       const target = document.getElementById(dot.dataset.target);
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
+        target.scrollIntoView({ behavior: scrollBehavior() });
       }
     });
   });
@@ -284,7 +289,7 @@
 
     function goToCard(i) {
       if (cards[i]) {
-        cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        cards[i].scrollIntoView({ behavior: scrollBehavior(), block: 'nearest', inline: 'start' });
       }
     }
 
@@ -310,9 +315,9 @@
     // First-visit swipe hint — M9
     if (!localStorage.getItem('rc_carousel_hint')) {
       setTimeout(() => {
-        cardsContainer.scrollBy({ left: 30, behavior: 'smooth' });
+        cardsContainer.scrollBy({ left: 30, behavior: scrollBehavior() });
         setTimeout(() => {
-          cardsContainer.scrollBy({ left: -30, behavior: 'smooth' });
+          cardsContainer.scrollBy({ left: -30, behavior: scrollBehavior() });
           localStorage.setItem('rc_carousel_hint', '1');
         }, 400);
       }, 1500);
@@ -363,7 +368,7 @@
       if (link) link.focus();
 
       if (window.innerWidth < 768) {
-        cards[nextIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        cards[nextIdx].scrollIntoView({ behavior: scrollBehavior(), block: 'nearest', inline: 'start' });
       }
     }
   });
@@ -375,7 +380,7 @@
       const target = document.getElementById(targetId);
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
+        target.scrollIntoView({ behavior: scrollBehavior() });
       }
     });
   });

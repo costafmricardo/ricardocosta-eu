@@ -4,6 +4,11 @@
    email obfuscation
    ========================================================================== */
 
+// Respeita quem pediu menos movimento no sistema operativo. Sem isto, o scroll
+// suave por JS ignorava a preferência que o CSS já respeitava.
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const scrollBehavior = () => (prefersReducedMotion.matches ? 'auto' : 'smooth');
+
 (function () {
   'use strict';
 
@@ -47,7 +52,7 @@
   }
 
   backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: scrollBehavior() });
   });
 
   // ---------- SCROLL HANDLER ----------
@@ -161,7 +166,7 @@
       const target = document.getElementById(targetId);
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
+        target.scrollIntoView({ behavior: scrollBehavior() });
       }
     });
   });

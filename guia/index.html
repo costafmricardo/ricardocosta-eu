@@ -709,7 +709,7 @@
     <p class="sub reveal">As três perguntas a fazer antes de gastares um euro em qualquer ferramenta de IA. O método primeiro, as ferramentas no fim. Tal como no palco.</p>
     <div class="hero-actions reveal">
       <a class="cta" href="#newsletter">Receber a newsletter</a>
-      <button class="ghost" type="button" onclick="window.print()">
+      <button class="ghost" type="button" data-print>
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
         Imprimir / Guardar PDF
       </button>
@@ -898,7 +898,7 @@
       <p>Todas as semanas, uma ideia sobre pensar antes de usar IA no teu negócio.</p>
       <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="76e895a1-fb05-46df-b6b5-92e0223a9853"></script>
     </div>
-    <p class="talk reveal">Se isto fez sentido e quiseres falar do teu caso, marca <a class="inline" href="https://cal.eu/ricardocosta/conversa-de-diagnostico" target="_blank" rel="noopener">uma conversa de 20 minutos</a>. Primeiras vagas a partir de 20 de julho.</p>
+    <p class="talk reveal">Se isto fez sentido e quiseres falar do teu caso, marca <a class="inline" href="https://calendar.app.google/5oi5paCohAR11PfC6" target="_blank" rel="noopener">uma conversa de trinta minutos</a>.</p>
     <p class="talk reveal">Tens uma pergunta sobre o teu caso concreto? Escreve-me, ou segue o trabalho por aqui.</p>
     <p class="socials reveal">
       <a href="https://linkedin.com/in/ricardocostaeu" target="_blank" rel="noopener">LinkedIn</a> ·
@@ -969,5 +969,10 @@
 })();
 </script>
 
+<script>
+  document.querySelectorAll('[data-print]').forEach(function (b) {
+    b.addEventListener('click', function () { window.print(); });
+  });
+</script>
 </body>
 </html>
