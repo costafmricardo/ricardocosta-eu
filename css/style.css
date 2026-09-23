@@ -433,6 +433,52 @@ img { display: block; max-width: 100%; height: auto; }
   z-index: 2;
 }
 
+/* Hero sem foto — o conteúdo centra-se e o glow passa a vir de cima.
+   A oferta passa a ser o herói da página, não o retrato. */
+.hero--no-photo {
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  height: auto;
+  padding-top: calc(var(--nav-h) + 96px);
+  padding-bottom: 112px;
+}
+.hero--no-photo .hero__content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: var(--side-pad);
+  padding-right: var(--side-pad);
+}
+.hero--no-photo .hero__glow {
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 80%;
+}
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-top: 36px;
+}
+.hero__link-cta {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--chalk-dim);
+  text-decoration: none;
+  border-bottom: 1px solid var(--chalk-30);
+  padding-bottom: 3px;
+  transition: color var(--duration-md) var(--ease-out),
+              border-color var(--duration-md) var(--ease-out);
+}
+.hero__link-cta:hover,
+.hero__link-cta:focus-visible {
+  color: var(--forge);
+  border-color: var(--forge);
+}
+
 .hero__photo-col {
   flex: 0 0 45%;
   position: relative;
