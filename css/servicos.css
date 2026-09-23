@@ -46,35 +46,17 @@
   overflow-wrap: break-word;
 }
 
-.svc-hero__eyebrow {
-  font-family: var(--font-mono);
-  font-size: var(--fs-micro);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--forge);
-  margin-bottom: 28px;
-}
-
+/* O gancho é uma frase completa, sem rótulo a anunciá-la.
+   A tensão vem da frase, não de um eyebrow em caixa alta. */
 .svc-hero__heading {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: clamp(2rem, 5.2vw, 3.9rem);
-  line-height: 1.12;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.9rem, 4.4vw, 3.2rem);
+  line-height: 1.18;
+  letter-spacing: -0.022em;
   color: var(--chalk);
-  margin-bottom: 32px;
-}
-
-.svc-hero__heading-context,
-.svc-hero__heading-punch {
-  display: block;
-}
-
-.svc-hero__heading-punch {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 400;
-  color: var(--forge);
+  text-wrap: balance;
+  margin-bottom: 36px;
 }
 
 .svc-hero__body {
@@ -98,7 +80,6 @@
 }
 
 .svc-hero__link-cta {
-  font-family: var(--font-mono);
   font-size: var(--fs-small);
   color: var(--chalk-dim);
   text-decoration: none;
@@ -126,41 +107,106 @@
   font-size: clamp(1.05rem, 2vw, 1.35rem);
   line-height: var(--lh-body);
   color: var(--chalk);
-  max-width: 58ch;
-  margin-bottom: 56px;
+  max-width: 54ch;
+  margin-bottom: 64px;
 }
 
-.svc-proof__grid {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 40px;
+/* Títulos de secção: frase normal, não etiqueta em caixa alta.
+   O tamanho e o peso já dizem que é um título. */
+.svc-method__title-main,
+.svc-offer__title-main,
+.svc-fit__title-main {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--chalk);
+  text-wrap: balance;
+  margin-bottom: 8px;
+}
+
+/* A OUSADIA, GASTA AQUI.
+   As 47 horas são a única coisa neste site que mais ninguém tem. Deixam de
+   ser uma de quatro caixas iguais e passam a ocupar a página. Os outros três
+   números ficam deliberadamente quietos por baixo — é o contraste que faz o
+   primeiro funcionar. */
+.svc-proof__hero {
+  margin: 0 0 72px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1px;
-  background: var(--chalk-10);
-  border: 1px solid var(--chalk-10);
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 64px);
+  align-items: baseline;
 }
 
-.svc-proof__item {
-  background: var(--ash);
-  padding: 36px 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+@media (max-width: 720px) {
+  .svc-proof__hero { grid-template-columns: 1fr; gap: 20px; }
 }
 
-.svc-proof__num {
+.svc-proof__hero-num {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: clamp(2.4rem, 5vw, 3.4rem);
-  line-height: 1;
+  font-size: clamp(5.5rem, 17vw, 13rem);
+  line-height: 0.78;
+  letter-spacing: -0.03em;
   color: var(--forge);
+  font-variant-numeric: tabular-nums;
+  display: block;
 }
 
-.svc-proof__label {
-  font-size: var(--fs-small);
-  line-height: var(--lh-body);
+.svc-proof__hero-unit {
+  display: block;
+  text-align: right;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 300;
+  font-size: clamp(1rem, 2.2vw, 1.6rem);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--chalk);
+  margin-top: 14px;
+}
+
+.svc-proof__hero-cap {
+  font-size: var(--fs-lead);
+  line-height: 1.6;
   color: var(--chalk-dim);
+  max-width: 34ch;
+  padding-bottom: 8px;
+}
+
+/* Os outros três: uma linha, sem caixas. Quietos por desenho. */
+.svc-proof__rest {
+  margin: 0 0 48px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 36px 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--chalk-10);
+}
+
+.svc-proof__pair {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.svc-proof__pair dt {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--chalk);
+  font-variant-numeric: tabular-nums;
+}
+
+.svc-proof__pair dd {
+  margin: 0;
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--stone);
+  max-width: 24ch;
 }
 
 .svc-proof__note {
@@ -194,13 +240,17 @@
   border-top: 1px solid var(--chalk-10);
 }
 
+/* A numeração fica: o método É uma sequência. Mas deixa de ser um badge
+   mono em caixa alta e passa a ser o próprio algarismo, grande e quieto. */
 .svc-method__num {
   display: block;
-  font-family: var(--font-mono);
-  font-size: var(--fs-micro);
-  letter-spacing: 0.1em;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1.6rem;
+  line-height: 1;
   color: var(--forge);
-  margin-bottom: 16px;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 14px;
 }
 
 .svc-method__title {
@@ -225,33 +275,57 @@
   padding: var(--sec-y) var(--side-pad);
 }
 
+/* Assimétrico por desenho: as duas ofertas não têm o mesmo peso no negócio,
+   e a página não deve fingir que têm. O diagnóstico é a porta; o ciclo é o
+   trabalho. Duas caixas iguais lado a lado eram o molde de SaaS. */
 .svc-offer__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 32px;
-  margin-top: 40px;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+  gap: clamp(32px, 4vw, 64px);
+  margin-top: 48px;
+  align-items: start;
 }
 
+@media (max-width: 900px) {
+  .svc-offer__grid { grid-template-columns: 1fr; }
+}
+
+/* A porta: sem caixa. Vive sobre o fundo, como um aparte. */
 .svc-offer__card {
-  border: 1px solid var(--chalk-10);
-  background: var(--ash-mid);
-  padding: 44px 36px;
   display: flex;
   flex-direction: column;
+  padding-top: 8px;
+  border-top: 2px solid var(--chalk-30);
+  padding-left: 0;
 }
 
+/* O trabalho: painel de Chalk sobre Ash, como o sistema já autoriza.
+   É o único bloco claro da página e é deliberado. */
 .svc-offer__card--feature {
-  border-color: var(--forge-30);
-  background: linear-gradient(180deg, var(--forge-12) 0%, var(--ash-mid) 32%);
+  background: var(--chalk);
+  border-top: 2px solid var(--forge);
+  padding: 40px 36px 44px;
+  color: var(--ash);
 }
 
-.svc-offer__eyebrow {
-  font-family: var(--font-mono);
-  font-size: var(--fs-micro);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--forge);
-  margin-bottom: 18px;
+.svc-offer__card--feature .svc-offer__title,
+.svc-offer__card--feature .svc-offer__meta-val { color: var(--ash); }
+.svc-offer__card--feature .svc-offer__lead,
+.svc-offer__card--feature .svc-offer__list li,
+.svc-offer__card--feature .svc-offer__body { color: #4A423A; }
+.svc-offer__card--feature .svc-offer__lede,
+.svc-offer__card--feature .svc-offer__meta-key { color: #7A6E60; }
+.svc-offer__card--feature .svc-offer__month { color: var(--forge-hot); }
+.svc-offer__card--feature .svc-offer__list li::before { background: var(--forge-hot); }
+.svc-offer__card--feature .svc-offer__body strong { color: var(--ash); }
+.svc-offer__card--feature .svc-offer__meta-line { border-color: rgba(23, 20, 17, 0.12); }
+.svc-offer__card--feature .btn--primary {
+  background: var(--ash);
+  color: var(--chalk);
+}
+.svc-offer__card--feature .btn--primary:hover {
+  background: var(--forge-hot);
+  color: var(--chalk);
 }
 
 .svc-offer__title {
@@ -271,13 +345,13 @@
   margin-bottom: 32px;
 }
 
-.svc-offer__section-label {
-  font-family: var(--font-mono);
-  font-size: var(--fs-micro);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--stone);
-  margin: 28px 0 14px;
+/* Lede, não label: frase curta em caixa normal. O mono em maiúsculas era
+   chrome de template, aparecia igual em todo o lado. */
+.svc-offer__lede {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--chalk);
+  margin: 30px 0 14px;
 }
 
 .svc-offer__list {
@@ -317,10 +391,8 @@
 
 .svc-offer__month {
   display: block;
-  font-family: var(--font-mono);
-  font-size: var(--fs-micro);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-weight: 600;
+  font-size: var(--fs-small);
   color: var(--forge);
   margin-bottom: 4px;
 }
@@ -359,10 +431,7 @@
 }
 
 .svc-offer__meta-key {
-  font-family: var(--font-mono);
-  font-size: var(--fs-micro);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: var(--fs-small);
   color: var(--stone);
 }
 
