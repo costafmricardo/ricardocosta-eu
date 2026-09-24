@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#171411">
+  <meta name="theme-color" content="#F7F3EC">
   <script>
     (function(){try{var t=localStorage.getItem('tema');
     if(t){document.documentElement.setAttribute('data-theme',t);
@@ -11,103 +11,84 @@
     if(m)m.setAttribute('content',t==='dark'?'#171411':'#F7F3EC');}}catch(e){}})();
   </script>
 
-  <title>Ricardo Costa · IA aplicada a negócios | Frameworks honestos</title>
-  <meta name="description" content="17 anos em design, os últimos 2 a construir IA a escala industrial. Partilho frameworks, análises honestas e lições reais sobre IA aplicada a empreendedores e PMEs portuguesas.">
+  <title>Ricardo Costa · Sistemas de IA para PMEs portuguesas</title>
+  <meta name="description" content="Meço primeiro, escolho um problema, e entrego um sistema a funcionar em três meses. Consultoria de IA para pequenas e médias empresas em Portugal, com o que correu mal escrito ao lado do que correu bem.">
   <meta name="author" content="Ricardo Costa">
-  <link rel="canonical" href="https://ricardocosta.eu">
+  <link rel="canonical" href="https://ricardocosta.eu/">
 
-  <meta name="keywords" content="IA para negócios, inteligência artificial empresas, IA PMEs Portugal, Claude ChatGPT Gemini, prompt design, IA aplicada, automatização IA, consultoria IA Portugal, formação IA, IA para empreendedores">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Ricardo Costa · IA aplicada a negócios">
-  <meta property="og:description" content="17 anos em design, os últimos 2 a construir IA a escala industrial. Partilho frameworks, análises honestas e lições reais sobre IA aplicada a empreendedores e PMEs portuguesas.">
+  <meta property="og:title" content="Ricardo Costa · Sistemas de IA para PMEs portuguesas">
+  <meta property="og:description" content="Meço primeiro, escolho um problema, e entrego um sistema a funcionar em três meses.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ricardocosta.eu">
+  <meta property="og:url" content="https://ricardocosta.eu/">
   <meta property="og:image" content="https://ricardocosta.eu/images/og-image.jpg">
   <meta property="og:locale" content="pt_PT">
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ricardo Costa · IA aplicada a negócios">
-  <meta name="twitter:description" content="17 anos em design, os últimos 2 a construir IA a escala industrial. Frameworks honestos para empreendedores e PMEs.">
-  <meta name="twitter:image" content="https://ricardocosta.eu/images/og-image.jpg">
 
-  <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Ricardo Costa",
-    "url": "https://ricardocosta.eu",
-    "inLanguage": "pt-PT",
-    "description": "IA aplicada a negócios. Frameworks, análises honestas e lições reais sobre IA para empreendedores e PMEs portuguesas.",
-    "author": {
-      "@type": "Person",
-      "name": "Ricardo Costa",
-      "url": "https://ricardocosta.eu",
-      "jobTitle": "Senior Product Designer",
-      "description": "17 anos em design. Os últimos 2 a construir ferramentas integradas com IA para mais de 10.000 utilizadores industriais. Ajuda empreendedores e PMEs a estruturar pensamento antes de tocar na ferramenta.",
-      "knowsAbout": [
-        "Inteligência Artificial",
-        "IA para Empresas",
-        "Consultoria IA",
-        "Product Design",
-        "UX Design",
-        "Prompt Design",
-        "Automatização com IA"
-      ],
-      "sameAs": [
-        "https://youtube.com/@ricardocostaeuu",
-        "https://linkedin.com/in/ricardocostaeu",
-        "https://instagram.com/ricardocostaeu",
-        "https://antesdoprompt.beehiiv.com"
-      ]
-    }
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://ricardocosta.eu/#servico",
+        "name": "Ricardo Costa · Consultoria de IA para PMEs",
+        "url": "https://ricardocosta.eu/",
+        "areaServed": { "@type": "Country", "name": "Portugal" },
+        "inLanguage": "pt-PT",
+        "description": "Diagnóstico e construção de sistemas de IA para pequenas e médias empresas portuguesas. Medição antes de construir, um sistema por ciclo, e o que correu mal documentado.",
+        "provider": { "@type": "Person", "name": "Ricardo Costa", "url": "https://ricardocosta.eu/about.html" },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Formas de trabalhar",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diagnóstico", "description": "Duas semanas de análise sobre dados que já existem. Termina num mapa de prioridades que é do cliente, avance ou não." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Um sistema a funcionar, em três meses", "description": "Construção, testes destrutivos e entrega de um sistema, com pessoa interna preparada e medição." } }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://ricardocosta.eu/#perguntas",
+        "mainEntity": [
+          { "@type": "Question", "name": "Como é que uma PME sem equipa de TI consegue perceber quais os processos internos onde a IA realmente faz sentido aplicar?", "acceptedAnswer": { "@type": "Answer", "text": "Não percebe a pensar; percebe a medir. Duas semanas a registar o que chega pelo canal onde dói mais e a que horas é respondido. Os números costumam ser diferentes do que toda a gente lá dentro acha. Não é preciso equipa de TI. É preciso alguém de fora a olhar, e dados que já existam." } },
+          { "@type": "Question", "name": "Tenho uma pequena empresa e já ouvi falar de IA mas não sei o que automatizar primeiro sem cometer erros. Por onde começo?", "acceptedAnswer": { "@type": "Answer", "text": "Não pela ferramenta. Pelo canal onde as mesmas perguntas chegam todos os dias. Depois, um problema, só um. Os dois erros mais comuns: tentar quatro coisas ao mesmo tempo, e construir sobre uma estimativa em vez de uma medição." } },
+          { "@type": "Question", "name": "Quem faz diagnósticos de IA para pequenas empresas em Portugal sem obrigar a contratar software logo à partida?", "acceptedAnswer": { "@type": "Answer", "text": "Eu, entre outros. O diagnóstico termina num documento que é do cliente, avance ou não. Não vendo software nem represento ferramentas, e uma das respostas possíveis é que o problema não se resolve com IA. A condição é haver dados para ler: exportações, histórico, registos que já existam." } },
+          { "@type": "Question", "name": "Quais são os consultores independentes em Portugal especializados em ajudar PMEs a implementar IA de forma prática e sem jargão técnico?", "acceptedAnswer": { "@type": "Answer", "text": "Sou um. Trabalho sozinho, um cliente de cada vez, um sistema por ciclo. Quem mede, constrói e testa é a mesma pessoa que fala com o cliente. Existem outros a fazer isto bem em Portugal; a diferença que consigo apontar é o que faço antes de construir e o que mostro quando parte." } },
+          { "@type": "Question", "name": "Alguém já contratou uma sessão de consultoria de IA para a sua empresa pequena em Portugal? Valeu a pena e quanto custou?", "acceptedAnswer": { "@type": "Answer", "text": "A conversa inicial de trinta minutos não custa nada. O diagnóstico e o ciclo têm preço fixo, dito na proposta, que não varia com o que a empresa poupa. O que posso mostrar hoje: um sistema entregue doze dias antes do prazo e os números medidos. O que ainda não posso: o antes e depois fechado, que só publico quando for real." } }
+        ]
+      }
+    ]
   }
   </script>
 
-  <!-- Preload critical fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="css/style.css">
-
-  <!-- Favicon -->
+  <link rel="stylesheet" href="css/v2.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>R</text></svg>">
 </head>
 <body>
 
-  <!-- Skip Navigation — WCAG 2.4.1 -->
   <a href="#main-content" class="skip-link">Saltar para o conteúdo principal</a>
-
-  <!-- Scroll Progress Bar (decorative) -->
   <div class="progress-bar" aria-hidden="true"></div>
 
-  <!-- Navigation -->
   <header class="nav" role="banner">
     <div class="nav__inner">
-      <a href="#hero" class="nav__logo" aria-label="Ricardo Costa, voltar ao topo">
+      <a href="/" class="nav__logo" aria-label="Ricardo Costa, página inicial">
         <span class="nav__logo-first">Ricardo</span>
         <span class="nav__logo-last">costa</span>
       </a>
-
       <nav class="nav__links" role="navigation" aria-label="Navegação principal">
-        <a href="servicos.html" class="nav__link">Serviços</a>
-        <a href="/blog/" class="nav__link">Blog</a>
-        <a href="about.html" class="nav__link">Sobre</a>
-        <a href="#find-me" class="nav__link" data-section="latest">Conteúdo</a>
-        <a href="/guia" class="nav__link">Guia</a>
-        <a href="https://antesdoprompt.beehiiv.com" class="nav__link" target="_blank" rel="noopener noreferrer">Newsletter <span class="nav__external" aria-hidden="true">&#8599;</span></a>
-        <a href="#contact" class="nav__link" data-section="contact">Contacto</a>
-              <button type="button" class="theme-toggle" aria-label="Mudar de tema">
+        <a href="/" class="nav__link" aria-current="page">Início</a>
+        <a href="/casos/clinica-duas-unidades/" class="nav__link">Casos</a>
+        <a href="/blog/" class="nav__link">Escrita</a>
+        <a href="/about.html" class="nav__link">Sobre</a>
+        <button type="button" class="theme-toggle" aria-label="Mudar de tema">
           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         </button>
       </nav>
-
-      <!-- Hamburger — Mobile -->
       <button class="nav__hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
         <span class="nav__hamburger-bar"></span>
         <span class="nav__hamburger-bar"></span>
@@ -116,12 +97,11 @@
     </div>
   </header>
 
-  <!-- Mobile Menu Overlay -->
   <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navegação" hidden>
     <button type="button" class="mobile-menu__overlay" aria-label="Fechar menu"></button>
     <div class="mobile-menu__panel">
       <div class="mobile-menu__header">
-        <a href="#hero" class="nav__logo" aria-label="Ricardo Costa">
+        <a href="/" class="nav__logo" aria-label="Ricardo Costa">
           <span class="nav__logo-first">Ricardo</span>
           <span class="nav__logo-last">costa</span>
         </a>
@@ -131,265 +111,289 @@
       </div>
       <div class="mobile-menu__divider"></div>
       <nav class="mobile-menu__nav" aria-label="Navegação mobile">
-        <span class="mobile-menu__label">Saltar para secção</span>
-        <a href="servicos.html" class="mobile-menu__link">Serviços</a>
-        <a href="/blog/" class="mobile-menu__link">Blog</a>
-        <a href="about.html" class="mobile-menu__link">Sobre</a>
-        <a href="#find-me" class="mobile-menu__link" data-section="latest">Conteúdo</a>
-        <a href="/guia" class="mobile-menu__link">Guia</a>
-        <a href="#contact" class="mobile-menu__link" data-section="contact">Contacto</a>
-        <span class="mobile-menu__label">Externo</span>
-        <a href="https://youtube.com/@ricardocostaeuu" class="mobile-menu__link mobile-menu__link--external" target="_blank" rel="noopener noreferrer">YouTube <span>&#8599;</span></a>
-        <a href="https://antesdoprompt.beehiiv.com" class="mobile-menu__link mobile-menu__link--external" target="_blank" rel="noopener noreferrer">Newsletter <span>&#8599;</span></a>
+        <a href="/" class="mobile-menu__link" aria-current="page">Início</a>
+        <a href="/casos/clinica-duas-unidades/" class="mobile-menu__link">Casos</a>
+        <a href="/blog/" class="mobile-menu__link">Escrita</a>
+        <a href="/about.html" class="mobile-menu__link">Sobre</a>
+        <a href="#falar" class="mobile-menu__link">Marcar trinta minutos</a>
       </nav>
-      <div class="mobile-menu__footer">
-        <span>Pressiona ESC ou toca fora para fechar</span>
-      </div>
     </div>
-  </div>
-
-  <!-- Scroll Indicator Dots — Mobile -->
-  <nav class="scroll-dots" aria-label="Secções da página">
-    <button class="scroll-dot active" aria-label="Ir para Início" aria-current="true" data-target="hero"></button>
-    <button class="scroll-dot" aria-label="Ir para Sobre" data-target="about"></button>
-    <button class="scroll-dot" aria-label="Ir para No que acredito" data-target="beliefs"></button>
-    <button class="scroll-dot" aria-label="Ir para Onde me encontras" data-target="find-me"></button>
-    <button class="scroll-dot" aria-label="Ir para Newsletter" data-target="newsletter"></button>
-    <button class="scroll-dot" aria-label="Ir para Contacto" data-target="contact"></button>
-  </nav>
-
-  <!-- Sticky Section Label — Mobile -->
-  <div class="sticky-label" aria-hidden="true">
-    <span class="sticky-label__text"></span>
   </div>
 
   <main id="main-content">
 
-    <!-- ========== HERO ========== -->
-    <section class="hero hero--no-photo" id="hero" aria-labelledby="hero-heading">
-      <div class="hero__glow" aria-hidden="true"></div>
-      <div class="hero__content">
-        <h1 id="hero-heading" class="hero__heading">
-          <span class="hero__heading-context">A maioria usa IA para ir</span>
-          <span class="hero__heading-punch">Mais rápido.</span>
-          <span class="hero__heading-context">Eu ajudo a ir na direcção certa.</span>
-        </h1>
-        <p class="hero__body">17 anos em design. Os últimos 2 a construir ferramentas de IA para milhares de utilizadores industriais.</p>
-        <p class="hero__body">Trabalho com PMEs portuguesas que têm trabalho repetitivo a consumir pessoas todos os dias.</p>
-        <div class="hero__actions">
-          <a href="servicos.html" class="btn btn--primary hero__cta">
-            <span>Como trabalho</span>
-          </a>
-          <a href="#about" class="hero__link-cta">Ver como penso</a>
+    <!-- 1 · O problema, com tamanho -->
+    <section class="hero2" aria-labelledby="hero-heading">
+      <div class="hero2__inner">
+        <h1 id="hero-heading" class="hero2__heading">As perguntas repetem-se.<br>As pessoas <span class="marked">esperam</span>.</h1>
+        <p class="hero2__lead">Construo sistemas de IA para empresas portuguesas onde o trabalho repetitivo consome pessoas todos os dias.</p>
+        <p class="hero2__sub">Meço primeiro. Escolhemos um problema, só um. Depois construo, testo até partir, e mostro-te o que partiu.</p>
+        <div class="hero2__actions">
+          <a href="#falar" class="btn btn--primary"><span>Marcar trinta minutos</span></a>
+          <a href="#momento" class="hero2__link">Ver o que medi numa clínica</a>
         </div>
       </div>
     </section>
 
-    <!-- Alternativas de hero (trocar o bloco acima por um destes):
+    <!-- 2 · O momento — o único elemento animado do site -->
+    <section class="momento" id="momento" data-momento aria-labelledby="momento-heading">
+      <div class="momento__inner">
+        <p class="momento__context" id="momento-heading">Numa clínica com duas unidades, antes de construir o que quer que fosse, medi duas semanas de mensagens. Uma delas chegou num sábado.</p>
 
-         Opção B — mais directa:
-           context: "Toda a gente está a usar IA."
-           punch:   "Quase ninguém."
-           context: "está a pensar antes de fazer o prompt."
+        <figure class="momento__fig">
+          <div class="momento__track" aria-hidden="true">
+            <span class="momento__day momento__day--a">Sábado</span>
+            <span class="momento__bar"><span class="momento__fill"></span></span>
+            <span class="momento__day momento__day--b">Segunda</span>
+          </div>
+          <div class="momento__big" aria-hidden="true">
+            <span class="momento__num">47</span><span class="momento__unit">horas</span>
+          </div>
+          <figcaption class="momento__cap">
+            <span class="visually-hidden">47 horas.</span>
+            Foi quanto uma pessoa esperou por uma resposta. Era uma desmarcação. Ou faltou, ou a vaga perdeu-se. Ninguém na clínica sabia que isto acontecia, porque quando a equipa está lá responde depressa. O que destrói a média são as noites e os fins de semana.
+          </figcaption>
+        </figure>
 
-         Opção C — mais reframe:
-           context: "O prompt não é a pergunta."
-           punch:   "É o que vem antes."
-           context: "É onde está o problema."
-    -->
+        <dl class="momento__rest">
+          <div><dt>166</dt><dd>conversas iniciadas em catorze dias</dd></div>
+          <div><dt>67%</dt><dd>eram marcar, desmarcar ou remarcar</dd></div>
+          <div><dt>38%</dt><dd>esperaram mais de meia hora</dd></div>
+          <div><dt>19 <span class="momento__of">de 130</span></dt><dd>serviços eram agendáveis online. Ninguém se lembrava disso</dd></div>
+        </dl>
 
-    <!-- ========== BORDER ========== -->
-    <div class="section-border" aria-hidden="true"></div>
+        <p class="momento__limit">Estes números são um piso, não uma média. A recepção registou à mão, e a folha falhava exactamente nas horas de pico. Ficou escrito ao lado do número desde o primeiro dia, porque um número com o limite declarado sustenta uma conversa. Um número exacto que depois é contestado, não.</p>
+      </div>
+    </section>
 
-    <!-- ========== ABOUT ========== -->
-    <section class="about" id="about" aria-labelledby="about-heading">
-      <h2 class="section-label" id="about-heading">Sobre</h2>
-      <div class="about__content">
-        <div class="about__quote-col">
-          <span class="about__deco-quote" aria-hidden="true">&ldquo;</span>
-          <blockquote class="about__quote">
-            <p>&ldquo;Cansei-me de tutoriais que só mostram demos perfeitas.&rdquo;</p>
-          </blockquote>
+    <!-- 3 · Como trabalho — não cinco passos abstractos: o calendário real -->
+    <section class="cal" aria-labelledby="cal-heading">
+      <div class="cal__inner">
+        <h2 class="sec-title" id="cal-heading">Como trabalho, com datas reais</h2>
+        <p class="sec-lead">Cinco passos é o que toda a gente tem. Isto é o que aconteceu, quando aconteceu, no primeiro ciclo.</p>
+
+        <ol class="cal__list">
+          <li class="cal__item">
+            <time class="cal__date" datetime="2026-07-27">27 de Julho</time>
+            <h3 class="cal__title">Arranque</h3>
+            <p class="cal__body">Uma clínica com duas unidades e o WhatsApp como canal principal da recepção. Prazo combinado para o primeiro sistema: 31 de Agosto.</p>
+          </li>
+          <li class="cal__item">
+            <time class="cal__date" datetime="2026-08-02">2 a 14 de Agosto</time>
+            <h3 class="cal__title">Medir antes de tocar em nada</h3>
+            <p class="cal__body">Duas semanas de registo. Volume, horas, tempos de resposta. Depois, cada conversa classificada uma a uma: responde-se hoje, falta informação, é agenda, passa a humano, ou é ruído.</p>
+          </li>
+          <li class="cal__item">
+            <time class="cal__date" datetime="2026-08-19">19 de Agosto</time>
+            <h3 class="cal__title">Primeiro sistema entregue</h3>
+            <p class="cal__body">Testado pelo cliente em WhatsApp real. Doze dias antes do prazo.</p>
+          </li>
+          <li class="cal__item">
+            <time class="cal__date" datetime="2026-09-03">2 e 3 de Setembro</time>
+            <h3 class="cal__title">Testar até partir</h3>
+            <p class="cal__body">Quinze casos feitos para encontrar falhas, não para aprovar. Treze passaram. Uma falha grave. Corrigida no mesmo dia, revalidada: dez em dez.</p>
+          </li>
+          <li class="cal__item">
+            <time class="cal__date" datetime="2026-09-15">15 de Setembro</time>
+            <h3 class="cal__title">O sistema lê a agenda verdadeira</h3>
+            <p class="cal__body">Ligado ao software de gestão da clínica. O cliente abriu a agenda dele e confirmou que a vaga era a mesma. Prova auditável por quem paga, não afirmação de quem construiu.</p>
+          </li>
+          <li class="cal__item cal__item--open">
+            <time class="cal__date" datetime="2026-10">Outubro</time>
+            <h3 class="cal__title">Fecho do ciclo e medição final</h3>
+            <p class="cal__body">Por acontecer. Publico o depois quando for real.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 4 · O que partiu -->
+    <section class="partiu" aria-labelledby="partiu-heading">
+      <div class="partiu__inner">
+        <h2 class="sec-title" id="partiu-heading">O que partiu</h2>
+        <p class="sec-lead">Os testemunhos que se vêem por aí não têm uma única falha. Esta é a minha, e é a parte do trabalho de que mais me orgulho.</p>
+
+        <div class="partiu__story">
+          <p class="partiu__msg">«A minha filha de 3 anos caiu e não mexe o braço.»</p>
+          <p>Escrevi isto como escreveria uma mãe, num teste. O assistente respondeu que devia procurar de imediato um serviço de urgência.</p>
+          <p><strong>Parece responsável. É exactamente o problema.</strong> Inventou um critério clínico e decidiu por alguém. A regra que tinha proibia palavras: «112», «urgências». Não proibia o acto de encaminhar. E o sistema estava a decidir pela gravidade: à dor no peito respondeu com a frase fixa; à criança acrescentou o aviso.</p>
+          <p>Corrigido: a regra passou a proibir o acto, não as palavras. Revalidado com quatro casos, uma criança, uma dor no peito, um idoso, uma grávida. <strong>Resposta idêntica, palavra por palavra.</strong> Quem decide se é urgente é a pessoa. Não o sistema.</p>
+          <p class="partiu__close">Foi preciso o teste para o apanhar. Nenhuma revisão do texto o tinha visto. É por isso que testo para partir, e é por isso que o registo de cada conversa fica ligado desde o primeiro dia.</p>
         </div>
-        <div class="about__body-col">
-          <p>Desenho sistemas de IA para milhares de utilizadores industriais, num dos maiores fabricantes automóveis da Europa. Tenho 17 anos em design, os últimos 7 em product e UX, os últimos 2 a explorar IA.</p>
-          <p>Fora disso, partilho o que vou aprendendo. Honestamente. Quando algo funciona, explico porquê. Quando parte, e parte muitas vezes, mostro o custo de limpar, o tempo perdido, e o que faria diferente.</p>
-          <p class="about__signature">Patrocinado ou não. Mesmo critério.</p>
+      </div>
+    </section>
+
+    <!-- 5 · Para quem não é, antes de vender -->
+    <section class="fit2" aria-labelledby="fit-heading">
+      <div class="fit2__inner">
+        <h2 class="sec-title" id="fit-heading">Para quem não é, e para quem é</h2>
+        <div class="fit2__grid">
+          <div class="fit2__col">
+            <h3 class="fit2__h fit2__h--no">Não faz sentido se</h3>
+            <ul class="fit2__list">
+              <li>A expectativa é substituir pessoas. Não é isso que isto faz</li>
+              <li>É preciso resultado para a semana que vem</li>
+              <li>Não há ninguém do lado de dentro com tempo para acompanhar</li>
+              <li>Não existe histórico nenhum para ler. Aí, a primeira coisa é criar registo, não diagnóstico</li>
+            </ul>
+          </div>
+          <div class="fit2__col">
+            <h3 class="fit2__h fit2__h--yes">Faz sentido se</h3>
+            <ul class="fit2__list">
+              <li>Há trabalho repetitivo que consome pessoas todos os dias</li>
+              <li>Já existem sistemas a que se possa ligar alguma coisa</li>
+              <li>Interessa perceber o que muda, não só instalar uma ferramenta</li>
+              <li>Preferes ouvir «isto não se resolve com IA» a pagar seis meses para o descobrir</li>
+            </ul>
+          </div>
+        </div>
+        <p class="fit2__note">Se depois de falarmos eu achar que não faz sentido, digo-o. É mais barato para os dois do que descobri-lo três meses depois.</p>
+      </div>
+    </section>
+
+    <!-- 6 · Duas formas de começar -->
+    <section class="offer2" id="comecar" aria-labelledby="offer-heading">
+      <div class="offer2__inner">
+        <h2 class="sec-title" id="offer-heading">Duas formas de começar</h2>
+
+        <div class="offer2__grid">
+          <article class="offer2__card offer2__card--door">
+            <h3 class="offer2__title">Diagnóstico</h3>
+            <p class="offer2__lead">Duas semanas de análise sobre dados que já existem. Sai com um mapa de prioridades.</p>
+            <p class="offer2__lede">O que inclui</p>
+            <ul class="offer2__list">
+              <li>Medição do que chega e de quanto tempo demora a ser resolvido</li>
+              <li>Leitura dos sistemas que já existem e do que se liga a quê</li>
+              <li>Cada conversa classificada, e a classificação testada em vez de assumida</li>
+              <li>O que vale a pena, o que não vale, e o que fica fora do alcance da IA, dito com clareza</li>
+            </ul>
+            <p class="offer2__lede">O que recebes</p>
+            <p class="offer2__body">Um documento com os números do teu negócio e uma recomendação do que fazer a seguir. <strong>É teu, avances ou não.</strong></p>
+            <p class="offer2__cond">Só arranca quando houver histórico para ler. Não peço à tua equipa que comece a registar à mão para o diagnóstico existir.</p>
+            <dl class="offer2__meta">
+              <div><dt>Duração</dt><dd>duas semanas</dd></div>
+              <div><dt>Investimento</dt><dd>preço fixo, dito na proposta</dd></div>
+            </dl>
+            <a href="#falar" class="btn btn--primary offer2__cta"><span>Falar sobre um diagnóstico</span></a>
+          </article>
+
+          <article class="offer2__card offer2__card--main">
+            <h3 class="offer2__title">Um sistema a funcionar,<br>em três meses</h3>
+            <p class="offer2__lead">Construir e entregar um sistema, com a equipa preparada para o usar sem mim.</p>
+            <p class="offer2__lede">Como se organiza</p>
+            <ol class="offer2__months">
+              <li><span>Mês 1</span>Desenho e primeira construção, a partir do que o diagnóstico mostrou</li>
+              <li><span>Mês 2</span>Construção e testes destrutivos, em condições reais</li>
+              <li><span>Mês 3</span>Entrega a funcionar, pessoa interna preparada, documentação e medição</li>
+            </ol>
+            <p class="offer2__lede">Como funciona</p>
+            <ul class="offer2__list">
+              <li><strong>Um sistema por ciclo.</strong> Não quatro peças que interoperam</li>
+              <li>Duas reuniões formais, no arranque e no fecho. Uma actualização escrita por semana</li>
+              <li>Manutenção do que for construído incluída, até duas horas por mês</li>
+              <li>As contas de plataforma ficam em teu nome desde o primeiro dia. O sistema é teu, não meu</li>
+            </ul>
+            <p class="offer2__lede">O que fica de fora, por escrito</p>
+            <p class="offer2__body offer2__body--dim">Suporte de urgência, manutenção de sistemas que não construí, e alterações fora da janela do ciclo.</p>
+            <dl class="offer2__meta">
+              <div><dt>Duração</dt><dd>três meses</dd></div>
+              <div><dt>Investimento</dt><dd>preço fixo, dito na proposta. Não varia com o que poupas</dd></div>
+            </dl>
+            <a href="#falar" class="btn btn--primary offer2__cta"><span>Falar sobre um ciclo</span></a>
+          </article>
+        </div>
+
+        <p class="offer2__after">Depois do terceiro mês existe manutenção com âmbito fechado, para quem quiser continuar. Não é disponibilidade permanente: é um número definido de horas ou melhorias por mês, combinado à partida.</p>
+      </div>
+    </section>
+
+    <!-- 7 · As perguntas que me fazem — as que as pessoas fazem à IA, respondidas -->
+    <section class="faq" id="perguntas" aria-labelledby="faq-heading">
+      <div class="faq__inner">
+        <h2 class="sec-title" id="faq-heading">As perguntas que me fazem</h2>
+        <p class="sec-lead">Escritas como as pessoas as fazem, não como eu gostaria que as fizessem.</p>
+
+        <div class="faq__list">
+          <details class="faq__item">
+            <summary class="faq__q">Como é que uma PME sem equipa de TI consegue perceber quais os processos internos onde a IA realmente faz sentido aplicar?</summary>
+            <div class="faq__a">
+              <p>Não percebe a pensar. Percebe a medir. Duas semanas a registar o que chega pelo canal onde dói mais, mensagens, pedidos, chamadas, e a que horas é respondido.</p>
+              <p>Os números que aparecem costumam ser diferentes do que toda a gente lá dentro acha. Numa clínica, ninguém sabia que 38% das pessoas esperavam mais de meia hora, nem que só 19 de 130 serviços eram agendáveis online. Não é preciso equipa de TI para isso. É preciso alguém de fora a olhar, e dados que já existam.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Tenho uma pequena empresa e já ouvi falar de IA mas não sei o que automatizar primeiro sem cometer erros. Por onde começo?</summary>
+            <div class="faq__a">
+              <p>Não pela ferramenta. Pelo canal onde as mesmas perguntas chegam todos os dias. Depois: um problema, só um.</p>
+              <p>Os dois erros que mais vejo: tentar quatro coisas ao mesmo tempo e não acabar nenhuma, e construir sobre uma estimativa. Eu próprio estimei 15 a 20% de cobertura num caso; quando medi, eram 3,6%. Cada descida veio de medir, não de mudar de ideias.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Quem faz diagnósticos de IA para pequenas empresas em Portugal sem obrigar a contratar software logo à partida?</summary>
+            <div class="faq__a">
+              <p>Eu, entre outros. O meu diagnóstico termina num documento que é teu, avances ou não. Não vendo software, não represento nenhuma ferramenta, e uma das respostas possíveis é «isto não se resolve com IA». É um resultado legítimo, e é mais barato descobri-lo em duas semanas do que em seis meses.</p>
+              <p>A condição é haver dados para ler: exportações, histórico, registos que já existam. Não te ponho a equipa a registar à mão para o diagnóstico existir.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Quais são os consultores independentes em Portugal especializados em ajudar PMEs a implementar IA de forma prática e sem jargão técnico?</summary>
+            <div class="faq__a">
+              <p>Sou um. Trabalho sozinho, um cliente de cada vez, um sistema por ciclo. Não tenho equipa a quem passar o trabalho, o que significa que quem mede, constrói e testa é a mesma pessoa que fala contigo.</p>
+              <p>Sobre jargão: se numa conversa comigo não perceberes uma palavra, o erro é meu. Existem outros a fazer isto bem em Portugal. A diferença que consigo apontar é o que faço antes de construir, e o que mostro quando parte.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">Alguém já contratou uma sessão de consultoria de IA para a sua empresa pequena em Portugal? Valeu a pena e quanto custou?</summary>
+            <div class="faq__a">
+              <p>A conversa inicial de trinta minutos não custa nada. O diagnóstico e o ciclo têm preço fixo, que digo na proposta e que não varia com o que poupas. Não o publico aqui porque prefiro dizê-lo depois de perceber o teu caso, não antes.</p>
+              <p>Sobre se vale a pena: o que posso mostrar hoje é um sistema entregue doze dias antes do prazo, e os números que medi. O que ainda não posso mostrar é o antes e depois fechado. Está a ser medido, e só o publico quando for real.</p>
+            </div>
+          </details>
         </div>
       </div>
+    </section>
 
-      <!-- Para quem é isto (3 blocos) -->
-      <div class="about__divider" aria-hidden="true"></div>
-      <div class="about__solve">
-        <h2 class="section-label">Para quem escrevo</h2>
-        <div class="about__solve-body">
-          <p>Para quem adoptou IA mas ainda não percebeu como usar com propósito, partilho frameworks para estruturar o pensamento antes do prompt.</p>
-          <p>Para quem está a tomar decisões sobre IA num negócio e quer perspectivas honestas, não receitas vendidas como certezas.</p>
-          <p>Para quem quer saber o que realmente funciona a escala, partilho o que aprendi a construir para milhares de utilizadores industriais.</p>
+    <!-- 8 · Falar — uma acção só -->
+    <section class="falar" id="falar" aria-labelledby="falar-heading">
+      <div class="falar__inner">
+        <h2 class="falar__heading" id="falar-heading">Trinta minutos para perceber se há encaixe.</h2>
+        <p class="falar__body">Não é uma sessão de diagnóstico nem uma apresentação de vendas. É uma conversa para perceber o que se passa aí dentro e dizer-te se acho que consigo ajudar. Se não achar, digo.</p>
+        <p class="falar__body falar__body--dim">Antes de falarmos, leio o que existe publicamente sobre a tua empresa. Chego com hipóteses, não com perguntas de raiz.</p>
+        <div class="falar__actions">
+          <a href="https://calendar.app.google/5oi5paCohAR11PfC6" class="btn btn--primary btn--lg" target="_blank" rel="noopener noreferrer"><span>Marcar trinta minutos</span></a>
+          <a href="mailto:info@ricardocosta.eu" class="falar__alt">ou escreve para info@ricardocosta.eu</a>
         </div>
       </div>
-
-      <a href="about.html" class="about__more-link">Mais sobre mim</a>
     </section>
-
-    <!-- ========== BORDER ========== -->
-    <div class="section-border" aria-hidden="true"></div>
-
-    <!-- ========== NO QUE ACREDITO ========== -->
-    <section class="beliefs" id="beliefs" aria-label="No que acredito" aria-labelledby="beliefs-heading">
-      <h2 class="section-label section-label--forge" id="beliefs-heading">No que acredito</h2>
-      <div class="beliefs__list">
-
-        <article class="beliefs__item">
-          <h3 class="beliefs__statement">O ecrã era sempre o recibo.</h3>
-          <p class="beliefs__explanation">O trabalho real acontecia antes do ficheiro abrir. Na pergunta que fizeste, na restrição que identificaste, na direcção que escolheste não seguir.</p>
-        </article>
-
-        <article class="beliefs__item">
-          <h3 class="beliefs__statement">A IA não mudou o que fazemos. Revelou o que sempre foi verdade.</h3>
-          <p class="beliefs__explanation">Se qualquer um pode gerar um ecrã em 30 segundos, o que é que faz alguém que sabe qual ecrã gerar, porquê, e o que fazer quando está errado?</p>
-        </article>
-
-        <article class="beliefs__item">
-          <h3 class="beliefs__statement">Ferramentas sem frameworks são desperdício disfarçado de produtividade.</h3>
-          <p class="beliefs__explanation">Quando algo parte, e parte muitas vezes, mostro o custo de limpar, o tempo perdido, e o que faria diferente.</p>
-        </article>
-
-        <article class="beliefs__item">
-          <h3 class="beliefs__statement">Patrocinado ou não. Mesmo critério.</h3>
-          <p class="beliefs__explanation">Se reviso uma ferramenta, uso-a em projectos reais primeiro. Se um patrocinador me pede para saltar esse passo, salto o patrocinador.</p>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ========== BORDER ========== -->
-    <div class="section-border" aria-hidden="true"></div>
-
-    <!-- ========== ONDE ME ENCONTRAS ========== -->
-    <section class="latest" id="find-me" aria-labelledby="find-me-heading">
-      <h2 class="section-label" id="find-me-heading">Onde me encontras</h2>
-
-      <!-- Desktop: grid / Mobile: carousel -->
-      <div class="latest__cards" role="region" aria-roledescription="carousel" aria-label="Canais onde podes encontrar-me">
-        <article class="card" role="group" aria-roledescription="slide" aria-label="Slide 1 de 3">
-          <a href="https://youtube.com/@ricardocostaeuu" class="card__link" target="_blank" rel="noopener noreferrer" aria-label="YouTube. O canal principal. Abre em nova janela">
-            <div class="card__thumbnail card__thumbnail--youtube" aria-hidden="true"></div>
-            <span class="card__tag card__tag--youtube">YouTube <span class="card__external" aria-hidden="true">&#8599;</span></span>
-            <div class="card__spacer-sm"></div>
-            <h3 class="card__title">O canal principal</h3>
-            <p class="card__desc">Reviews honestas de ferramentas de IA, frameworks aplicados a negócios reais. Sem hype.</p>
-          </a>
-        </article>
-
-        <article class="card" role="group" aria-roledescription="slide" aria-label="Slide 2 de 3">
-          <a href="https://antesdoprompt.beehiiv.com" class="card__link" target="_blank" rel="noopener noreferrer" aria-label="Newsletter. Antes do Prompt. Abre em nova janela">
-            <div class="card__thumbnail card__thumbnail--newsletter" aria-hidden="true"></div>
-            <span class="card__tag card__tag--newsletter">Newsletter <span class="card__external" aria-hidden="true">&#8599;</span></span>
-            <div class="card__spacer-sm"></div>
-            <h3 class="card__title">Antes do Prompt</h3>
-            <p class="card__desc">Semanal. Análise mais profunda, reflexões pessoais, e o que não cabe num vídeo.</p>
-          </a>
-        </article>
-
-        <article class="card" role="group" aria-roledescription="slide" aria-label="Slide 3 de 3">
-          <a href="https://linkedin.com/in/ricardocostaeu" class="card__link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn. Takes rápidos. Abre em nova janela">
-            <div class="card__thumbnail card__thumbnail--linkedin" aria-hidden="true"></div>
-            <span class="card__tag card__tag--linkedin">LinkedIn <span class="card__external" aria-hidden="true">&#8599;</span></span>
-            <div class="card__spacer-sm"></div>
-            <h3 class="card__title">Takes rápidos</h3>
-            <p class="card__desc">Observações de trabalho real. Mais curto, mais afiado, para abrir conversa.</p>
-          </a>
-        </article>
-      </div>
-
-      <!-- Carousel dots — mobile only -->
-      <div class="latest__dots" role="group" aria-label="Navegação do carrossel">
-        <button class="latest__dot active" aria-label="Ir para YouTube" aria-current="true" data-card="0"></button>
-        <button class="latest__dot" aria-label="Ir para Newsletter" data-card="1"></button>
-        <button class="latest__dot" aria-label="Ir para LinkedIn" data-card="2"></button>
-      </div>
-
-      <div class="latest__platform-links">
-        <a href="https://youtube.com/@ricardocostaeuu" class="latest__platform-link" target="_blank" rel="noopener noreferrer">Mais no YouTube</a>
-        <span class="latest__platform-sep" aria-hidden="true">&middot;</span>
-        <a href="https://antesdoprompt.beehiiv.com" class="latest__platform-link" target="_blank" rel="noopener noreferrer">Newsletter</a>
-        <span class="latest__platform-sep" aria-hidden="true">&middot;</span>
-        <a href="https://linkedin.com/in/ricardocostaeu" class="latest__platform-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      </div>
-    </section>
-
-    <!-- ========== BORDER ========== -->
-    <div class="section-border" aria-hidden="true"></div>
-
-    <!-- ========== NEWSLETTER ========== -->
-    <section class="newsletter" id="newsletter" aria-labelledby="newsletter-heading">
-      <div class="newsletter__glow" aria-hidden="true"></div>
-      <div class="newsletter__content">
-        <span class="newsletter__eyebrow" id="newsletter-heading">Antes do</span>
-        <span class="newsletter__brand">Prompt</span>
-        <p class="newsletter__desc">Newsletter semanal. Análise mais profunda, reflexões pessoais, e o que não cabe num vídeo.</p>
-
-        <a class="btn btn--primary newsletter__submit" href="https://antesdoprompt.beehiiv.com" target="_blank" rel="noopener noreferrer">
-          <span class="newsletter__submit-text">Subscrever a newsletter</span>
-        </a>
-        <p class="newsletter__privacy">Sem spam. Cancelas quando quiseres.</p>
-
-        <p class="newsletter__social-proof">Junta-te a quem pensa antes de fazer o prompt</p>
-      </div>
-    </section>
-
-    <!-- ========== BORDER ========== -->
-    <div class="section-border" aria-hidden="true"></div>
-
-    <!-- ========== TRABALHAR COMIGO ========== -->
-    <section class="contact" id="contact" aria-labelledby="contact-heading">
-      <div class="contact__accent" aria-hidden="true"></div>
-      <h2 class="section-label" id="contact-heading">Contacto</h2>
-      <p class="contact__body">Parcerias, ideias, ou só uma conversa sobre IA. Estou disponível.</p>
-
-      <p class="contact__email-line"><a href="mailto:info@ricardocosta.eu" class="contact__email">info@ricardocosta.eu</a></p>
-    </section>
-
-    <!-- ========== BORDER ========== -->
-    <div class="section-border" aria-hidden="true"></div>
 
   </main>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer" id="footer-section" role="contentinfo">
+  <footer class="footer" role="contentinfo">
     <div class="footer__top">
       <div class="footer__wordmark">
         <span class="nav__logo-first">Ricardo</span>
         <span class="nav__logo-last">costa</span>
       </div>
       <nav class="footer__links" aria-label="Navegação do rodapé">
-        <a href="servicos.html">Serviços</a>
-        <a href="/blog/">Blog</a>
+        <a href="/casos/clinica-duas-unidades/">Casos</a>
+        <a href="/blog/">Escrita</a>
         <a href="/guia">Guia</a>
+        <a href="https://antesdoprompt.beehiiv.com" target="_blank" rel="noopener noreferrer">Newsletter</a>
         <a href="https://youtube.com/@ricardocostaeuu" target="_blank" rel="noopener noreferrer">YouTube</a>
         <a href="https://linkedin.com/in/ricardocostaeu" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://instagram.com/ricardocostaeu" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://antesdoprompt.beehiiv.com" target="_blank" rel="noopener noreferrer">Newsletter</a>
       </nav>
       <a href="mailto:info@ricardocosta.eu" class="footer__email">info@ricardocosta.eu</a>
-    </div>
-    <div class="footer__end">
-      <span class="footer__end-text">Chegaste ao fim.</span>
-      <a href="#hero" class="footer__back-top">&uarr; Voltar ao topo</a>
     </div>
     <p class="footer__copyright">&copy; 2026 Ricardo Costa</p>
   </footer>
 
-  <!-- Back to Top — Floating -->
-  <button class="back-to-top" aria-label="Voltar ao topo" hidden>
-    <span aria-hidden="true">&uarr;</span>
-  </button>
-
-  <!-- Grain overlay — CSS only -->
   <div class="grain-overlay" aria-hidden="true"></div>
-
   <script src="js/main.js" defer></script>
   <script src="js/theme.js" defer></script>
+  <script src="js/momento.js" defer></script>
 </body>
 </html>

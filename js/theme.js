@@ -8,7 +8,7 @@
   function actual() {
     var guardado = root.getAttribute('data-theme');
     if (guardado) return guardado;
-    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
 
   function rotular() {

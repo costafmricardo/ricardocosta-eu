@@ -5,3 +5,7 @@ https://www.dreamineer.com/* https://ricardocosta.eu/:splat 301!
 
 # www → non-www
 https://www.ricardocosta.eu/* https://ricardocosta.eu/:splat 301!
+
+# A página de serviços fundiu-se na home a 24 Set 2026
+/servicos.html  /  301
+/servicos       /  301

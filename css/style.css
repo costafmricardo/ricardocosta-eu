@@ -13,30 +13,30 @@
    não muda uma linha.
    ========================================================================== */
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   /* Forge — a cor da marca não muda entre temas */
-  --forge:        #FF6B2B;
-  --forge-bright: #FF8C42;
-  --forge-hot:    #E14E00;
+  --forge:        #D8500F;
+  --forge-bright: #FF6B2B;
+  --forge-hot:    #B84209;
 
-  /* ---- TEMA ESCURO (predefinido) ---- */
-  --surface:      #171411;  /* fundo base */
-  --surface-2:    #221E19;  /* secção alternada */
-  --surface-3:    #332E28;  /* elevação */
-  --surface-alt:  #2A2520;  /* hover */
-  --ink:          #EDE6DD;  /* texto principal */
-  --ink-dim:      #BDB3A6;  /* texto secundário */
-  --ink-mute:     #948779;  /* texto terciário */
-  --line:         rgba(237, 230, 221, 0.12);
-  --line-strong:  rgba(237, 230, 221, 0.3);
-  --line-soft:    rgba(237, 230, 221, 0.06);
-  --forge-30:     rgba(255, 107, 43, 0.35);
-  --forge-50:     rgba(255, 107, 43, 0.5);
-  --forge-12:     rgba(255, 107, 43, 0.12);
-  --panel:        #EDE6DD;  /* painel invertido */
-  --panel-ink:    #171411;
-  --grain-opacity: 0.4;
-  --surface-blur: rgba(23, 20, 17, 0.92);
+  /* ---- TEMA CLARO (predefinido) ---- */
+  --surface:      #F7F3EC;  /* fundo base */
+  --surface-2:    #EFE9DF;  /* secção alternada */
+  --surface-3:    #E4DCCF;  /* elevação */
+  --surface-alt:  #EAE3D7;  /* hover */
+  --ink:          #1A1714;  /* texto principal */
+  --ink-dim:      #4A4238;  /* texto secundário */
+  --ink-mute:     #6E6355;  /* texto terciário */
+  --line:         rgba(26, 23, 20, 0.14);
+  --line-strong:  rgba(26, 23, 20, 0.32);
+  --line-soft:    rgba(26, 23, 20, 0.07);
+  --forge-30:     rgba(216, 80, 15, 0.35);
+  --forge-50:     rgba(216, 80, 15, 0.5);
+  --forge-12:     rgba(216, 80, 15, 0.1);
+  --panel:        #1A1714;  /* painel invertido */
+  --panel-ink:    #F7F3EC;
+  --grain-opacity: 0.16;
+  --surface-blur: rgba(247, 243, 236, 0.92);
 
   /* Aliases antigos, para o CSS existente continuar a funcionar */
   --ash:       var(--surface);
@@ -103,55 +103,60 @@
 }
 
 
-/* ---- TEMA CLARO ----
-   Off-white quente, não branco puro: mantém a temperatura do Forge. O laranja
-   escurece um pouco sobre fundo claro para aguentar o contraste de texto. */
-:root[data-theme="light"] {
-  --surface:      #F7F3EC;
-  --surface-2:    #EFE9DF;
-  --surface-3:    #E4DCCF;
-  --surface-alt:  #EAE3D7;
-  --ink:          #1A1714;
-  --ink-dim:      #4A4238;
-  --ink-mute:     #6E6355;
-  --line:         rgba(26, 23, 20, 0.14);
-  --line-strong:  rgba(26, 23, 20, 0.32);
-  --line-soft:    rgba(26, 23, 20, 0.07);
-  --forge:        #D8500F;
-  --forge-bright: #FF6B2B;
-  --forge-hot:    #B84209;
-  --forge-30:     rgba(216, 80, 15, 0.35);
-  --forge-50:     rgba(216, 80, 15, 0.5);
-  --forge-12:     rgba(216, 80, 15, 0.1);
-  --panel:        #1A1714;
-  --panel-ink:    #F7F3EC;
-  --grain-opacity: 0.16;
-  --surface-blur: rgba(247, 243, 236, 0.92);
-  color-scheme: light;
+
+
+
+/* ---- TEMA ESCURO ----
+   Fica disponível pelo interruptor e para quem tem o sistema em escuro.
+   O predefinido da consultoria é claro: lê-se como confiança para quem
+   gere um negócio, não como tecnologia para quem faz design. */
+:root[data-theme="dark"] {
+  --surface:      #171411;
+  --surface-2:    #221E19;
+  --surface-3:    #332E28;
+  --surface-alt:  #2A2520;
+  --ink:          #EDE6DD;
+  --ink-dim:      #BDB3A6;
+  --ink-mute:     #948779;
+  --line:         rgba(237, 230, 221, 0.12);
+  --line-strong:  rgba(237, 230, 221, 0.3);
+  --line-soft:    rgba(237, 230, 221, 0.06);
+  --forge:        #FF6B2B;
+  --forge-bright: #FF8C42;
+  --forge-hot:    #E14E00;
+  --forge-30:     rgba(255, 107, 43, 0.35);
+  --forge-50:     rgba(255, 107, 43, 0.5);
+  --forge-12:     rgba(255, 107, 43, 0.12);
+  --panel:        #EDE6DD;
+  --panel-ink:    #171411;
+  --grain-opacity: 0.4;
+  --surface-blur: rgba(23, 20, 17, 0.92);
+  color-scheme: dark;
 }
 
-/* Sem preferência guardada, segue o sistema. */
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --surface:      #F7F3EC;
-    --surface-2:    #EFE9DF;
-    --surface-3:    #E4DCCF;
-    --surface-alt:  #EAE3D7;
-    --ink:          #1A1714;
-    --ink-dim:      #4A4238;
-    --ink-mute:     #6E6355;
-    --line:         rgba(26, 23, 20, 0.14);
-    --line-strong:  rgba(26, 23, 20, 0.32);
-    --line-soft:    rgba(26, 23, 20, 0.07);
-    --forge:        #D8500F;
-    --forge-hot:    #B84209;
-    --forge-30:     rgba(216, 80, 15, 0.35);
-    --forge-12:     rgba(216, 80, 15, 0.1);
-    --panel:        #1A1714;
-    --panel-ink:    #F7F3EC;
-    --grain-opacity: 0.16;
-    --surface-blur: rgba(247, 243, 236, 0.92);
-    color-scheme: light;
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --surface:      #171411;
+    --surface-2:    #221E19;
+    --surface-3:    #332E28;
+    --surface-alt:  #2A2520;
+    --ink:          #EDE6DD;
+    --ink-dim:      #BDB3A6;
+    --ink-mute:     #948779;
+    --line:         rgba(237, 230, 221, 0.12);
+    --line-strong:  rgba(237, 230, 221, 0.3);
+    --line-soft:    rgba(237, 230, 221, 0.06);
+    --forge:        #FF6B2B;
+    --forge-bright: #FF8C42;
+    --forge-hot:    #E14E00;
+    --forge-30:     rgba(255, 107, 43, 0.35);
+    --forge-50:     rgba(255, 107, 43, 0.5);
+    --forge-12:     rgba(255, 107, 43, 0.12);
+    --panel:        #EDE6DD;
+    --panel-ink:    #171411;
+    --grain-opacity: 0.4;
+    --surface-blur: rgba(23, 20, 17, 0.92);
+    color-scheme: dark;
   }
 }
 
@@ -243,13 +248,13 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .theme-toggle svg { width: 17px; height: 17px; }
 /* Mostra o ícone do tema para que se vai trocar, não do actual. */
-.theme-toggle .icon-sun  { display: none; }
-.theme-toggle .icon-moon { display: block; }
-:root[data-theme="light"] .theme-toggle .icon-sun  { display: block; }
-:root[data-theme="light"] .theme-toggle .icon-moon { display: none; }
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) .theme-toggle .icon-sun  { display: block; }
-  :root:not([data-theme="dark"]) .theme-toggle .icon-moon { display: none; }
+.theme-toggle .icon-sun  { display: block; }
+.theme-toggle .icon-moon { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun  { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun  { display: none; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: block; }
 }
 
 /* A troca é instantânea; sem transições de cor a varrer a página inteira. */
