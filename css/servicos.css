@@ -323,30 +323,31 @@
 /* O trabalho: painel de Chalk sobre Ash, como o sistema já autoriza.
    É o único bloco claro da página e é deliberado. */
 .svc-offer__card--feature {
-  background: var(--chalk);
+  background: var(--panel);
+  color: var(--panel-ink);
   border-radius: var(--radius-lg);
   padding: 44px 40px 48px;
   color: var(--ash);
 }
 
 .svc-offer__card--feature .svc-offer__title,
-.svc-offer__card--feature .svc-offer__meta-val { color: var(--ash); }
+.svc-offer__card--feature .svc-offer__meta-val { color: var(--panel-ink); }
 .svc-offer__card--feature .svc-offer__lead,
 .svc-offer__card--feature .svc-offer__list li,
-.svc-offer__card--feature .svc-offer__body { color: #4A423A; }
+.svc-offer__card--feature .svc-offer__body { color: color-mix(in srgb, var(--panel-ink) 78%, var(--panel)); }
 .svc-offer__card--feature .svc-offer__lede,
-.svc-offer__card--feature .svc-offer__meta-key { color: #7A6E60; }
+.svc-offer__card--feature .svc-offer__meta-key { color: color-mix(in srgb, var(--panel-ink) 58%, var(--panel)); }
 .svc-offer__card--feature .svc-offer__month { color: var(--forge-hot); }
 .svc-offer__card--feature .svc-offer__list li::before { background: var(--forge-hot); }
-.svc-offer__card--feature .svc-offer__body strong { color: var(--ash); }
-.svc-offer__card--feature .svc-offer__meta-line { border-color: rgba(23, 20, 17, 0.12); }
+.svc-offer__card--feature .svc-offer__body strong { color: var(--panel-ink); }
+.svc-offer__card--feature .svc-offer__meta-line { border-color: color-mix(in srgb, var(--panel-ink) 15%, transparent); }
 .svc-offer__card--feature .btn--primary {
-  background: var(--ash);
-  color: var(--chalk);
+  background: var(--panel-ink);
+  color: var(--panel);
 }
 .svc-offer__card--feature .btn--primary:hover {
   background: var(--forge-hot);
-  color: var(--chalk);
+  color: #fff;
 }
 
 .svc-offer__title {

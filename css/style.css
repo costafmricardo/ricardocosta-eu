@@ -1,31 +1,57 @@
 /* ==========================================================================
    RICARDO COSTA — ricardocosta.eu
-   Design System: Forge (Dark)
-   Fonts: Instrument Serif (display) · Barlow (body) · Space Mono (meta)
+   Design System: Forge — claro e escuro
+   Fonts: Barlow (tudo) · Space Mono (dados tabulares)
    ========================================================================== */
 
 /* ---------- DESIGN TOKENS ---------- */
+/* ==========================================================================
+   TEMAS
+   Os nomes Ash e Chalk vinham do tema escuro e descreviam a cor, não o papel
+   que desempenham. Passam a ser aliases de tokens semânticos: --surface,
+   --ink, e por aí. Trocar de tema redefine os semânticos; o resto do CSS
+   não muda uma linha.
+   ========================================================================== */
 :root {
-  /* Palette — Forge */
+  color-scheme: dark;
+  /* Forge — a cor da marca não muda entre temas */
   --forge:        #FF6B2B;
   --forge-bright: #FF8C42;
-  --forge-hot:    #FF4D00;
-  --forge-30:     rgba(255, 107, 43, 0.3);
+  --forge-hot:    #E14E00;
+
+  /* ---- TEMA ESCURO (predefinido) ---- */
+  --surface:      #171411;  /* fundo base */
+  --surface-2:    #221E19;  /* secção alternada */
+  --surface-3:    #332E28;  /* elevação */
+  --surface-alt:  #2A2520;  /* hover */
+  --ink:          #EDE6DD;  /* texto principal */
+  --ink-dim:      #BDB3A6;  /* texto secundário */
+  --ink-mute:     #948779;  /* texto terciário */
+  --line:         rgba(237, 230, 221, 0.12);
+  --line-strong:  rgba(237, 230, 221, 0.3);
+  --line-soft:    rgba(237, 230, 221, 0.06);
+  --forge-30:     rgba(255, 107, 43, 0.35);
   --forge-50:     rgba(255, 107, 43, 0.5);
   --forge-12:     rgba(255, 107, 43, 0.12);
-  --ash:          #171411;
-  --ash-mid:      #221E19;
-  --ash-light:    #332E28;
-  --ember:        #2A2520;
-  --stone:        #948779;
-  --chalk:        #EDE6DD;
-  --chalk-dim:    #BDB3A6;
-  --chalk-10:     rgba(237, 230, 221, 0.1);
-  --chalk-30:     rgba(237, 230, 221, 0.3);
-  --chalk-06:     rgba(237, 230, 221, 0.06);
+  --panel:        #EDE6DD;  /* painel invertido */
+  --panel-ink:    #171411;
+  --grain-opacity: 0.4;
+  --surface-blur: rgba(23, 20, 17, 0.92);
 
-  /* Typography */
-  --font-display: 'Instrument Serif', Georgia, serif;
+  /* Aliases antigos, para o CSS existente continuar a funcionar */
+  --ash:       var(--surface);
+  --ash-mid:   var(--surface-2);
+  --ash-light: var(--surface-3);
+  --ember:     var(--surface-alt);
+  --chalk:     var(--ink);
+  --chalk-dim: var(--ink-dim);
+  --stone:     var(--ink-mute);
+  --chalk-10:  var(--line);
+  --chalk-30:  var(--line-strong);
+  --chalk-06:  var(--line-soft);
+
+  /* Typography — sans em todo o lado. A voz vem da escala e do peso. */
+  --font-display: 'Barlow', 'Helvetica Neue', sans-serif;
   --font-body:    'Barlow', 'Helvetica Neue', sans-serif;
   --font-mono:    'Space Mono', 'Courier New', monospace;
 
@@ -49,6 +75,7 @@
 
   /* Cantos. Pills nos botões e raio generoso nos painéis — é o que separa
      um sistema moderno de um rígido. Antes era 8px em tudo. */
+  --stroke: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20300%2018%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M3%2C12%20C40%2C6.5%2092%2C5%20148%2C6.2%20C196%2C7.2%20248%2C9.4%20296%2C7%22%20stroke%3D%22%23000%22%20stroke-width%3D%225.2%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M14%2C15.2%20C58%2C11.4%20112%2C10.2%20166%2C11%20C214%2C11.7%20258%2C13%20289%2C11.6%22%20stroke%3D%22%23000%22%20stroke-width%3D%223%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20opacity%3D%220.85%22%2F%3E%3C%2Fsvg%3E");
   --radius-pill: 9999px;
   --radius-lg:   20px;
   --radius-md:   12px;
@@ -75,6 +102,59 @@
   --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
 }
 
+
+/* ---- TEMA CLARO ----
+   Off-white quente, não branco puro: mantém a temperatura do Forge. O laranja
+   escurece um pouco sobre fundo claro para aguentar o contraste de texto. */
+:root[data-theme="light"] {
+  --surface:      #F7F3EC;
+  --surface-2:    #EFE9DF;
+  --surface-3:    #E4DCCF;
+  --surface-alt:  #EAE3D7;
+  --ink:          #1A1714;
+  --ink-dim:      #4A4238;
+  --ink-mute:     #6E6355;
+  --line:         rgba(26, 23, 20, 0.14);
+  --line-strong:  rgba(26, 23, 20, 0.32);
+  --line-soft:    rgba(26, 23, 20, 0.07);
+  --forge:        #D8500F;
+  --forge-bright: #FF6B2B;
+  --forge-hot:    #B84209;
+  --forge-30:     rgba(216, 80, 15, 0.35);
+  --forge-50:     rgba(216, 80, 15, 0.5);
+  --forge-12:     rgba(216, 80, 15, 0.1);
+  --panel:        #1A1714;
+  --panel-ink:    #F7F3EC;
+  --grain-opacity: 0.16;
+  --surface-blur: rgba(247, 243, 236, 0.92);
+  color-scheme: light;
+}
+
+/* Sem preferência guardada, segue o sistema. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --surface:      #F7F3EC;
+    --surface-2:    #EFE9DF;
+    --surface-3:    #E4DCCF;
+    --surface-alt:  #EAE3D7;
+    --ink:          #1A1714;
+    --ink-dim:      #4A4238;
+    --ink-mute:     #6E6355;
+    --line:         rgba(26, 23, 20, 0.14);
+    --line-strong:  rgba(26, 23, 20, 0.32);
+    --line-soft:    rgba(26, 23, 20, 0.07);
+    --forge:        #D8500F;
+    --forge-hot:    #B84209;
+    --forge-30:     rgba(216, 80, 15, 0.35);
+    --forge-12:     rgba(216, 80, 15, 0.1);
+    --panel:        #1A1714;
+    --panel-ink:    #F7F3EC;
+    --grain-opacity: 0.16;
+    --surface-blur: rgba(247, 243, 236, 0.92);
+    color-scheme: light;
+  }
+}
+
 /* ---------- RESET ---------- */
 *, *::before, *::after {
   margin: 0;
@@ -83,7 +163,6 @@
 }
 
 html {
-  color-scheme: dark;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -140,6 +219,67 @@ img { display: block; max-width: 100%; height: auto; }
   outline-offset: 2px;
 }
 
+
+/* ---------- INTERRUPTOR DE TEMA ---------- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  margin-left: 14px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  color: var(--ink-dim);
+  cursor: pointer;
+  transition: border-color var(--duration-md) var(--ease-out),
+              color var(--duration-md) var(--ease-out);
+}
+.theme-toggle:hover {
+  border-color: var(--forge-30);
+  color: var(--forge);
+}
+.theme-toggle svg { width: 17px; height: 17px; }
+/* Mostra o ícone do tema para que se vai trocar, não do actual. */
+.theme-toggle .icon-sun  { display: none; }
+.theme-toggle .icon-moon { display: block; }
+:root[data-theme="light"] .theme-toggle .icon-sun  { display: block; }
+:root[data-theme="light"] .theme-toggle .icon-moon { display: none; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .theme-toggle .icon-sun  { display: block; }
+  :root:not([data-theme="dark"]) .theme-toggle .icon-moon { display: none; }
+}
+
+/* A troca é instantânea; sem transições de cor a varrer a página inteira. */
+.theme-toggle + * { transition: none; }
+
+/* ---------- SUBLINHADO DESENHADO ----------
+   Traço orgânico sob uma palavra, como um marcador. Não é border-bottom:
+   tem irregularidade e entra por baixo da linha de base. */
+.marked {
+  position: relative;
+  white-space: nowrap;
+  color: var(--forge);
+}
+.marked::after {
+  content: "";
+  position: absolute;
+  left: -0.04em;
+  right: -0.04em;
+  bottom: -0.16em;
+  height: 0.16em;
+  background: var(--forge);
+  -webkit-mask-image: var(--stroke);
+  mask-image: var(--stroke);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  pointer-events: none;
+}
+
 /* ---------- GRAIN OVERLAY ---------- */
 .grain-overlay {
   position: fixed;
@@ -147,7 +287,7 @@ img { display: block; max-width: 100%; height: auto; }
   background-image: var(--grain);
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.4;
+  opacity: var(--grain-opacity);
 }
 
 /* ---------- SCROLL PROGRESS BAR — Fix 8 ---------- */
@@ -169,7 +309,7 @@ img { display: block; max-width: 100%; height: auto; }
   left: 0;
   right: 0;
   height: var(--nav-h);
-  background: rgba(23, 20, 17, 0.95);
+  background: var(--surface-blur);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   z-index: 1000;
@@ -1653,7 +1793,7 @@ img { display: block; max-width: 100%; height: auto; }
   left: 0;
   right: 0;
   height: 24px;
-  background: rgba(23, 20, 17, 0.95);
+  background: var(--surface-blur);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 999;
