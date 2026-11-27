@@ -311,7 +311,6 @@ h1 em.serif,h2 em.serif,h3 em.serif{font-weight:500;letter-spacing:-.03em}
 .cartao-foto figcaption b{font-family:var(--mono);font-size:12px;font-weight:400;text-transform:uppercase;letter-spacing:.06em}
 .chip{font-family:var(--mono);font-size:12px!important;text-transform:uppercase;letter-spacing:.06em;padding:9px 14px!important;gap:10px!important}
 .chip i{border-radius:0!important;width:9px!important;height:9px!important}
-.chip::before{content:"▸";margin-right:-4px}
 .tese .lead{text-wrap:balance}
 @media(max-width:600px){.titulo-topo{font-size:9.4vw!important;margin-bottom:22px}}
 .lado h3{font-size:clamp(40px,5vw,76px)!important;text-wrap:balance;line-height:.9}
@@ -369,7 +368,7 @@ h1 em.serif,h2 em.serif,h3 em.serif{font-weight:500;letter-spacing:-.03em}
 
       <figure class="flutua cartao-foto corte4" data-prof="18">
         <img src="/assets/ricardo-halo-960.webp" alt="Ricardo Costa" width="960" height="640">
-        <figcaption><b>▸ Ricardo Costa</b><span>Designer · Portugal</span></figcaption>
+        <figcaption><b>Ricardo Costa</b><span>Designer · Portugal</span></figcaption>
       </figure>
       <span class="flutua chip corte4 c1" data-prof="-12"><i></i>17 years in design</span>
       <span class="flutua chip corte4 c2" data-prof="10"><i></i>Teaching at UIUX.PT</span>
@@ -476,7 +475,7 @@ h1 em.serif,h2 em.serif,h3 em.serif{font-weight:500;letter-spacing:-.03em}
   function etiqueta(x,y,w,t,c){var g=el('g',{class:'etq '+(c||'')}),h=30,m=6;
     el('rect',{class:'etq-fundo',x:x,y:y,width:w,height:h},g);
     [[x,y,1,1],[x+w,y,-1,1],[x,y+h,1,-1],[x+w,y+h,-1,-1]].forEach(function(q){el('path',{class:'corte',d:'M'+q[0]+' '+(q[1]+q[3]*m)+' L'+q[0]+' '+q[1]+' L'+(q[0]+q[2]*m)+' '+q[1]},g)});
-    var e=el('text',{x:x+12,y:y+19.5,class:'rotulo'},g);e.textContent='▸ '+t;return g}
+    var e=el('text',{x:x+w/2,y:y+19.5,'text-anchor':'middle',class:'rotulo'},g);e.textContent=t;return g}
   etiqueta(-10,250,114,'PROBLEM','nl');etiqueta(440,250,124,'QUESTION','nl');etiqueta(900,250,118,'DECISION','nl');
   var t1=el('text',{x:250,y:425,'text-anchor':'middle',class:'rotulo fase-r'});t1.textContent='01 — THINK';
   var t2=el('text',{x:750,y:425,'text-anchor':'middle',class:'rotulo fase-r'});t2.textContent='02 — ASK AI';
