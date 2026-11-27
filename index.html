@@ -10,8 +10,8 @@
 <link rel="alternate" hreflang="pt-PT" href="https://ricardocosta.eu/">
 <link rel="alternate" hreflang="en" href="https://ricardocosta.eu/en/">
 <link rel="alternate" hreflang="x-default" href="https://ricardocosta.eu/">
-<link rel="preload" href="/fonts/barlow-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/instrument-serif-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/bricolage-grotesque-600-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-sans-italic-400-500.woff2" as="font" type="font/woff2" crossorigin>
 <meta name="google-site-verification" content="E9nHi61ENWOg2Kb6gJR7xBbF1D-7PwZIyEjTayOMR_c">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_PT">
@@ -25,24 +25,23 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://ricardocosta.eu/#site", "url": "https://ricardocosta.eu/", "name": "Ricardo Costa", "inLanguage": ["pt-PT", "en"]}, {"@type": "Person", "@id": "https://ricardocosta.eu/#ricardo", "name": "Ricardo Costa", "url": "https://ricardocosta.eu/", "jobTitle": "Product Designer", "worksFor": {"@type": "Organization", "name": "Critical TechWorks"}, "image": "https://ricardocosta.eu/assets/ricardo-halo-1536.webp", "sameAs": ["https://linkedin.com/in/ricardocostaeu", "https://youtube.com/@ricardocostaeuu"]}, {"@type": "WebPage", "@id": "https://ricardocosta.eu/#pagina", "url": "https://ricardocosta.eu/", "name": "Ricardo Costa · Pensar antes de pedir", "description": "Designer há 17 anos. Ajudo pessoas e equipas a usar IA no problema certo, e a perceber quando não vale a pena. Consultoria, formação e talks.", "inLanguage": "pt-PT", "isPartOf": {"@id": "https://ricardocosta.eu/#site"}, "about": {"@id": "https://ricardocosta.eu/#ricardo"}}]}</script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23171411'/%3E%3Ctext x='50' y='72' font-size='66' font-family='Arial' font-weight='700' text-anchor='middle' fill='%23ff6b2b'%3ER%3C/text%3E%3C/svg%3E">
 <style>
-@font-face{font-family:'Barlow';font-weight:400;font-display:swap;src:url(/fonts/barlow-400.woff2) format('woff2')}
-@font-face{font-family:'Barlow';font-weight:500;font-display:swap;src:url(/fonts/barlow-500.woff2) format('woff2')}
-@font-face{font-family:'Barlow';font-weight:600;font-display:swap;src:url(/fonts/barlow-600.woff2) format('woff2')}
-@font-face{font-family:'Barlow';font-weight:700;font-display:swap;src:url(/fonts/barlow-700.woff2) format('woff2')}
-@font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-400-italic.woff2) format('woff2')}
-
-@font-face{font-family:'Space Mono';font-weight:400;font-display:swap;src:url(/fonts/space-mono-400.woff2) format('woff2')}
+@font-face{font-family:'Bricolage Grotesque';font-weight:600 700;font-display:swap;src:url(/fonts/bricolage-grotesque-600-700.woff2) format('woff2')}
+@font-face{font-family:'Space Grotesk';font-weight:400 700;font-display:swap;src:url(/fonts/space-grotesk-400-700.woff2) format('woff2')}
+@font-face{font-family:'Instrument Sans';font-style:italic;font-weight:400 500;font-display:swap;src:url(/fonts/instrument-sans-italic-400-500.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-display:swap;src:url(/fonts/ibm-plex-mono-400.woff2) format('woff2')}
 :root{
   --forge:#FF6B2B; --ash:#171411; --chalk:#EDE6DD; --paper:#F6F1EA;
   --muted:#5E554C; --line:#D9D0C5; --forge-dark:#A93F12;
-  --mono:'Space Mono',ui-monospace,monospace; --serif:'Instrument Serif',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace; --serif:'Instrument Sans',Arial,sans-serif; --tit:'Bricolage Grotesque',Arial,sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ash);font:18px/1.55 Barlow,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--paper);color:var(--ash);font:18px/1.55 'Space Grotesk',Arial,sans-serif;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.10;mix-blend-mode:multiply;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 h1,h2,h3,p{margin:0}
+h1,h2,h3{font-family:var(--tit)}
+button,input,textarea,select{font-family:inherit}
 a{color:inherit;text-underline-offset:5px}
 .wrap{width:min(1240px,calc(100% - 32px));margin-inline:auto}
 @media(min-width:760px){.wrap{width:min(1240px,calc(100% - 96px))}}
@@ -75,7 +74,7 @@ nav{display:flex;gap:28px;font-size:15px}nav a{text-decoration:none}nav a:hover{
 .lang{font-family:var(--mono);font-size:12px}
 
 .hero{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;padding:48px 0 90px}
-.hero h1{font-size:clamp(56px,7.6vw,112px);font-weight:600;letter-spacing:-.055em;line-height:.94}
+.hero h1{font-size:clamp(56px,7.6vw,112px);font-weight:600;letter-spacing:-.04em;line-height:.94}
 .hero h1 .forge{display:inline}
 .hero .lead{font-size:21px;max-width:40ch;margin:30px 0 32px;color:var(--ash)}
 .hero .cred{color:var(--muted);font-size:16px;margin-top:-14px;margin-bottom:30px}
@@ -94,7 +93,7 @@ nav{display:flex;gap:28px;font-size:15px}nav a{text-decoration:none}nav a:hover{
 .diamante .legendas{display:flex;justify-content:space-between;margin-top:14px}
 .diamante .legendas span{width:46%;text-align:center}
 .diamante figcaption{margin-top:26px;font-size:clamp(26px,2.6vw,36px);line-height:1.15;text-align:center}
-.diamante figcaption small{display:block;font-family:Barlow;font-style:normal;font-size:14px;color:var(--muted);margin-top:8px}
+.diamante figcaption small{display:block;font-family:'Space Grotesk',Arial,sans-serif;font-style:normal;font-size:14px;color:var(--muted);margin-top:8px}
 
 @media(max-width:900px){.hero{grid-template-columns:1fr;gap:40px;padding-top:20px}nav .esconde{display:none}.hud .longo{display:none}}section{padding:110px 0}
 .mensagem .mono{color:var(--muted);display:block;margin-bottom:26px}
@@ -107,20 +106,23 @@ nav{display:flex;gap:28px;font-size:15px}nav a{text-decoration:none}nav a:hover{
 .lado img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;transition:transform .8s,opacity .4s}
 .lado:hover img{transform:scale(1.04);opacity:.4}
 .lado>*:not(img){position:relative}
-.lado h3{font-size:clamp(54px,7vw,104px);font-weight:700;letter-spacing:-.06em;line-height:.85}
+.lado h3{font-size:clamp(54px,7vw,104px);font-weight:700;letter-spacing:-.035em;line-height:.85}
 .lado p{max-width:32ch;margin-top:16px;font-size:18px}
 .lado .mono{margin-bottom:auto;color:var(--chalk)}
+.lado[href="#escola"]{background:linear-gradient(160deg,#5a2108 0%,#2a0f06 55%,#140906 100%)}
+.lado[href="#escola"] img{opacity:.6;filter:sepia(.25) saturate(1.15)}
+.lado[href="#escola"]:hover img{opacity:.45}
 .lado.fora{background:var(--chalk);color:var(--ash)}
 .lado.fora .mono{color:var(--ash)}
 .lado.fora .vazio{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-family:var(--mono);font-size:12px;text-transform:uppercase;border:1.5px dashed var(--line);border-radius:4px}
 
 .cab{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:40px}
-.cab h2{font-size:clamp(40px,5vw,72px);font-weight:600;letter-spacing:-.05em;line-height:.95}
+.cab h2{font-size:clamp(40px,5vw,72px);font-weight:600;letter-spacing:-.035em;line-height:.95}
 .cab .mono{color:var(--muted)}
 .fases{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .fase{border:1px solid var(--ash);border-radius:4px;padding:22px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;transition:background .3s,color .3s;cursor:default}
 .fase .ano{font-family:var(--mono);font-size:12px}
-.fase h3{font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1.05}
+.fase h3{font-size:30px;font-weight:600;letter-spacing:-.02em;line-height:1.05}
 .fase p{font-size:16px;color:var(--muted);max-height:0;opacity:0;overflow:hidden;transition:max-height .4s,opacity .3s,margin .3s}
 .fase:hover,.fase:focus-within,.fase.agora{background:var(--ash);color:var(--chalk)}
 .fase:hover p,.fase:focus-within p,.fase.agora p{max-height:140px;opacity:1;margin-top:12px;color:#CFC5B9}
@@ -128,7 +130,7 @@ nav{display:flex;gap:28px;font-size:15px}nav a{text-decoration:none}nav a:hover{
 
 .escola{background:var(--ash);color:var(--chalk)}
 .escola .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center}
-.escola h2{font-size:clamp(52px,6.6vw,100px);font-weight:700;letter-spacing:-.05em;line-height:1}
+.escola h2{font-size:clamp(52px,6.6vw,100px);font-weight:700;letter-spacing:-.035em;line-height:1}
 .escola h2 .serif{font-weight:400;letter-spacing:-.02em;color:var(--chalk);font-size:1.04em}
 .escola h2 .forge{color:var(--forge)}
 .escola p{font-size:20px;margin-bottom:28px;max-width:38ch}
@@ -137,7 +139,7 @@ nav{display:flex;gap:28px;font-size:15px}nav a{text-decoration:none}nav a:hover{
 .btn-escuro{background:var(--ash);color:var(--chalk)}.btn-escuro:hover{background:#2c2621}
 
 .semana a{display:grid;grid-template-columns:1fr;gap:30px;align-items:end;border-top:3px solid var(--ash);border-bottom:1px solid var(--line);padding:30px 0;text-decoration:none}
-.semana h3{font-size:clamp(30px,4vw,56px);font-weight:600;letter-spacing:-.045em;line-height:1}
+.semana h3{font-size:clamp(30px,4vw,56px);font-weight:600;letter-spacing:-.035em;line-height:1}
 .semana .seta{font-size:44px;color:var(--forge);transition:transform .3s}
 .semana a:hover .seta{transform:translateX(8px)}
 
@@ -178,6 +180,8 @@ footer div{display:flex;gap:22px}
 section{padding:150px 0}
 .hero{padding:70px 0 150px}
 h1 em.serif,h2 em.serif,.frase em{font-weight:400;letter-spacing:-.02em;font-size:1.06em}
+h1 em.serif,h2 em.serif,h3 em.serif{font-weight:500;letter-spacing:-.03em}
+.cab h2 em.serif{color:var(--forge-dark)}
 .btn,.btn-claro,.btn-escuro{border-radius:14px!important;padding:16px 26px!important}
 .lado{border-radius:28px!important}
 .fase{border-radius:22px!important;border-color:var(--line)!important;background:#FBF8F4;position:relative;overflow:hidden}
@@ -257,9 +261,9 @@ h1 em.serif,h2 em.serif,.frase em{font-weight:400;letter-spacing:-.02em;font-siz
 .chip.c1{right:3%;top:10%;--rot:3deg;transform:rotate(3deg);animation-delay:-2s}
 .chip.c2{right:7%;bottom:6%;--rot:-2deg;transform:rotate(-2deg);animation-delay:-4s}
 .tese{max-width:820px;margin:0 auto}
-.tese .legenda{font-size:clamp(22px,min(2.6vw,3.6vh),36px);line-height:1.2;margin-bottom:clamp(8px,1.6vh,22px)}
+.tese .legenda{font-size:clamp(22px,min(2.6vw,3.6vh),36px);line-height:1.2;margin-top:clamp(18px,3vh,36px);margin-bottom:clamp(8px,1.6vh,22px)}
 .tese h1{font-size:clamp(46px,min(7.4vw,9.4vh),108px)!important;line-height:.98!important}
-.tese .lead{margin:clamp(14px,2.4vh,28px) auto clamp(18px,3vh,34px)!important;max-width:60ch;font-size:clamp(17px,2.3vh,20px)!important}
+.tese .lead{margin:clamp(6px,1vh,10px) auto clamp(18px,3vh,34px)!important;max-width:60ch;font-size:clamp(17px,2.3vh,20px)!important}
 @media(max-width:900px){
   .palco{padding:200px 0 10px;min-height:0}
   #dd .rotulo{font-size:30px}#dd .nl{display:none}
