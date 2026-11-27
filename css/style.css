@@ -1,7 +1,7 @@
 /* ==========================================================================
    RICARDO COSTA — ricardocosta.eu
    Design System: Forge — claro e escuro
-   Fonts: Barlow (tudo) · Space Mono (dados tabulares)
+   Fonts: Bricolage Grotesque (títulos) · Space Grotesk (texto) · IBM Plex Mono (etiquetas)
    ========================================================================== */
 
 /* ---------- DESIGN TOKENS ---------- */
@@ -51,13 +51,13 @@
   --chalk-06:  var(--line-soft);
 
   /* Typography — sans em todo o lado. A voz vem da escala e do peso. */
-  --font-display: 'Barlow', 'Helvetica Neue', sans-serif;
-  --font-body:    'Barlow', 'Helvetica Neue', sans-serif;
-  --font-mono:    'Space Mono', 'Courier New', monospace;
+  --font-display: 'Bricolage Grotesque', 'Helvetica Neue', sans-serif;
+  --font-body:    'Space Grotesk', 'Helvetica Neue', sans-serif;
+  --font-mono:    'IBM Plex Mono', 'Courier New', monospace;
 
   /* Escala tipográfica — alinhada com a base de 16px/1.5 que a NILG usa.
      A Outfit é geométrica e tem altura-x baixa: ao mesmo tamanho lia pior.
-     A Barlow é humanista, com altura-x maior, e aguenta estes valores. */
+     A Space Grotesk tem altura-x generosa e aguenta estes valores. */
   --fs-micro:  0.8125rem;  /* 13px — nunca abaixo disto */
   --fs-small:  0.9375rem;  /* 15px */
   --fs-body:   1rem;       /* 16px */
