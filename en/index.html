@@ -62,15 +62,10 @@ nav a,nav span{white-space:nowrap}
 }
 </style>
 <style>
-.hud{border-bottom:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
-.hud .wrap{display:flex;gap:22px;justify-content:space-between;padding:10px 0;flex-wrap:wrap}
-.hud b{color:var(--ash);font-weight:400}
-.hud .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--forge);margin-right:7px;animation:pulse 2.4s infinite}
-@keyframes pulse{50%{opacity:.25}}
 header.top{display:flex;justify-content:space-between;align-items:center;height:84px}
 .brand{font-weight:600;font-size:24px;letter-spacing:-1px;text-decoration:none}
 .brand span{color:var(--forge)}
-nav{display:flex;gap:28px;font-size:15px}nav a{text-decoration:none}nav a:hover{text-decoration:underline}
+nav{display:flex;gap:28px;font-size:15px;align-items:baseline}nav a{text-decoration:none}nav a:hover{text-decoration:underline}
 .lang{font-family:var(--mono);font-size:12px}
 
 .hero{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;padding:48px 0 90px}
@@ -95,7 +90,7 @@ nav{display:flex;gap:28px;font-size:15px}nav a{text-decoration:none}nav a:hover{
 .diamante figcaption{margin-top:26px;font-size:clamp(26px,2.6vw,36px);line-height:1.15;text-align:center}
 .diamante figcaption small{display:block;font-family:'Space Grotesk',Arial,sans-serif;font-style:normal;font-size:14px;color:var(--muted);margin-top:8px}
 
-@media(max-width:900px){.hero{grid-template-columns:1fr;gap:40px;padding-top:20px}nav .esconde{display:none}.hud .longo{display:none}}section{padding:110px 0}
+@media(max-width:900px){.hero{grid-template-columns:1fr;gap:40px;padding-top:20px}nav .esconde{display:none}}section{padding:110px 0}
 .mensagem .mono{color:var(--muted);display:block;margin-bottom:26px}
 .mensagem blockquote{margin:0;font-size:clamp(34px,4.6vw,66px);font-weight:500;letter-spacing:-.04em;line-height:1.08;max-width:22ch}
 .mensagem blockquote em{font-family:var(--serif);font-weight:400;color:var(--forge)}
@@ -314,11 +309,6 @@ h1 em.serif,h2 em.serif,h3 em.serif{font-weight:500;letter-spacing:-.03em}
 </head>
 <body>
 
-<div class="hud"><div class="wrap">
-  <span><span class="dot"></span><b>Ricardo Costa</b> · design and AI</span>
-  <span class="longo">Portugal · <b id="hora">--:--</b></span>
-</div></div>
-
 <div class="wrap">
   <header class="top">
     <a class="brand" href="/en/">Ricardo Costa<span>.</span></a>
@@ -409,7 +399,6 @@ h1 em.serif,h2 em.serif,h3 em.serif{font-weight:500;letter-spacing:-.03em}
 
 <div class="pilula" role="navigation" aria-label="Shortcuts"><span class="pn">Ricardo Costa<span class="forge">.</span></span><a href="#dentro">Work</a><a href="#escola">Newsletter</a><a class="pb" href="#fecho">Get in touch</a></div>
 <script>
-(function t(){var d=new Date();document.getElementById('hora').textContent=d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Lisbon'});setTimeout(t,30000)})();
 
 (function(){
   var s=document.getElementById('dd'),NS='http://www.w3.org/2000/svg';
