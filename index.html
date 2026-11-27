@@ -60,6 +60,7 @@ nav a,nav span{white-space:nowrap}
 @media(max-width:600px){
   nav > a:not(.manter){display:none}
 }
+.mais-percurso{margin-top:28px;font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:.06em}.mais-percurso a{text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}.mais-percurso a:hover{color:var(--forge-dark)}
 </style>
 <style>
 header.top{display:flex;justify-content:space-between;align-items:center;height:84px}
@@ -338,6 +339,12 @@ h1 em.serif,h2 em.serif,h3 em.serif{font-weight:500;letter-spacing:-.03em}
 #dd .alvo{fill:transparent}
 #dd .ponto:focus-visible{outline:none;stroke:var(--forge-dark);stroke-width:3}
 @media (prefers-reduced-motion:reduce){.palco .flutua.pega{scale:1;rotate:0deg}}
+
+/* Ligações de acção com o estilo do botão, sem setas (27 Nov 2026) */
+.text-link,.email-link,.mais-percurso a,.recurso .accao,.cartao-accao{display:inline-flex;align-items:center;max-width:100%;background:#171411;color:#EDE6DD!important;text-decoration:none!important;border:0!important;padding:14px 22px;border-radius:4px;font:500 16px/1.25 'Space Grotesk',Arial,sans-serif;letter-spacing:0;text-transform:none;transition:background .2s}
+.text-link:hover,.email-link:hover,.mais-percurso a:hover,.recurso:hover .accao,a:hover>.cartao-accao{background:#2c2621;color:#EDE6DD!important}
+.recurso .accao{align-self:flex-start}
+.profile-channel-links,.contact-page-link{display:flex;flex-wrap:wrap;gap:12px}
 </style>
 </head>
 <body>
@@ -369,7 +376,7 @@ h1 em.serif,h2 em.serif,h3 em.serif{font-weight:500;letter-spacing:-.03em}
     <div class="tese">
       <p class="serif legenda">A IA abre as opções. <span class="forge">Tu decides.</span></p>
       <p class="lead">Ajudo designers, criativos e equipas a usar IA no problema certo, e a perceber quando não vale a pena.</p>
-      <a class="btn" href="#fecho">Falar comigo</a>
+      <a class="btn" href="#fecho">Conta-me o teu caso</a>
     </div>
   </div>
   </main>
@@ -405,15 +412,17 @@ h1 em.serif,h2 em.serif,h3 em.serif{font-weight:500;letter-spacing:-.03em}
     <div class="fase" tabindex="0"><span class="num">3</span><span class="ano">Fase 3 · 7 anos</span><div><h3>Produto e UX</h3><p>Sistemas mais complexos. Continuou a ser preciso perceber as pessoas e o contexto.</p></div></div>
     <div class="fase agora" tabindex="0"><span class="num">4</span><span class="ano">Agora · 2 anos</span><div><h3>IA no trabalho real</h3><p>Product Designer na CriticalTechWorks (BMW Group). Antes de escolher a ferramenta, perceber a tarefa.</p></div></div>
   </div>
+
+  <p class="mais-percurso"><a href="/about.html">Conhece o percurso</a></p>
 </div></section>
 
 <section id="recursos" class="semana"><div class="wrap">
   <div class="cab"><h2>Para começar <em class="serif">já.</em></h2><span class="mono">Recursos gratuitos</span></div>
   <div class="recursos">
     <a class="recurso" href="/guia/"><div class="capa capa-guia" aria-hidden="true"><div class="folha"><span>Ricardo Costa</span><strong>Antes da ferramenta.</strong><i>Três perguntas para começar.</i></div></div>
-      <div class="info"><span class="mono">Guia gratuito</span><h3>Antes de escolher uma ferramenta</h3><p>O que automatizar, o que preservar e o que preparar primeiro.</p><span class="accao">Ler o guia <i aria-hidden="true">↗</i></span></div></a>
+      <div class="info"><span class="mono">Guia gratuito</span><h3>Antes de escolher uma ferramenta</h3><p>O que automatizar, o que preservar e o que preparar primeiro.</p><span class="accao">Lê o guia</span></div></a>
     <a class="recurso" href="/dicionario/"><div class="capa capa-dic" aria-hidden="true"><b>Aa<span>.</span></b><small>IA, em português</small></div>
-      <div class="info"><span class="mono">Para consultar</span><h3>As palavras da IA, em português simples</h3><p>Um dicionário para acompanhar a conversa, sem te perderes no vocabulário.</p><span class="accao">Abrir o dicionário <i aria-hidden="true">↗</i></span></div></a>
+      <div class="info"><span class="mono">Para consultar</span><h3>As palavras da IA, em português simples</h3><p>Um dicionário para acompanhar a conversa, sem te perderes no vocabulário.</p><span class="accao">Abre o dicionário</span></div></a>
   </div>
 </div></section>
 
@@ -434,7 +443,7 @@ h1 em.serif,h2 em.serif,h3 em.serif{font-weight:500;letter-spacing:-.03em}
 
 <div class="wrap"><footer><span>© 2026 Ricardo Costa · Retrato adaptado com IA</span><div><a href="https://linkedin.com/in/ricardocostaeu">LinkedIn</a><a href="https://youtube.com/@ricardocostaeuu">YouTube</a><a href="/privacidade/">Privacidade</a><a href="/cookies/">Cookies</a></div></footer></div>
 
-<div class="pilula" role="navigation" aria-label="Atalhos"><span class="pn">Ricardo Costa<span class="forge">.</span></span><a href="#dentro">Trabalho</a><a href="#escola">Newsletter</a><a class="pb" href="#fecho">Falar comigo</a></div>
+<div class="pilula" role="navigation" aria-label="Atalhos"><span class="pn">Ricardo Costa<span class="forge">.</span></span><a href="#dentro">Trabalho</a><a href="#escola">Newsletter</a><a class="pb" href="#fecho">Conta-me o teu caso</a></div>
 <script>
 
 (function(){

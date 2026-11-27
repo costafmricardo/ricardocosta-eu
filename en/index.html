@@ -60,6 +60,7 @@ nav a,nav span{white-space:nowrap}
 @media(max-width:600px){
   nav > a:not(.manter){display:none}
 }
+.mais-percurso{margin-top:28px;font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:.06em}.mais-percurso a{text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}.mais-percurso a:hover{color:var(--forge-dark)}
 </style>
 <style>
 header.top{display:flex;justify-content:space-between;align-items:center;height:84px}
@@ -338,6 +339,12 @@ h1 em.serif,h2 em.serif,h3 em.serif{font-weight:500;letter-spacing:-.03em}
 #dd .alvo{fill:transparent}
 #dd .ponto:focus-visible{outline:none;stroke:var(--forge-dark);stroke-width:3}
 @media (prefers-reduced-motion:reduce){.palco .flutua.pega{scale:1;rotate:0deg}}
+
+/* Ligações de acção com o estilo do botão, sem setas (27 Nov 2026) */
+.text-link,.email-link,.mais-percurso a,.recurso .accao,.cartao-accao{display:inline-flex;align-items:center;max-width:100%;background:#171411;color:#EDE6DD!important;text-decoration:none!important;border:0!important;padding:14px 22px;border-radius:4px;font:500 16px/1.25 'Space Grotesk',Arial,sans-serif;letter-spacing:0;text-transform:none;transition:background .2s}
+.text-link:hover,.email-link:hover,.mais-percurso a:hover,.recurso:hover .accao,a:hover>.cartao-accao{background:#2c2621;color:#EDE6DD!important}
+.recurso .accao{align-self:flex-start}
+.profile-channel-links,.contact-page-link{display:flex;flex-wrap:wrap;gap:12px}
 </style>
 </head>
 <body>
@@ -369,7 +376,7 @@ h1 em.serif,h2 em.serif,h3 em.serif{font-weight:500;letter-spacing:-.03em}
     <div class="tese">
       <p class="serif legenda">AI opens the options. <span class="forge">You decide.</span></p>
       <p class="lead">I help designers, creatives and teams use AI on the right problem, and see when it isn’t worth it.</p>
-      <a class="btn" href="#fecho">Get in touch</a>
+      <a class="btn" href="#fecho">Tell me about your case</a>
     </div>
   </div>
   </main>
@@ -405,15 +412,17 @@ h1 em.serif,h2 em.serif,h3 em.serif{font-weight:500;letter-spacing:-.03em}
     <div class="fase" tabindex="0"><span class="num">3</span><span class="ano">Phase 3 · 7 years</span><div><h3>Product and UX</h3><p>More complex systems. Understanding people and context still mattered.</p></div></div>
     <div class="fase agora" tabindex="0"><span class="num">4</span><span class="ano">Now · 2 years</span><div><h3>AI in real work</h3><p>Product Designer at CriticalTechWorks (BMW Group). Understand the task before choosing the tool.</p></div></div>
   </div>
+
+  <p class="mais-percurso"><a href="/about.html" hreflang="pt">My story, in Portuguese</a></p>
 </div></section>
 
 <section id="recursos" class="semana"><div class="wrap">
   <div class="cab"><h2>Start <em class="serif">here.</em></h2><span class="mono">Free resources · in Portuguese</span></div>
   <div class="recursos">
     <a class="recurso" href="/guia/" hreflang="pt"><div class="capa capa-guia" aria-hidden="true"><div class="folha"><span>Ricardo Costa</span><strong>Antes da ferramenta.</strong><i>Três perguntas para começar.</i></div></div>
-      <div class="info"><span class="mono">Free guide · in Portuguese</span><h3>Before you choose a tool</h3><p>What to automate, what to keep and what to prepare first.</p><span class="accao">Read the guide <i aria-hidden="true">↗</i></span></div></a>
+      <div class="info"><span class="mono">Free guide · in Portuguese</span><h3>Before you choose a tool</h3><p>What to automate, what to keep and what to prepare first.</p><span class="accao">Read the guide</span></div></a>
     <a class="recurso" href="/dicionario/" hreflang="pt"><div class="capa capa-dic" aria-hidden="true"><b>Aa<span>.</span></b><small>AI, in Portuguese</small></div>
-      <div class="info"><span class="mono">Reference · in Portuguese</span><h3>The words of AI, in plain Portuguese</h3><p>A dictionary to follow the conversation without getting lost in the jargon.</p><span class="accao">Open the dictionary <i aria-hidden="true">↗</i></span></div></a>
+      <div class="info"><span class="mono">Reference · in Portuguese</span><h3>The words of AI, in plain Portuguese</h3><p>A dictionary to follow the conversation without getting lost in the jargon.</p><span class="accao">Open the dictionary</span></div></a>
   </div>
 </div></section>
 
@@ -434,7 +443,7 @@ h1 em.serif,h2 em.serif,h3 em.serif{font-weight:500;letter-spacing:-.03em}
 
 <div class="wrap"><footer><span>© 2026 Ricardo Costa · Portrait adapted with AI</span><div><a href="https://linkedin.com/in/ricardocostaeu">LinkedIn</a><a href="https://youtube.com/@ricardocostaeuu">YouTube</a><a href="/privacidade/" hreflang="pt">Privacy</a><a href="/cookies/" hreflang="pt">Cookies</a></div></footer></div>
 
-<div class="pilula" role="navigation" aria-label="Shortcuts"><span class="pn">Ricardo Costa<span class="forge">.</span></span><a href="#dentro">Work</a><a href="#escola">Newsletter</a><a class="pb" href="#fecho">Get in touch</a></div>
+<div class="pilula" role="navigation" aria-label="Shortcuts"><span class="pn">Ricardo Costa<span class="forge">.</span></span><a href="#dentro">Work</a><a href="#escola">Newsletter</a><a class="pb" href="#fecho">Tell me about your case</a></div>
 <script>
 
 (function(){
