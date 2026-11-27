@@ -325,6 +325,19 @@ h1 em.serif,h2 em.serif,h3 em.serif{font-weight:500;letter-spacing:-.03em}
 .testemunhos .testemunho figcaption{margin-top:0;line-height:1.6}
 @media(max-width:860px){.testemunhos{grid-template-columns:1fr}}
 .nota-trad{grid-column:1/-1;color:var(--muted);text-align:right}
+/* Interações do hero (27 Nov): cartão e chips arrastáveis, ponto laranja arrastável */
+@media (pointer:fine){
+  .palco .flutua{cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+  .palco .flutua img{pointer-events:none;-webkit-user-drag:none}
+  .palco .flutua.pega{cursor:grabbing;animation-play-state:paused;z-index:5;transition:translate 0s,box-shadow .2s,scale .2s,rotate .2s;
+    scale:1.04;rotate:-2deg;box-shadow:0 18px 40px -12px rgba(23,20,17,.35)}
+  .palco .flutua.largado{z-index:4}
+  #dd .pega-ponto{cursor:grab}
+  #dd.a-escolher,#dd.a-escolher .pega-ponto{cursor:grabbing}
+}
+#dd .alvo{fill:transparent}
+#dd .ponto:focus-visible{outline:none;stroke:var(--forge-dark);stroke-width:3}
+@media (prefers-reduced-motion:reduce){.palco .flutua.pega{scale:1;rotate:0deg}}
 </style>
 </head>
 <body>
@@ -457,6 +470,7 @@ h1 em.serif,h2 em.serif,h3 em.serif{font-weight:500;letter-spacing:-.03em}
   var t1=el('text',{x:250,y:425,'text-anchor':'middle',class:'rotulo fase-r'});t1.textContent='01 — PENSAR';
   var t2=el('text',{x:750,y:425,'text-anchor':'middle',class:'rotulo fase-r'});t2.textContent='02 — PEDIR À IA';
   var reduz=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  s.addEventListener('dd-manual',function(){auto=false});
   if(!reduz)setInterval(function(){if(auto)escolher((esc+1+Math.floor(Math.random()*3))%ys.length)},2600);
   if(!reduz&&window.matchMedia('(pointer:fine)').matches){
     var fl=document.querySelectorAll('.flutua'),palco=document.querySelector('.palco');
@@ -476,6 +490,74 @@ h1 em.serif,h2 em.serif,h3 em.serif{font-weight:500;letter-spacing:-.03em}
   alvos.forEach(function(el){io.observe(el)});
   var p=document.querySelector('.pilula'),h=document.querySelector('.hero');
   new IntersectionObserver(function(es){p.classList.toggle('ver',!es[0].isIntersecting)}).observe(h);
+})();
+</script>
+<script>
+/* Interações do hero (27 Nov 2026) */
+(function(){
+  var fino=window.matchMedia('(pointer:fine)').matches;
+  var palco=document.querySelector('.palco'),s=document.getElementById('dd');
+  if(!palco||!s)return;
+
+  /* 1 · Cartão e chips: pegar, arrastar dentro do hero, largar. Duplo clique devolve ao sítio. */
+  if(fino){
+    [].forEach.call(palco.querySelectorAll('.flutua'),function(f){
+      var ini=null,vivo=false;
+      f.addEventListener('pointerdown',function(e){
+        if(e.button!==0)return;
+        ini={x0:e.clientX,y0:e.clientY,id:e.pointerId};vivo=false;f.setPointerCapture(e.pointerId);
+      });
+      f.addEventListener('pointermove',function(e){
+        if(!ini)return;
+        if(!vivo){
+          if(Math.abs(e.clientX-ini.x0)+Math.abs(e.clientY-ini.y0)<4)return;
+          var pr=palco.getBoundingClientRect(),fr=f.getBoundingClientRect();
+          ini.dx=ini.x0-fr.left;ini.dy=ini.y0-fr.top;ini.w=fr.width;ini.h=fr.height;
+          f.style.translate='0px 0px';f.style.left=(fr.left-pr.left)+'px';f.style.top=(fr.top-pr.top)+'px';f.style.right='auto';f.style.bottom='auto';
+          f.dataset.arrastado='1';f.classList.add('pega');vivo=true;
+        }
+        var pr2=palco.getBoundingClientRect(),m=8;
+        f.style.left=Math.min(Math.max(e.clientX-pr2.left-ini.dx,-m),pr2.width-ini.w+m)+'px';
+        f.style.top=Math.min(Math.max(e.clientY-pr2.top-ini.dy,-m),pr2.height-ini.h+m)+'px';
+      });
+      function larga(e){var era=vivo;ini=null;vivo=false;f.classList.remove('pega');
+        if(era){[].forEach.call(palco.querySelectorAll('.flutua.largado'),function(o){o.classList.remove('largado')});f.classList.add('largado')}}
+      f.addEventListener('pointerup',larga);f.addEventListener('pointercancel',larga);f.addEventListener('lostpointercapture',larga);
+    });
+    /* o efeito de profundidade deixa em paz o que já foi arrastado */
+    palco.addEventListener('mousemove',function(){[].forEach.call(palco.querySelectorAll('.flutua[data-arrastado]'),function(f){f.style.translate='0px 0px'})});
+  }
+
+  /* 2 · Ponto laranja: arrastar pelas opções do segundo diamante. Tu decides. */
+  var pts=[].slice.call(s.querySelectorAll('.ponto')),dec=s.querySelector('.decisao'),halo=s.querySelector('.halo');
+  if(!pts.length||!dec)return;
+  var ys=pts.map(function(p){return +p.getAttribute('y')+7});
+  function atual(){for(var i=0;i<pts.length;i++)if(pts[i].classList.contains('escolhido'))return i;return 0}
+  function perto(y){var b=0;ys.forEach(function(v,i){if(Math.abs(v-y)<Math.abs(ys[b]-y))b=i});return b}
+  function mostra(y,i){dec.classList.remove('desenha');dec.setAttribute('d','M750 '+y+' L960 215');halo.setAttribute('cy',y);
+    pts.forEach(function(p,k){p.classList.toggle('escolhido',k===i)})}
+  /* zona de pegar: a coluna das opções e o próprio traço */
+  var NS='http://www.w3.org/2000/svg',alvo=document.createElementNS(NS,'rect');
+  alvo.setAttribute('class','alvo pega-ponto');alvo.setAttribute('x',718);alvo.setAttribute('y',ys[0]-22);alvo.setAttribute('width',64);alvo.setAttribute('height',ys[ys.length-1]-ys[0]+44);
+  s.insertBefore(alvo,dec);dec.classList.add('pega-ponto');halo.classList.add('pega-ponto');
+  pts.forEach(function(p){p.classList.add('pega-ponto')});
+  var arr=false,mexeu=false,y0=0;
+  function svgY(e){var pt=s.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;return pt.matrixTransform(s.getScreenCTM().inverse()).y}
+  function para(){window.__ddAuto=false;s.dispatchEvent(new CustomEvent('dd-manual'))}
+  [alvo,dec,halo].concat(pts).forEach(function(n){n.addEventListener('pointerdown',function(e){
+    if(e.button!==0)return;arr=true;mexeu=false;y0=e.clientY;para();s.classList.add('a-escolher');s.setPointerCapture(e.pointerId);e.preventDefault();
+  })});
+  s.addEventListener('pointermove',function(e){if(!arr)return;if(Math.abs(e.clientY-y0)>3)mexeu=true;if(!mexeu)return;
+    var y=Math.min(Math.max(svgY(e),ys[0]),ys[ys.length-1]);mostra(y,perto(y))});
+  function fim(e){if(!arr)return;arr=false;s.classList.remove('a-escolher');
+    var i=mexeu?perto(Math.min(Math.max(svgY(e),ys[0]),ys[ys.length-1])):perto(svgY(e));
+    mostra(ys[i],i);dec.classList.remove('desenha');void dec.getBBox();dec.classList.add('desenha')}
+  s.addEventListener('pointerup',fim);s.addEventListener('pointercancel',function(){arr=false;s.classList.remove('a-escolher')});
+  /* teclado: setas para cima e para baixo mudam a opção */
+  pts.forEach(function(p,i){p.addEventListener('keydown',function(e){
+    if(e.key!=='ArrowUp'&&e.key!=='ArrowDown')return;e.preventDefault();para();
+    var j=Math.min(Math.max(atual()+(e.key==='ArrowDown'?1:-1),0),pts.length-1);mostra(ys[j],j);pts[j].focus();
+  })});
 })();
 </script>
 </body>
